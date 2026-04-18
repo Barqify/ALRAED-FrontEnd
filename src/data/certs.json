@@ -1,0 +1,22 @@
+[
+  {
+    "n": "ISO 22000",
+    "i": "fa-shield-halved"
+  },
+  {
+    "n": "HACCP",
+    "i": "fa-clipboard-check"
+  },
+  {
+    "n": "Halal",
+    "i": "fa-moon"
+  },
+  {
+    "n": "Organic",
+    "i": "fa-leaf"
+  },
+  {
+    "n": "FDA",
+    "i": "fa-hospital"
+  }
+]

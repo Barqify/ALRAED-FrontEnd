@@ -1,0 +1,74 @@
+[
+  {
+    "id": "pulses",
+    "icon": "fa-seedling",
+    "color": "#3d7a4a",
+    "bg": "#e8f5e9",
+    "ar": "البقوليات",
+    "en": "Pulses",
+    "fr": "Légumineuses",
+    "arDesc": "خيرات النيل بجودة فائقة",
+    "enDesc": "The Nile's bounty of superior quality",
+    "frDesc": "Les bienfaits du Nil, qualité supérieure"
+  },
+  {
+    "id": "grains",
+    "icon": "fa-wheat-awn",
+    "color": "#9b7a4d",
+    "bg": "#faf3e8",
+    "ar": "الحبوب",
+    "en": "Grains",
+    "fr": "Céréales",
+    "arDesc": "طاقة نقية من قلب المزارع المصرية",
+    "enDesc": "Pure energy from Egyptian farms",
+    "frDesc": "Énergie pure des exploitations égyptiennes"
+  },
+  {
+    "id": "spices",
+    "icon": "fa-mortar-pestle",
+    "color": "#a63d2f",
+    "bg": "#fce8e6",
+    "ar": "التوابل",
+    "en": "Spices",
+    "fr": "Épices",
+    "arDesc": "رائحة الطبيعة المصرية الأصيلة",
+    "enDesc": "Authentic scent of Egyptian nature",
+    "frDesc": "Parfum authentique de la nature égyptienne"
+  },
+  {
+    "id": "sesame",
+    "icon": "fa-seedling",
+    "color": "#c2712f",
+    "bg": "#fef0e1",
+    "ar": "السمسم",
+    "en": "Sesame",
+    "fr": "Sésame",
+    "arDesc": "محصول فاخر يمتاز بنقاء اللون",
+    "enDesc": "Premium crop with pure color & high oil",
+    "frDesc": "Culture premium à couleur pure et huile élevée"
+  },
+  {
+    "id": "nuts-seeds",
+    "icon": "fa-apple-whole",
+    "color": "#d4a574",
+    "bg": "#f5ebe0",
+    "ar": "المكسرات والبذور",
+    "en": "Nuts & Seeds",
+    "fr": "Noix & Graines",
+    "arDesc": "تسالي مصرية بجودة تصديرية",
+    "enDesc": "Egyptian snacks of export quality",
+    "frDesc": "Snacks égyptiens de qualité export"
+  },
+  {
+    "id": "dried-fruits",
+    "icon": "fa-lemon",
+    "color": "#8e44ad",
+    "bg": "#f4ecf7",
+    "ar": "الفواكه المجففة",
+    "en": "Dried Fruits",
+    "fr": "Fruits Séchés",
+    "arDesc": "من أجود أنواع العنب المصري",
+    "enDesc": "Finest Egyptian grapes, naturally dried",
+    "frDesc": "Meilleurs raisins égyptiens, séchés naturellement"
+  }
+]

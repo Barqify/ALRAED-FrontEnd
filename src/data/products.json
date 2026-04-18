@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "cat": "pulses",
+    "ar": "فاصوليا بيضاء",
+    "en": "White Beans",
+    "fr": "Haricots Blancs",
+    "arD": "تمتاز ببياض ناصع وحجم متناسق، وسرعة في الطهي",
+    "enD": "Bright white, uniform size, quick-cooking",
+    "frD": "Blanc éclatant, taille uniforme, cuisson rapide",
+    "img": "https://picsum.photos/seed/almasa-wb/400/300.jpg"
+  },
+  {
+    "id": 2,
+    "cat": "pulses",
+    "ar": "فول عريض",
+    "en": "Broad Beans",
+    "fr": "Fèves",
+    "arD": "حبات ممتلئة وقشرة رقيقة، مثالي للتعليب والاستهلاك المباشر",
+    "enD": "Plump beans with thin skin, ideal for canning",
+    "frD": "Fèves rebondies à peau fine, idéales pour conserve",
+    "img": "https://picsum.photos/seed/almasa-bb/400/300.jpg"
+  },
+  {
+    "id": 3,
+    "cat": "pulses",
+    "ar": "فول رفيع",
+    "en": "Line Beans",
+    "fr": "Haricots Fins",
+    "arD": "جودة عالية ونسبة بروتين مرتفعة، منتقى بعناية من أجود المزارع",
+    "enD": "High quality, high protein, carefully selected",
+    "frD": "Haute qualité, riche en protéines, sélectionné avec soin",
+    "img": "https://picsum.photos/seed/almasa-lb/400/300.jpg"
+  },
+  {
+    "id": 4,
+    "cat": "pulses",
+    "ar": "حمص",
+    "en": "Chickpeas",
+    "fr": "Pois Chiches",
+    "arD": "حبات ذهبية صلبة، تتميز بنكهة غنية وقوام مثالي",
+    "enD": "Firm golden chickpeas with rich flavor",
+    "frD": "Pois chiches dorés et fermes, saveur riche",
+    "img": "https://picsum.photos/seed/almasa-cp/400/300.jpg"
+  },
+  {
+    "id": 5,
+    "cat": "pulses",
+    "ar": "ترمس",
+    "en": "Lupini Beans",
+    "fr": "Lupin",
+    "arD": "منتج مصري أصيل، يمتاز بنقاوة عالية وخلو تام من العيوب",
+    "enD": "Authentic Egyptian product, high purity, zero defects",
+    "frD": "Produit égyptien authentique, haute pureté",
+    "img": "https://picsum.photos/seed/almasa-lp/400/300.jpg"
+  },
+  {
+    "id": 6,
+    "cat": "pulses",
+    "ar": "لوبيا",
+    "en": "Cowpeas",
+    "fr": "Doliques",
+    "arD": "ذات \"العين السوداء\" المميزة، تجفيف طبيعي بنسبة رطوبة مثالية",
+    "enD": "Distinctive \"black eye\", naturally dried to ideal moisture",
+    "frD": "Doliques à \"œil noir\", séchés naturellement",
+    "img": "https://picsum.photos/seed/almasa-cow/400/300.jpg"
+  },
+  {
+    "id": 7,
+    "cat": "pulses",
+    "ar": "فول سوداني",
+    "en": "Peanuts",
+    "fr": "Arachides",
+    "arD": "حبات مقشرة أو بالقشر، تتميز بطعم غني وزيوت طبيعية",
+    "enD": "Shelled or unshelled peanuts, rich flavor & oils",
+    "frD": "Arachides décortiquées ou en coque, saveur riche",
+    "img": "https://picsum.photos/seed/almasa-pn/400/300.jpg"
+  },
+  {
+    "id": 8,
+    "cat": "grains",
+    "ar": "ذرة صفراء",
+    "en": "Yellow Corn",
+    "fr": "Maïs Jaune",
+    "arD": "حبوب غنية وقوية، مجففة بعناية لاستخدامات التصنيع الغذائي",
+    "enD": "Rich, robust kernels, carefully dried",
+    "frD": "Grains riches et robustes, soigneusement séchés",
+    "img": "https://picsum.photos/seed/almasa-yc/400/300.jpg"
+  },
+  {
+    "id": 9,
+    "cat": "grains",
+    "ar": "ذرة بيضاء",
+    "en": "White Corn",
+    "fr": "Maïs Blanc",
+    "arD": "محصول مصري نقي، يمتاز بنسبة نشا عالية ونقاء ممتاز",
+    "enD": "Pure Egyptian crop, high starch & purity",
+    "frD": "Culture égyptienne pure, haute teneur en amidon",
+    "img": "https://picsum.photos/seed/almasa-wc/400/300.jpg"
+  },
+  {
+    "id": 10,
+    "cat": "spices",
+    "ar": "كراوية",
+    "en": "Caraway",
+    "fr": "Carvi",
+    "arD": "بذور عطرية قوية، منقاة آلياً لضمان خلوها من الشوائب",
+    "enD": "Strong aromatic seeds, machine-sorted, impurity-free",
+    "frD": "Graines aromatiques fortes, triées mécaniquement",
+    "img": "https://picsum.photos/seed/almasa-cw/400/300.jpg"
+  },
+  {
+    "id": 11,
+    "cat": "spices",
+    "ar": "ينسون",
+    "en": "Anise",
+    "fr": "Anis",
+    "arD": "نكهة مركزة وزيوت طيارة عالية، يُجمع ويُجفف في ظروف مثالية",
+    "enD": "Concentrated flavor, high volatile oil content",
+    "frD": "Saveur concentrée, haute teneur en huiles",
+    "img": "https://picsum.photos/seed/almasa-an/400/300.jpg"
+  },
+  {
+    "id": 12,
+    "cat": "spices",
+    "ar": "شمر",
+    "en": "Fennel",
+    "fr": "Fenouil",
+    "arD": "لون أخضر طبيعي ورائحة نفاذة، محصول ممتاز للصناعات",
+    "enD": "Naturally green, pungent aroma, versatile use",
+    "frD": "Vert naturel, arôme piquant, usage polyvalent",
+    "img": "https://picsum.photos/seed/almasa-fn/400/300.jpg"
+  },
+  {
+    "id": 13,
+    "cat": "spices",
+    "ar": "حلبة",
+    "en": "Fenugreek",
+    "fr": "Fenugrec",
+    "arD": "حبات ذهبية منتقاة بعناية، غنية بالفوائد والقيم الغذائية",
+    "enD": "Golden seeds, carefully selected, nutrient-rich",
+    "frD": "Graines dorées, sélectionnées, riches en nutriments",
+    "img": "https://picsum.photos/seed/almasa-fg/400/300.jpg"
+  },
+  {
+    "id": 14,
+    "cat": "spices",
+    "ar": "ليمون مجفف",
+    "en": "Dried Lemon",
+    "fr": "Citron Séché",
+    "arD": "تجفيف طبيعي يحافظ على النكهة الحمضية القوية",
+    "enD": "Naturally dried to preserve strong citrus flavor",
+    "frD": "Séché naturellement pour saveur citronnée forte",
+    "img": "https://picsum.photos/seed/almasa-dl/400/300.jpg"
+  },
+  {
+    "id": 15,
+    "cat": "sesame",
+    "ar": "سمسم أبيض",
+    "en": "White Sesame",
+    "fr": "Sésame Blanc",
+    "arD": "محصول فاخر يمتاز بنقاء اللون وارتفاع نسبة الزيت",
+    "enD": "Premium crop, pure color & high oil content",
+    "frD": "Culture premium, couleur pure et haute teneur en huile",
+    "img": "https://picsum.photos/seed/almasa-ws/400/300.jpg"
+  },
+  {
+    "id": 16,
+    "cat": "nuts-seeds",
+    "ar": "لب سوبر",
+    "en": "Super Pumpkin Kernels",
+    "fr": "Graines Courge Super",
+    "arD": "حجم كبير وطعم مصري أصيل، محمص أو خام حسب الطلب",
+    "enD": "Large size, authentic taste, roasted or raw",
+    "frD": "Grande taille, goût authentique, grillées ou crues",
+    "img": "https://picsum.photos/seed/almasa-sp/400/300.jpg"
+  },
+  {
+    "id": 17,
+    "cat": "nuts-seeds",
+    "ar": "لب أبيض",
+    "en": "White Pumpkin Kernels",
+    "fr": "Graines Courge Blanches",
+    "arD": "بذور ممتلئة ونقية، غنية بالعناصر الغذائية والزيوت",
+    "enD": "Plump, pure seeds, rich in nutrients & oils",
+    "frD": "Graines pures et rebondies, riches en nutriments",
+    "img": "https://picsum.photos/seed/almasa-wp/400/300.jpg"
+  },
+  {
+    "id": 18,
+    "cat": "nuts-seeds",
+    "ar": "لب سوري",
+    "en": "Syrian Sunflower",
+    "fr": "Tournesol Syrien",
+    "arD": "بذور طويلة ومنتقاة، تتميز بالقشرة الرقيقة واللب الغني",
+    "enD": "Long selected seeds, thin shell & rich kernel",
+    "frD": "Graines longues sélectionnées, coque fine",
+    "img": "https://picsum.photos/seed/almasa-ss/400/300.jpg"
+  },
+  {
+    "id": 19,
+    "cat": "nuts-seeds",
+    "ar": "لب خشابي",
+    "en": "Khashabi",
+    "fr": "Khashabi",
+    "arD": "منتج فريد يتميز بقوام صلب وطعم مميز يفضله الكثيرون",
+    "enD": "Unique firm texture & distinctive favorite taste",
+    "frD": "Texture ferme unique et goût distinctif favori",
+    "img": "https://picsum.photos/seed/almasa-kh/400/300.jpg"
+  },
+  {
+    "id": 20,
+    "cat": "dried-fruits",
+    "ar": "زبيب",
+    "en": "Raisins",
+    "fr": "Raisins Secs",
+    "arD": "من أجود العنب المصري، مجفف طبيعياً بدون إضافات",
+    "enD": "Finest Egyptian grapes, naturally dried, no additives",
+    "frD": "Meilleurs raisins égyptiens, séchés sans additifs",
+    "img": "https://picsum.photos/seed/almasa-rs/400/300.jpg"
+  }
+]

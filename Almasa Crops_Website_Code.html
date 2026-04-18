@@ -1,0 +1,4102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<!-- ================================================================
+🔧 META TAGS & TITLES
+================================================================ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="الماسة للمحاصيل الزراعية - تصدير أجود المنتجات الزراعية المصرية للعالم">
+<title>ALMASA CROPS - الماسة للمحاصيل الزراعية</title>
+
+<!-- ================================================================
+🔗 FONTS & ICONS
+================================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* ================================================================
+🎨 CSS VARIABLES
+================================================================ */
+:root {
+  --brand: #a5855a;
+  --brand-light: #d3b687;
+  --brand-dark: #9b7a4d;
+  --brand-pale: #f5efe6;
+  --bg-dark: #1a1714;
+  --bg-darker: #121010;
+  --bg-light: #faf8f5;
+  --bg-white: #ffffff;
+  --text-dark: #2a2520;
+  --text-body: #5a5550;
+  --text-muted: #9a958e;
+  --text-light: #ece6dc;
+  --border-light: #e8e0d4;
+  --border-brand: rgba(165, 133, 90, 0.3);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.10);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --transition: all 0.3s ease;
+  --navbar-h: 72px;
+}
+
+/* ================================================================
+🔄 RESET & BASE STYLES
+================================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================================================================
+🎬 ANIMATIONS & LANGUAGE FADE
+================================================================ */
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: .6;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+@keyframes langFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.anim {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.anim.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+.anim.vis.d1 { transition-delay: .1s; }
+.anim.vis.d2 { transition-delay: .2s; }
+.anim.vis.d3 { transition-delay: .3s; }
+.anim.vis.d4 { transition-delay: .4s; }
+.anim.vis.d5 { transition-delay: .5s; }
+.lang-fade {
+  animation: langFadeIn 0.3s ease-out;
+}
+
+/* ================================================================
+📱 NAVBAR
+================================================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-h);
+  background: rgba(18, 16, 16, .92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(165, 133, 90, .1);
+  z-index: 1000;
+  transition: var(--transition);
+}
+.navbar.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, .3);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-logo img {
+  max-height: var(--navbar-h);
+  width: auto;
+}
+.nav-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--brand-light), var(--brand-dark));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 800;
+  font-family: 'Playfair Display', serif;
+}
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.nav-logo-en {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--brand-light);
+  letter-spacing: 1.2px;
+}
+.nav-logo-ar {
+  font-size: 11px;
+  color: var(--text-light);
+  opacity: .6;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-light);
+  border-radius: var(--radius-sm);
+  position: relative;
+  transition: var(--transition);
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--brand-light);
+  background: rgba(165, 133, 90, .08);
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 2px;
+  background: var(--brand-light);
+  border-radius: 2px;
+}
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: rgba(165, 133, 90, .1);
+  border: 1px solid rgba(165, 133, 90, .2);
+  border-radius: var(--radius-sm);
+  color: var(--brand-light);
+  font-size: 13px;
+  font-weight: 600;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.lang-btn:hover {
+  background: rgba(165, 133, 90, .18);
+  border-color: var(--brand);
+}
+.lang-btn .btn-text {
+  display: inline-block;
+  min-width: 40px;
+  text-align: center;
+  transition: var(--transition);
+}
+.lang-btn:hover .btn-text {
+  transform: scale(1.05);
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+}
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: var(--brand-light);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+.mob-menu {
+  display: none;
+  position: fixed;
+  top: var(--navbar-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(18, 16, 16, .98);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  padding: 32px 24px;
+  flex-direction: column;
+  gap: 6px;
+  animation: heroReveal .3s ease;
+}
+.mob-menu.open {
+  display: flex;
+}
+.mob-menu .nav-link {
+  font-size: 17px;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+}
+.mob-menu .lang-btn {
+  margin-top: 16px;
+  justify-content: center;
+  padding: 14px;
+  font-size: 15px;
+}
+
+/* ================================================================
+🔘 BUTTONS
+================================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.btn-brand {
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(165, 133, 90, .3);
+}
+.btn-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(165, 133, 90, .4);
+}
+.btn-outline {
+  border: 1.5px solid rgba(165, 133, 90, .4);
+  color: var(--brand);
+  background: transparent;
+}
+.btn-outline:hover {
+  background: rgba(165, 133, 90, .08);
+  border-color: var(--brand);
+}
+.btn-white {
+  background: #fff;
+  color: var(--brand-dark);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, .1);
+}
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, .15);
+}
+.btn-sm {
+  padding: 9px 20px;
+  font-size: 13px;
+}
+.btn-lg {
+  padding: 16px 36px;
+  font-size: 16px;
+}
+.btn-wa {
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, .3);
+}
+.btn-wa:hover {
+  background: #1fa855;
+  transform: translateY(-2px);
+}
+
+/* ================================================================
+🎯 HERO SECTION
+================================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--navbar-h);
+}
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--bg-darker);
+}
+.hero-video-wrap video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0.30;
+}
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(14, 12, 10, .82) 0%, rgba(14, 12, 10, .32) 40%, rgba(14, 12, 10, .50) 72%, rgba(14, 12, 10, .92) 100%), radial-gradient(ellipse at 30% 40%, rgba(165, 133, 90, .06) 0%, transparent 60%);
+}
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: .025;
+  background-image: repeating-linear-gradient(45deg, var(--brand) 0, var(--brand) 1px, transparent 1px, transparent 50px);
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(165, 133, 90, .08);
+  border: 1px solid rgba(165, 133, 90, .15);
+  border-radius: 50px;
+  font-size: 13px;
+  color: var(--brand-light);
+  font-weight: 500;
+  margin-bottom: 28px;
+  animation: heroReveal .8s ease .2s both;
+}
+.hero-title {
+  font-size: clamp(32px, 5vw, 62px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  animation: heroReveal .8s ease .4s both;
+}
+.hero-title .gold {
+  background: linear-gradient(135deg, var(--brand-light), var(--brand), var(--brand-dark), var(--brand-light));
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s ease infinite;
+}
+.hero-title .white {
+  color: var(--text-light);
+}
+[dir="ltr"] .hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.hero-tagline {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 600;
+  color: var(--brand-light);
+  margin-bottom: 20px;
+  animation: heroReveal .8s ease .5s both;
+}
+[dir="ltr"] .hero-tagline {
+  font-family: 'Montserrat', sans-serif;
+}
+.hero-sub {
+  font-size: clamp(14px, 1.7vw, 17px);
+  color: rgba(236, 230, 220, .6);
+  max-width: 680px;
+  margin: 0 auto 36px;
+  line-height: 1.85;
+  animation: heroReveal .8s ease .6s both;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: heroReveal .8s ease .8s both;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(165, 133, 90, .12);
+  animation: heroReveal .8s ease 1s both;
+}
+.hero-stat {
+  text-align: center;
+}
+.hero-stat-num {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--brand-light);
+  line-height: 1;
+  font-family: 'Playfair Display', serif;
+}
+.hero-stat-num span {
+  font-size: 26px;
+}
+.hero-stat-label {
+  font-size: 12px;
+  color: rgba(236, 230, 220, .45);
+  margin-top: 6px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--brand-light);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  animation: float 2.5s ease infinite;
+  z-index: 3;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  text-align: center;
+}
+.hero-scroll:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* ================================================================
+🎥 VIDEO GALLERY
+================================================================ */
+.video-gallery-section {
+  padding: 70px 0;
+  background: var(--bg-white);
+}
+.video-gallery-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 8px 0;
+  direction: ltr;
+}
+.video-gallery-track::-webkit-scrollbar {
+  display: none;
+}
+.video-card {
+  min-width: 320px;
+  max-width: 320px;
+  height: 220px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--bg-darker);
+}
+.video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.video-card .video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand));
+  position: relative;
+}
+.video-card .video-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+.video-card .play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .25);
+  transition: var(--transition);
+}
+.video-card:hover .play-overlay {
+  background: rgba(0, 0, 0, .15);
+}
+.video-play-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand);
+  font-size: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .3);
+  transition: var(--transition);
+}
+.video-card:hover .video-play-btn {
+  transform: scale(1.08);
+  background: var(--brand);
+  color: #fff;
+}
+.video-card .video-iframe {
+  display: none;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-card.active .video-placeholder {
+  display: none;
+}
+.video-card.active .video-iframe {
+  display: block;
+}
+.video-card-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 14px 14px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .75));
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ================================================================
+📐 SECTIONS COMMON
+================================================================ */
+.section {
+  padding: 80px 0;
+}
+.sec-head {
+  text-align: center;
+  margin-bottom: 52px;
+}
+.sec-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brand);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+[dir="ltr"] .sec-label {
+  letter-spacing: 3px;
+}
+.sec-title {
+  font-size: clamp(26px, 3.8vw, 40px);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+[dir="ltr"] .sec-title {
+  font-family: 'Playfair Display', serif;
+}
+.sec-desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ================================================================
+🖼️ GALLERY & CARDS
+================================================================ */
+.home-gallery-strip {
+  padding: 36px 0;
+  background: var(--bg-darker);
+  position: relative;
+}
+.home-gallery-strip::before,
+.home-gallery-strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.home-gallery-strip::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-darker), transparent);
+}
+.home-gallery-strip::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-darker), transparent);
+}
+.home-gallery-strip .gallery-track {
+  gap: 20px;
+  padding: 8px 24px 8px;
+  scroll-padding: 24px;
+}
+.home-gallery-strip .gallery-card {
+  min-width: 300px;
+  max-width: 300px;
+  height: 200px;
+  border: 1px solid rgba(165, 133, 90, .12);
+  scroll-snap-align: center;
+}
+.home-gallery-strip .gallery-card-overlay {
+  padding: 16px 14px 12px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .7));
+}
+.home-gallery-strip .gallery-card-title {
+  font-size: 14px;
+}
+.cats-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+}
+.cat-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 24px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.cat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-light), var(--brand-dark));
+  transform: scaleX(0);
+  transition: var(--transition);
+}
+.cat-card:hover::before {
+  transform: scaleX(1);
+}
+.cat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-brand);
+}
+.cat-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 12px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  transition: var(--transition);
+}
+.cat-card:hover .cat-icon {
+  transform: scale(1.1);
+}
+.cat-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+.cat-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.prods-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.prod-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+.prod-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-brand);
+}
+.prod-img {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--brand-pale), #fff);
+}
+.prod-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+.prod-card:hover .prod-img img {
+  transform: scale(1.05);
+}
+.prod-img .prod-icon-fb {
+  font-size: 40px;
+  color: rgba(165, 133, 90, .7);
+  transition: var(--transition);
+  position: absolute;
+}
+.prod-card:hover .prod-img .prod-icon-fb {
+  transform: scale(1.12);
+  color: var(--brand);
+}
+.prod-badge-cat {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, .95);
+  color: var(--brand-dark);
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+[dir="rtl"] .prod-badge-cat {
+  right: auto;
+  left: 12px;
+}
+.prod-badge-eg {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  padding: 3px 10px;
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+[dir="rtl"] .prod-badge-eg {
+  right: auto;
+  left: 12px;
+}
+.prod-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.prod-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+.prod-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+.prod-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+.prod-packaging {
+  font-size: 11px;
+  color: var(--brand);
+  font-weight: 600;
+  background: var(--brand-pale);
+  padding: 3px 10px;
+  border-radius: 50px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.prod-inquiry {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.prod-inquiry:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(165, 133, 90, .3);
+}
+.view-all-wrap {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ================================================================
+📰 NEWS & CAROUSEL
+================================================================ */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.news-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-brand);
+}
+.news-img {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+.news-img::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .35));
+  z-index: 1;
+}
+.news-date-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, .95);
+  color: var(--brand-dark);
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+[dir="rtl"] .news-date-badge {
+  right: auto;
+  left: 12px;
+}
+.news-loc-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  padding: 5px 12px;
+  background: rgba(0, 0, 0, .6);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 50px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  backdrop-filter: blur(4px);
+}
+[dir="rtl"] .news-loc-badge {
+  right: auto;
+  left: 12px;
+}
+.news-body {
+  padding: 20px;
+}
+.news-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.news-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.news-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.news-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand);
+  transition: var(--transition);
+}
+.news-link:hover {
+  gap: 10px;
+  color: var(--brand-dark);
+}
+.news-inquiry {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.news-inquiry:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(165, 133, 90, .3);
+}
+.carousel-wrap {
+  position: relative;
+  display: none;
+}
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 4px 20px;
+  scroll-padding: 20px;
+}
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.carousel-track .cat-card,
+.carousel-track .prod-card,
+.carousel-track .news-card,
+.carousel-track .gallery-card,
+.carousel-track .video-card {
+  scroll-snap-align: center;
+}
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--brand);
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.carousel-arrow:hover {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+.carousel-arrow.prev {
+  left: -8px;
+  right: auto;
+}
+.carousel-arrow.next {
+  right: -8px;
+  left: auto;
+}
+[dir="rtl"] .carousel-arrow.prev {
+  left: auto;
+  right: -8px;
+}
+[dir="rtl"] .carousel-arrow.next {
+  right: auto;
+  left: -8px;
+}
+.carousel-wrap.gallery-carousel .carousel-arrow.prev,
+.carousel-wrap.video-carousel .carousel-arrow.prev {
+  left: 8px;
+  right: auto;
+}
+.carousel-wrap.gallery-carousel .carousel-arrow.next,
+.carousel-wrap.video-carousel .carousel-arrow.next {
+  right: 8px;
+  left: auto;
+}
+[dir="rtl"] .carousel-wrap.gallery-carousel .carousel-arrow.prev,
+[dir="rtl"] .carousel-wrap.video-carousel .carousel-arrow.prev {
+  left: auto;
+  right: 8px;
+}
+[dir="rtl"] .carousel-wrap.gallery-carousel .carousel-arrow.next,
+[dir="rtl"] .carousel-wrap.video-carousel .carousel-arrow.next {
+  right: auto;
+  left: 8px;
+}
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-light);
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+}
+.carousel-dot.active {
+  background: var(--brand);
+  width: 24px;
+  border-radius: 4px;
+}
+.gallery-section {
+  padding: 60px 0;
+  background: var(--bg-white);
+}
+.gallery-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 8px 24px;
+  scroll-padding: 24px;
+}
+.gallery-track::-webkit-scrollbar {
+  display: none;
+}
+.gallery-card {
+  min-width: 320px;
+  max-width: 320px;
+  height: 240px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+.gallery-card:hover img {
+  transform: scale(1.05);
+}
+.gallery-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 16px 16px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .65));
+  color: #fff;
+}
+.gallery-card-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.why-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 32px 24px;
+  text-align: center;
+  transition: var(--transition);
+}
+.why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-brand);
+}
+.why-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: var(--brand-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: var(--brand);
+  transition: var(--transition);
+}
+.why-card:hover .why-icon {
+  background: linear-gradient(135deg, var(--brand-light), var(--brand-dark));
+  color: #fff;
+}
+.why-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+.why-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.cta-banner {
+  background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 40%, var(--brand-light) 70%, var(--brand-dark) 100%);
+  background-size: 300% 300%;
+  animation: shimmer 8s ease infinite;
+  padding: 60px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, .08) 0%, transparent 70%);
+}
+.cta-content {
+  position: relative;
+  z-index: 2;
+}
+.cta-title {
+  font-size: clamp(22px, 3.2vw, 34px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 14px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+}
+[dir="ltr"] .cta-title {
+  font-family: 'Playfair Display', serif;
+}
+.cta-desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, .8);
+  margin-bottom: 28px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================================================================
+📄 PAGE HERO & ABOUT
+================================================================ */
+.page-hero {
+  padding: 150px 0 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-darker);
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(165, 133, 90, .05) 0%, transparent 60%), linear-gradient(180deg, #0e0c0a, #141210);
+}
+.page-hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: .02;
+  background-image: repeating-linear-gradient(45deg, var(--brand) 0, var(--brand) 1px, transparent 1px, transparent 35px);
+}
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.breadcrumb a {
+  color: var(--brand-light);
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+.breadcrumb .sep {
+  opacity: .35;
+}
+.page-hero-title {
+  font-size: clamp(28px, 4.5vw, 48px);
+  font-weight: 800;
+  color: var(--text-light);
+  margin-bottom: 14px;
+}
+[dir="ltr"] .page-hero-title {
+  font-family: 'Playfair Display', serif;
+}
+.page-hero-title .gold {
+  background: linear-gradient(135deg, var(--brand-light), var(--brand-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.page-hero-desc {
+  font-size: 16px;
+  color: rgba(236, 230, 220, .5);
+  max-width: 560px;
+  margin: 0 auto;
+}
+.diamond-stories-section {
+  padding: 80px 0;
+  background: var(--bg-light);
+}
+.diamond-stories-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+.diamond-story-content {
+  position: sticky;
+  top: calc(var(--navbar-h) + 30px);
+}
+.story-text {
+  font-size: 16px;
+  color: var(--text-body);
+  line-height: 1.9;
+  margin-bottom: 24px;
+}
+.story-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.story-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: var(--transition);
+  border-right: 4px solid var(--brand);
+}
+[dir="ltr"] .story-card {
+  border-right: none;
+  border-left: 4px solid var(--brand);
+}
+.story-card:hover {
+  transform: translateX(-5px);
+  box-shadow: var(--shadow-md);
+}
+[dir="ltr"] .story-card:hover {
+  transform: translateX(5px);
+}
+.story-card-date {
+  min-width: 70px;
+  text-align: center;
+  padding: 10px;
+  background: var(--brand-pale);
+  border-radius: var(--radius-sm);
+}
+.story-card-year {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--brand-dark);
+  display: block;
+  font-family: 'Playfair Display', serif;
+}
+.story-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+.mvp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  justify-content: center;
+  justify-items: center;
+}
+.mvp-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 380px;
+}
+.mvp-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-light), var(--brand-dark));
+}
+.mvp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+.mvp-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+.mvp-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+.mvp-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+.vals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.val-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  transition: var(--transition);
+}
+.val-card:hover {
+  border-color: var(--border-brand);
+  box-shadow: var(--shadow-sm);
+}
+.val-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--brand-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--brand);
+}
+.val-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 3px;
+}
+.val-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.team-card {
+  text-align: center;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 30px 20px;
+  transition: var(--transition);
+}
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-brand);
+}
+.team-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+}
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.team-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 3px;
+}
+.team-role {
+  font-size: 13px;
+  color: var(--brand);
+  font-weight: 500;
+}
+.certs-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.cert-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 26px 30px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  min-width: 120px;
+}
+.cert-badge:hover {
+  border-color: var(--border-brand);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+.cert-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--brand-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--brand-dark);
+}
+.cert-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+/* ================================================================
+🔍 FILTER, CONTACT, MAP, FOOTER, WA
+================================================================ */
+.filter-bar {
+  position: sticky;
+  top: var(--navbar-h);
+  z-index: 100;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+  padding: 14px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .03);
+}
+.filter-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+.filter-btn {
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-light);
+  border: 1px solid transparent;
+  border-radius: 50px;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+.filter-btn:hover {
+  color: var(--brand);
+  border-color: var(--border-brand);
+}
+.filter-btn.active {
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  border-color: transparent;
+}
+.cat-quick-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cat-quick-link {
+  padding: 9px 18px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-body);
+  transition: var(--transition);
+}
+.cat-quick-link:hover,
+.cat-quick-link.active {
+  background: var(--brand-pale);
+  border-color: var(--brand);
+  color: var(--brand-dark);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 36px;
+  align-items: start;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.c-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  transition: var(--transition);
+}
+.c-card:hover {
+  border-color: var(--border-brand);
+  box-shadow: var(--shadow-sm);
+}
+.c-card-icon {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border-radius: var(--radius-sm);
+  background: var(--brand-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--brand);
+}
+.c-card-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.c-card-value {
+  font-size: 14px;
+  color: var(--text-dark);
+  font-weight: 600;
+  line-height: 1.6;
+}
+.contact-socials {
+  display: flex;
+  gap: 10px;
+  padding: 22px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  align-items: center;
+}
+.contact-socials span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-inline-end: 6px;
+}
+.soc-link {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+.soc-link:hover {
+  background: var(--brand-pale);
+  color: var(--brand);
+}
+.form-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+}
+.form-group {
+  margin-bottom: 18px;
+}
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 11px 15px;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--text-dark);
+  background: var(--bg-light);
+  transition: var(--transition);
+  outline: none;
+}
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(165, 133, 90, .1);
+  background: var(--bg-white);
+}
+.form-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.form-error {
+  font-size: 12px;
+  color: #c0392b;
+  margin-top: 3px;
+  display: none;
+}
+.form-group.err .form-input,
+.form-group.err .form-textarea {
+  border-color: #c0392b;
+}
+.form-group.err .form-error {
+  display: block;
+}
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 36px 20px;
+  animation: heroReveal .5s ease;
+}
+.form-success.show {
+  display: block;
+}
+.form-success-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: #e8f8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #25D366;
+}
+.form-success-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+.form-success-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.map-section {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #e8e4de;
+}
+.map-section iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(20%) sepia(10%);
+}
+.map-label {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-white);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  z-index: 3;
+}
+.map-label i {
+  color: var(--brand);
+  font-size: 12px;
+}
+.footer {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 56px 0 0;
+  border-top: 1px solid rgba(165, 133, 90, .08);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 36px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid rgba(255, 255, 255, .05);
+}
+.footer-brand-desc {
+  font-size: 14px;
+  color: rgba(236, 230, 220, .45);
+  line-height: 1.8;
+  margin: 14px 0 18px;
+}
+.footer-heading {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand-light);
+  margin-bottom: 18px;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.footer-link {
+  font-size: 13px;
+  color: rgba(236, 230, 220, .5);
+  transition: var(--transition);
+}
+.footer-link:hover {
+  color: var(--brand-light);
+  padding-inline-start: 5px;
+}
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(236, 230, 220, .5);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.footer-contact-item i {
+  color: var(--brand-light);
+  margin-top: 3px;
+  min-width: 14px;
+}
+.footer-socials {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+.footer-soc {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, .05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: rgba(236, 230, 220, .45);
+  transition: var(--transition);
+}
+.footer-soc:hover {
+  background: rgba(165, 133, 90, .12);
+  color: var(--brand-light);
+}
+.footer-bottom {
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(236, 230, 220, .3);
+}
+.wa-float {
+  position: fixed;
+  bottom: 26px;
+  z-index: 900;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, .35);
+  transition: var(--transition);
+  cursor: pointer;
+}
+[dir="rtl"] .wa-float {
+  left: 26px;
+}
+[dir="ltr"] .wa-float {
+  right: 26px;
+}
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, .45);
+}
+.wa-float::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #25D366;
+  animation: pulseRing 2s ease infinite;
+  z-index: -1;
+}
+
+/* ================================================================
+📱 RESPONSIVE DESIGN
+================================================================ */
+@media (max-width: 1024px) {
+  .cats-grid {
+    grid-template-columns: repeat(3, 2fr);
+  }
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-stats {
+    gap: 24px;
+  }
+  .diamond-stories-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .diamond-story-content {
+    position: static;
+  }
+  .mvp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 36px 20px;
+  }
+  .hero-stat {
+    flex: none;
+    width: 100%;
+  }
+  .hero-stat-num {
+    font-size: 32px;
+  }
+  .hero-stat-num span {
+    font-size: 22px;
+  }
+  .hero-stat-label {
+    font-size: 11px;
+  }
+  .mvp-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  .mvp-card {
+    max-width: 100%;
+  }
+  .vals-grid {
+    grid-template-columns: 1fr;
+  }
+  .val-card {
+    padding: 18px;
+  }
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+  .section {
+    padding: 52px 0;
+  }
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+  .page-hero {
+    padding: 130px 0 60px;
+  }
+  .carousel-wrap {
+    display: block;
+  }
+  .cats-grid-desktop,
+  .prods-grid-desktop,
+  .news-grid-desktop {
+    display: none !important;
+  }
+  .carousel-wrap.cats-carousel .carousel-track .cat-card {
+    width: calc(70% - 12px);
+    min-width: calc(70% - 12px);
+  }
+  .carousel-wrap.prods-carousel .carousel-track .prod-card {
+    width: calc(80% - 12px);
+    min-width: calc(80% - 12px);
+  }
+  .carousel-wrap.news-carousel .carousel-track .news-card {
+    width: calc(85% - 12px);
+    min-width: calc(85% - 12px);
+    margin: 0 auto;
+  }
+  .carousel-wrap.gallery-carousel .carousel-track .gallery-card,
+  .carousel-wrap.video-carousel .carousel-track .video-card {
+    width: 280px;
+    min-width: 280px;
+    height: 180px;
+  }
+  .home-gallery-strip .gallery-card {
+    min-width: 260px;
+    max-width: 260px;
+    height: 170px;
+  }
+  .home-gallery-strip .gallery-card-title {
+    font-size: 13px;
+  }
+  .gallery-card {
+    min-width: 280px;
+    max-width: 280px;
+    height: 190px;
+  }
+  .video-card {
+    min-width: 280px;
+    max-width: 280px;
+    height: 180px;
+  }
+  .carousel-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  .carousel-arrow.prev {
+    left: 4px;
+    right: auto;
+  }
+  .carousel-arrow.next {
+    right: 4px;
+    left: auto;
+  }
+  [dir="rtl"] .carousel-arrow.prev {
+    left: auto;
+    right: 4px;
+  }
+  [dir="rtl"] .carousel-arrow.next {
+    right: auto;
+    left: 4px;
+  }
+  .carousel-wrap.gallery-carousel .carousel-arrow.prev,
+  .carousel-wrap.video-carousel .carousel-arrow.prev {
+    left: 6px;
+    right: auto;
+  }
+  .carousel-wrap.gallery-carousel .carousel-arrow.next,
+  .carousel-wrap.video-carousel .carousel-arrow.next {
+    right: 6px;
+    left: auto;
+  }
+  [dir="rtl"] .carousel-wrap.gallery-carousel .carousel-arrow.prev,
+  [dir="rtl"] .carousel-wrap.video-carousel .carousel-arrow.prev {
+    left: auto;
+    right: 6px;
+  }
+  [dir="rtl"] .carousel-wrap.gallery-carousel .carousel-arrow.next,
+  [dir="rtl"] .carousel-wrap.video-carousel .carousel-arrow.next {
+    right: auto;
+    left: 6px;
+  }
+  .prods-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .prod-img {
+    height: 160px;
+  }
+  .prod-img .prod-icon-fb {
+    font-size: 36px;
+  }
+  .prod-body {
+    padding: 14px;
+  }
+  .prod-name {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .prod-desc {
+    font-size: 12px;
+    margin-bottom: 12px;
+    -webkit-line-clamp: 2;
+    line-height: 1.5;
+  }
+  .prod-footer {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .prod-packaging {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+  .prod-inquiry {
+    font-size: 10px;
+    padding: 6px 12px;
+    gap: 4px;
+  }
+  .prod-badge-cat {
+    font-size: 10px;
+    padding: 3px 10px;
+    top: 8px;
+  }
+  [dir="rtl"] .prod-badge-cat {
+    left: 8px;
+  }
+  .prod-badge-eg {
+    font-size: 9px;
+    padding: 2px 8px;
+    bottom: 12px;
+  }
+  [dir="rtl"] .prod-badge-eg {
+    left: 12px;
+  }
+  .filter-list {
+    gap: 6px;
+  }
+  .filter-btn {
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+  .map-section {
+    height: 300px;
+  }
+}
+@media (max-width: 400px) {
+  .prods-grid {
+    gap: 10px;
+  }
+  .prod-img {
+    height: 140px;
+  }
+  .prod-img .prod-icon-fb {
+    font-size: 30px;
+  }
+  .prod-body {
+    padding: 12px;
+  }
+  .prod-name {
+    font-size: 13px;
+  }
+  .prod-desc {
+    font-size: 11px;
+    -webkit-line-clamp: 1;
+    margin-bottom: 10px;
+  }
+  .prod-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .prod-packaging {
+    align-self: flex-start;
+  }
+  .prod-inquiry {
+    width: 100%;
+    justify-content: center;
+  }
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+  .gallery-card,
+  .video-card {
+    min-width: 240px;
+    max-width: 240px;
+    height: 160px;
+  }
+  .home-gallery-strip .gallery-card {
+    min-width: 220px;
+    max-width: 220px;
+    height: 140px;
+  }
+  .hero-title {
+    font-size: clamp(28px, 6vw, 52px);
+  }
+  .hero-tagline {
+    font-size: clamp(16px, 2.2vw, 20px);
+  }
+}
+@media (min-width: 769px) {
+  .carousel-wrap {
+    display: none !important;
+  }
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-light);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-dark);
+}
+::selection {
+  background: rgba(165, 133, 90, .2);
+  color: var(--text-dark);
+}
+</style>
+</head>
+
+<body>
+<!-- ================================================================
+📦 APP CONTENT
+================================================================ -->
+<div id="app"></div>
+
+<script>
+/* ================================================================
+🖼️ LOGO CONFIGURATION
+================================================================ */
+var LOGO_CONFIG = {
+  ar: {
+    src: 'https://via.placeholder.com/280x60?text=Logo+AR',
+    alt: 'الماسة للمحاصيل',
+    width: 280,
+    height: 60
+  },
+  en: {
+    src: 'https://via.placeholder.com/280x60?text=Logo+EN',
+    alt: 'ALMASA CROPS',
+    width: 280,
+    height: 60
+  },
+  fr: {
+    src: 'https://via.placeholder.com/280x60?text=Logo+FR',
+    alt: 'ALMASA CROPS',
+    width: 280,
+    height: 60
+  }
+};
+
+function getCurrentLogo() {
+  return LOGO_CONFIG[lang] || LOGO_CONFIG.en;
+}
+
+/* ================================================================
+🌐 TRANSLATIONS
+================================================================ */
+var T = {
+  ar: {
+    nav: {
+      home: 'الرئيسية',
+      about: 'من نحن',
+      products: 'المنتجات',
+      news: 'الأخبار',
+      contact: 'اتصل بنا'
+    },
+    hero: {
+      badge: 'منذ 2000 — خبرة عريقة في التصدير',
+      title1: 'الماسة للمحاصيل الزراعية',
+      tagline: 'نزرع الثقة.. ونصدر التميز',
+      sub: 'شركة رائدة بخبرة تمتد منذ عام 2000 في تجهيز وتصدير أجود الحاصلات الزراعية المصرية. نفخر بشراكتنا مع أكثر من 30 مستورد عالمي في 15 دولة، ملتزمين بأعلى معايير النقاء والجودة الدولية.',
+      cta1: 'استكشف منتجاتنا',
+      cta2: 'اتصل بنا',
+      scroll: 'اسحب للأسفل'
+    },
+    stats: {
+      clients: 'عميل مستورد',
+      products: 'منتج بنصدره',
+      years: 'سنوات خبرة في التصدير',
+      countries: 'دولة اجنبية صدرنا ليها'
+    },
+    cats: {
+      title: 'فئات منتجاتنا',
+      desc: 'تشكيلة متنوعة من أفضل المحاصيل المصرية',
+      count: 'منتج'
+    },
+    featured: {
+      title: 'منتجات مميزة',
+      desc: 'اكتشف بعضاً من أفضل منتجاتنا المختارة بعناية',
+      inquiry: 'استفسر عن السعر',
+      viewAll: 'عرض الكل'
+    },
+    news: {
+      title: 'أخبار وأحداث',
+      desc: 'تابع آخر أخبار الماسة وأحداثها',
+      homeTitle: 'آخر الأخبار',
+      homeDesc: 'اطلع على أحدث تطورات وأنشطة شركة الماسة',
+      readMore: 'اقرأ المزيد',
+      inquiry: 'استفسر',
+      viewAll: 'عرض جميع الأخبار'
+    },
+    why: {
+      title: 'لماذا تختار الماسة؟',
+      desc: 'أربع ركائز تجعلنا الخيار الأول في تصدير المحاصيل',
+      w1: {
+        title: 'الإرث والخبرة',
+        desc: 'نجمع بين خبرة 25 عاماً في فهم المحاصيل وبين أحدث تكنولوجيا التصدير.'
+      },
+      w2: {
+        title: 'الجودة المعتمدة',
+        desc: 'لا نرضى بأقل من الكمال في الفرز والتعبئة لضمان نقاء المنتج بنسبة 100%.'
+      },
+      w3: {
+        title: 'الشراكة المستدامة',
+        desc: 'نحن لا نبحث عن "بيعة واحدة"، بل نهدف لبناء علاقات تمتد لسنوات مع عملائنا.'
+      },
+      w4: {
+        title: 'الاحترافية اللوجستية',
+        desc: 'دقة في المواعيد، مرونة في التعبئة، وشفافية في التعامل.'
+      }
+    },
+    cta: {
+      title: 'جاهز للشراكة مع الماسة؟',
+      desc: 'تواصل معنا اليوم واكتشف فرص الشراكة المتاحة',
+      btn: 'ابدأ الآن'
+    },
+    about: {
+      hero: 'عن الماسة',
+      heroDesc: 'رحلة تميز من الأرض إلى العالم',
+      story: {
+        title: 'قصتنا: من الأرض إلى العالم',
+        text1: 'بدأت رحلتنا في عام 2000، حيث وضع الآباء الحجر الأساس في تجارة الحاصلات الزراعية داخل السوق المصري. على مدار عقدين من الزمان، نمت خبرتنا وتشعبت علاقاتنا مع أجود المزارع، مما دفعنا في عام 2020 إلى اتخاذ خطوة استراتيجية بتأسيس شركة الماسة للمحاصيل الزراعية ككيان متخصص في التجهيز والتصدير.',
+        text2: 'لم نكن نبحث فقط عن التوسع، بل عن نقل الجودة المصرية إلى الموائد العالمية. لذا، قمنا ببناء منظومة متكاملة تشرف على كل حبة محصول؛ بدءاً من التوريد، مروراً بالتنظيف والفرز الآلي، وصولاً إلى التعبئة الاحترافية التي تطابق معايير الأسواق الدولية.',
+        text3: 'اليوم، نفخر بأننا لسنا مجرد مصدرين، بل شركاء نجاح لأكثر من 30 مستورد دولي في أكثر من 15 دولة حول العالم، ونقدم قائمة متنوعة تشمل أكثر من 25 منتجاً زراعياً فائق الجودة.'
+      },
+      milestones: {
+        title: 'محطات في مسيرتنا',
+        items: [
+          {
+            y: '2000',
+            ar: 'الانطلاقة الأولى في السوق المحلي وبناء شبكة الموردين والمزارع.',
+            en: 'Initial launch in local market, building supplier & farm network.',
+            fr: 'Lancement initial sur le marché local, construction d\'un réseau de fournisseurs et d\'exploitations.'
+          },
+          {
+            y: '2020',
+            ar: 'التأسيس الرسمي لشركة الماسة والتحول نحو التصدير المباشر.',
+            en: 'Official founding of ALMASA CROPS, transition to direct export.',
+            fr: 'Fondation officielle d\'ALMASA CROPS, transition vers l\'exportation directe.'
+          },
+          {
+            y: '2020-2025',
+            ar: 'التوسع العالمي والوصول إلى 15 دولة بـ 25 منتجاً مختلفاً.',
+            en: 'Global expansion: reached 15 countries with 25 different products.',
+            fr: 'Expansion mondiale : atteinte de 15 pays avec 25 produits différents.'
+          },
+          {
+            y: '2026',
+            ar: 'المشاركة الفعالة في معرض Food Africa، لتعزيز تواجدنا في قلب خارطة الغذاء العالمية.',
+            en: 'Active participation in Food Africa to strengthen our presence at the heart of the global food map.',
+            fr: 'Participation active à Food Africa pour renforcer notre présence au cœur de la carte alimentaire mondiale.'
+          }
+        ]
+      },
+      mvp: {
+        title: 'رسالتنا ورؤيتنا وعدنا',
+        mission: {
+          title: 'رسالتنا',
+          desc: 'تقديم أفضل المنتجات الغذائية المصرية للعالم بمعايير جودة استثنائية مع الالتزام بالاستدامة.'
+        },
+        vision: {
+          title: 'رؤيتنا',
+          desc: 'أن نكون العلامة التجارية الرائدة في تصدير المنتجات الزراعية المصرية عالمياً.'
+        },
+        promise: {
+          title: 'وعدنا',
+          desc: 'كل منتج يحمل اسم الماسة يمر بفحص جودة صارم لضمان رضا العملاء.'
+        }
+      },
+      values: {
+        title: 'قيمنا الجوهرية',
+        v1: {
+          title: 'الإرث والخبرة',
+          desc: 'نجمع بين خبرة 25 عاماً في فهم المحاصيل وبين أحدث تكنولوجيا التصدير.'
+        },
+        v2: {
+          title: 'الجودة المعتمدة',
+          desc: 'لا نرضى بأقل من الكمال في الفرز والتعبئة لضمان نقاء المنتج بنسبة 100%.'
+        },
+        v3: {
+          title: 'الشراكة المستدامة',
+          desc: 'نحن لا نبحث عن "بيعة واحدة"، بل نهدف لبناء علاقات تمتد لسنوات مع عملائنا.'
+        },
+        v4: {
+          title: 'الاحترافية اللوجستية',
+          desc: 'دقة في المواعيد، مرونة في التعبئة، وشفافية في التعامل.'
+        }
+      },
+      team: {
+        title: 'فريق القيادة',
+        desc: 'خبراء يصنعون التميز'
+      },
+      certs: {
+        title: 'شهاداتنا واعتماداتنا',
+        desc: 'معايير دولية تضمن الجودة والسلامة'
+      },
+      gallery: {
+        title: 'صور الشركة',
+        desc: 'لمحة عن مصنعنا ومستودعاتنا وفرق العمل'
+      },
+      videos: {
+        title: 'فيديوهاتنا',
+        desc: 'شاهد عملياتنا وجودة منتجاتنا عن قرب'
+      }
+    },
+    products: {
+      hero: 'دليل المنتجات',
+      heroDesc: 'تشكيلتنا المتكاملة من أجود المحاصيل المصرية',
+      all: 'جميع المنتجات'
+    },
+    contact: {
+      hero: 'نسعد بخدمتكم',
+      heroDesc: 'تواصلوا معنا في أي وقت',
+      form: {
+        title: 'أرسل رسالتك',
+        name: 'الاسم الكامل',
+        email: 'البريد الإلكتروني',
+        phone: 'رقم الهاتف',
+        message: 'الرسالة',
+        submit: 'إرسال الرسالة',
+        okTitle: 'تم الإرسال بنجاح',
+        okDesc: 'شكراً لتواصلكم. سنرد في أقرب وقت.',
+        again: 'إرسال رسالة أخرى'
+      },
+      info: {
+        address: 'العنوان',
+        addressVal: 'حوش عيسى - البحيرة - مصر',
+        phone: 'الهاتف',
+        phoneVal: '+20 2 1234 5678\n+20 10 9876 5432',
+        email: 'البريد الإلكتروني',
+        emailVal: 'info@almasacrops.com',
+        hours: 'ساعات العمل',
+        hoursVal: 'السبت - الخميس: 9 ص - 4 م'
+      },
+      socials: 'تابعنا',
+      waBtn: 'تواصل عبر واتساب',
+      mapLabel: 'مقرنا في مصر',
+	  mapOpen: 'افتح في خرائط جوجل'
+    },
+    footer: {
+      desc: 'شركة الماسة للمحاصيل الزراعية — نصدّر أجود المنتجات المصرية للعالم منذ 2000.',
+      quick: 'روابط سريعة',
+      prodLinks: 'فئات المنتجات',
+      contactUs: 'تواصل معنا',
+      copy: '© 2024 الماسة للمحاصيل الزراعية. جميع الحقوق محفوظة.',
+      made: 'صنع بفخر في مصر'
+    },
+    packaging: 'اكياس 50/25/15/10/5 كجم',
+    egypt: 'مصر'
+  },
+  en: {
+    nav: {
+      home: 'Home',
+      about: 'About Us',
+      products: 'Products',
+      news: 'News',
+      contact: 'Contact'
+    },
+    hero: {
+      badge: 'Since 2000 — Decades of Export Excellence',
+      title1: 'ALMASA CROPS',
+      tagline: 'We cultivate trust... and export excellence.',
+      sub: 'A leading company with experience since 2000 in processing and exporting the finest Egyptian agricultural products. We are proud of our partnership with over 30 global importers in 15 countries, committed to the highest international standards of purity and quality.',
+      cta1: 'Explore Products',
+      cta2: 'Contact Us',
+      scroll: 'Scroll Down'
+    },
+    stats: {
+      clients: 'Importing Clients',
+      products: 'Products We Export',
+      years: 'Years of Export Experience',
+      countries: 'Countries Worldwide'
+    },
+    cats: {
+      title: 'Our Product Categories',
+      desc: 'A diverse range of the finest Egyptian crops',
+      count: 'products'
+    },
+    featured: {
+      title: 'Featured Products',
+      desc: 'Discover some of our carefully selected premium products',
+      inquiry: 'Inquire About Price',
+      viewAll: 'View All'
+    },
+    news: {
+      title: 'News & Events',
+      desc: 'Follow the latest ALMASA CROPS news and events',
+      homeTitle: 'Latest News',
+      homeDesc: 'Stay updated with the latest developments and activities of ALMASA CROPS',
+      readMore: 'Read More',
+      inquiry: 'Inquire',
+      viewAll: 'View All News'
+    },
+    why: {
+      title: 'Why Choose ALMASA CROPS?',
+      desc: 'Four pillars that make us the first choice in crop export',
+      w1: {
+        title: 'Legacy & Expertise',
+        desc: 'We combine 25 years of crop expertise with the latest export technology.'
+      },
+      w2: {
+        title: 'Certified Quality',
+        desc: 'We accept nothing less than perfection in sorting and packaging to guarantee 100% product purity.'
+      },
+      w3: {
+        title: 'Sustainable Partnership',
+        desc: "We don't seek a one-off sale; we aim to build long-term relationships with our clients."
+      },
+      w4: {
+        title: 'Operational Excellence',
+        desc: 'Punctuality, flexible packaging, and transparent dealings.'
+      }
+    },
+    cta: {
+      title: 'Ready to Partner With Us?',
+      desc: 'Contact us today and discover available partnership opportunities',
+      btn: 'Get Started'
+    },
+    about: {
+      hero: 'About ALMASA CROPS',
+      heroDesc: 'A journey of excellence from the land to the world',
+      story: {
+        title: 'Our Story: From the Land to the World',
+        text1: 'Our journey began in 2000, when our fathers laid the foundation for the agricultural produce trade within the Egyptian market. Over two decades, our expertise grew and our relationships with the finest farms expanded, leading us in 2020 to take a strategic step by founding ALMASA CROPS as a specialized entity in processing and export.',
+        text2: 'We were not just seeking expansion, but bringing Egyptian quality to global tables. Therefore, we built an integrated system that supervises every grain of crop; from supply, through cleaning and automated sorting, to professional packaging that matches international market standards.',
+        text3: 'Today, we are proud to be not just exporters, but partners in success with over 30 international importers in more than 15 countries around the world, offering a diverse list of more than 25 super-quality agricultural products.'
+      },
+      milestones: {
+        title: 'Our Milestones',
+        items: [
+          {
+            y: '2000',
+            ar: 'الانطلاقة الأولى في السوق المحلي وبناء شبكة الموردين والمزارع.',
+            en: 'Initial launch in local market, building supplier & farm network.',
+            fr: 'Lancement initial sur le marché local, construction d\'un réseau de fournisseurs et d\'exploitations.'
+          },
+          {
+            y: '2020',
+            ar: 'التأسيس الرسمي لشركة الماسة والتحول نحو التصدير المباشر.',
+            en: 'Official founding of ALMASA CROPS, transition to direct export.',
+            fr: 'Fondation officielle d\'ALMASA CROPS, transition vers l\'exportation directe.'
+          },
+          {
+            y: '2020-2025',
+            ar: 'التوسع العالمي والوصول إلى 15 دولة بـ 25 منتجاً مختلفاً.',
+            en: 'Global expansion: reached 15 countries with 25 different products.',
+            fr: 'Expansion mondiale : atteinte de 15 pays avec 25 produits différents.'
+          },
+          {
+            y: '2026',
+            ar: 'المشاركة الفعالة في معرض Food Africa، لتعزيز تواجدنا في قلب خارطة الغذاء العالمية.',
+            en: 'Active participation in Food Africa to strengthen our presence at the heart of the global food map.',
+            fr: 'Participation active à Food Africa pour renforcer notre présence au cœur de la carte alimentaire mondiale.'
+          }
+        ]
+      },
+      mvp: {
+        title: 'Our Mission, Vision & Promise',
+        mission: {
+          title: 'Our Mission',
+          desc: 'To deliver the finest Egyptian food products to the world with exceptional quality standards, committed to sustainability.'
+        },
+        vision: {
+          title: 'Our Vision',
+          desc: 'To be the leading brand in Egyptian agricultural product exports globally.'
+        },
+        promise: {
+          title: 'Our Promise',
+          desc: 'Every product bearing the ALMASA name undergoes strict quality inspection to ensure customer satisfaction.'
+        }
+      },
+      values: {
+        title: 'Our Core Values',
+        v1: {
+          title: 'Legacy & Expertise',
+          desc: 'We combine 25 years of crop expertise with the latest export technology.'
+        },
+        v2: {
+          title: 'Certified Quality',
+          desc: 'We accept nothing less than perfection in sorting and packaging to guarantee 100% product purity.'
+        },
+        v3: {
+          title: 'Sustainable Partnership',
+          desc: "We don't seek a one-off sale; we aim to build long-term relationships with our clients."
+        },
+        v4: {
+          title: 'Operational Excellence',
+          desc: 'Punctuality, flexible packaging, and transparent dealings.'
+        }
+      },
+      team: {
+        title: 'Our Leadership Team',
+        desc: 'Experts who craft excellence'
+      },
+      certs: {
+        title: 'Our Certifications & Accreditations',
+        desc: 'International standards ensuring quality and safety'
+      },
+      gallery: {
+        title: 'Company Gallery',
+        desc: 'A glimpse into our factory, warehouses, and teams'
+      },
+      videos: {
+        title: 'Our Videos',
+        desc: 'Watch our operations and product quality up close'
+      }
+    },
+    products: {
+      hero: 'Product Catalog',
+      heroDesc: 'Our complete range of the finest Egyptian crops',
+      all: 'All Products'
+    },
+    contact: {
+      hero: "We're Happy to Serve You",
+      heroDesc: 'Reach out to us anytime',
+      form: {
+        title: 'Send Your Message',
+        name: 'Full Name',
+        email: 'Email Address',
+        phone: 'Phone Number',
+        message: 'Message',
+        submit: 'Send Message',
+        okTitle: 'Message Sent Successfully',
+        okDesc: 'Thank you for contacting us. We will get back to you soon.',
+        again: 'Send Another Message'
+      },
+      info: {
+        address: 'Address',
+        addressVal: 'Housh Eissa - Beheira - Egypt',
+        phone: 'Phone',
+        phoneVal: '+20 2 1234 5678\n+20 10 9876 5432',
+        email: 'Email',
+        emailVal: 'info@almasacrops.com',
+        hours: 'Working Hours',
+        hoursVal: 'Sat - Thu: 9 AM - 4 PM'
+      },
+      socials: 'Follow Us',
+      waBtn: 'Chat on WhatsApp',
+      mapLabel: 'Our Location in Egypt',
+	  mapOpen: 'Open in Google Maps'
+    },
+    footer: {
+      desc: 'ALMASA CROPS — Exporting the finest Egyptian agricultural products to the world since 2000.',
+      quick: 'Quick Links',
+      prodLinks: 'Product Categories',
+      contactUs: 'Contact Us',
+      copy: '© 2024 ALMASA CROPS. All rights reserved.',
+      made: 'Proudly Made in Egypt'
+    },
+    packaging: '5/10/15/25/50 kg bags',
+    egypt: 'Egypt'
+  },
+  fr: {
+    nav: {
+      home: 'Accueil',
+      about: 'À Propos',
+      products: 'Produits',
+      news: 'Actualités',
+      contact: 'Contact'
+    },
+    hero: {
+      badge: 'Depuis 2000 — Des décennies d\'excellence à l\'export',
+      title1: 'ALMASA CROPS',
+      tagline: 'Nous cultivons la confiance... et exportons l\'excellence.',
+      sub: 'Une entreprise leader avec une expérience depuis 2000 dans la transformation et l\'exportation des meilleurs produits agricoles égyptiens. Nous sommes fiers de notre partenariat avec plus de 30 importateurs mondiaux dans 15 pays, engagés envers les plus hautes normes internationales de pureté et de qualité.',
+      cta1: 'Découvrir nos produits',
+      cta2: 'Nous contacter',
+      scroll: 'Faire défiler'
+    },
+    stats: {
+      clients: 'Clients importateurs',
+      products: 'Produits exportés',
+      years: 'Années d\'expérience export',
+      countries: 'Pays dans le monde'
+    },
+    cats: {
+      title: 'Nos Catégories de Produits',
+      desc: 'Une gamme diversifiée des meilleures cultures égyptiennes',
+      count: 'produits'
+    },
+    featured: {
+      title: 'Produits en Vedette',
+      desc: 'Découvrez certains de nos produits premium soigneusement sélectionnés',
+      inquiry: 'Demander un prix',
+      viewAll: 'Voir tout'
+    },
+    news: {
+      title: 'Actualités & Événements',
+      desc: 'Suivez les dernières actualités et événements d\'ALMASA CROPS',
+      homeTitle: 'Dernières Actualités',
+      homeDesc: 'Restez informé des derniers développements et activités d\'ALMASA CROPS',
+      readMore: 'Lire la suite',
+      inquiry: 'Demander',
+      viewAll: 'Voir toutes les actualités'
+    },
+    why: {
+      title: 'Pourquoi choisir ALMASA CROPS ?',
+      desc: 'Quatre piliers qui font de nous le premier choix pour l\'export de cultures',
+      w1: {
+        title: 'Héritage & Expertise',
+        desc: 'Nous combinons 25 ans d\'expertise agricole avec les dernières technologies d\'exportation.'
+      },
+      w2: {
+        title: 'Qualité Certifiée',
+        desc: 'Nous n\'acceptons rien de moins que la perfection dans le tri et l\'emballage pour garantir 100% de pureté du produit.'
+      },
+      w3: {
+        title: 'Partenariat Durable',
+        desc: 'Nous ne cherchons pas une vente ponctuelle ; nous visons à construire des relations à long terme avec nos clients.'
+      },
+      w4: {
+        title: 'Excellence Opérationnelle',
+        desc: 'Ponctualité, emballage flexible et transactions transparentes.'
+      }
+    },
+    cta: {
+      title: 'Prêt à collaborer avec nous ?',
+      desc: 'Contactez-nous dès aujourd\'hui et découvrez les opportunités de partenariat disponibles',
+      btn: 'Commencer'
+    },
+    about: {
+      hero: 'À Propos d\'ALMASA CROPS',
+      heroDesc: 'Un parcours d\'excellence de la terre au monde',
+      story: {
+        title: 'Notre Histoire : De la Terre au Monde',
+        text1: 'Notre parcours a commencé en 2000, lorsque nos pères ont posé les fondations du commerce des produits agricoles sur le marché égyptien. Au cours de deux décennies, notre expertise a grandi et nos relations avec les meilleures exploitations se sont développées, nous amenant en 2020 à franchir une étape stratégique en fondant ALMASA CROPS en tant qu\'entité spécialisée dans la transformation et l\'exportation.',
+        text2: 'Nous ne cherchions pas seulement l\'expansion, mais à apporter la qualité égyptienne aux tables du monde entier. Par conséquent, nous avons construit un système intégré qui supervise chaque grain de culture ; de l\'approvisionnement, en passant par le nettoyage et le tri automatisé, jusqu\'à l\'emballage professionnel qui correspond aux normes des marchés internationaux.',
+        text3: 'Aujourd\'hui, nous sommes fiers d\'être non seulement des exportateurs, mais des partenaires de réussite avec plus de 30 importateurs internationaux dans plus de 15 pays à travers le monde, offrant une liste diversifiée de plus de 25 produits agricoles de qualité supérieure.'
+      },
+      milestones: {
+        title: 'Nos Étapes Clés',
+        items: [
+          {
+            y: '2000',
+            ar: 'الانطلاقة الأولى في السوق المحلي وبناء شبكة الموردين والمزارع.',
+            en: 'Initial launch in local market, building supplier & farm network.',
+            fr: 'Lancement initial sur le marché local, construction d\'un réseau de fournisseurs et d\'exploitations.'
+          },
+          {
+            y: '2020',
+            ar: 'التأسيس الرسمي لشركة الماسة والتحول نحو التصدير المباشر.',
+            en: 'Official founding of ALMASA CROPS, transition to direct export.',
+            fr: 'Fondation officielle d\'ALMASA CROPS, transition vers l\'exportation directe.'
+          },
+          {
+            y: '2020-2025',
+            ar: 'التوسع العالمي والوصول إلى 15 دولة بـ 25 منتجاً مختلفاً.',
+            en: 'Global expansion: reached 15 countries with 25 different products.',
+            fr: 'Expansion mondiale : atteinte de 15 pays avec 25 produits différents.'
+          },
+          {
+            y: '2026',
+            ar: 'المشاركة الفعالة في معرض Food Africa، لتعزيز تواجدنا في قلب خارطة الغذاء العالمية.',
+            en: 'Active participation in Food Africa to strengthen our presence at the heart of the global food map.',
+            fr: 'Participation active à Food Africa pour renforcer notre présence au cœur de la carte alimentaire mondiale.'
+          }
+        ]
+      },
+      mvp: {
+        title: 'Notre Mission, Vision & Promesse',
+        mission: {
+          title: 'Notre Mission',
+          desc: 'Fournir les meilleurs produits alimentaires égyptiens au monde avec des normes de qualité exceptionnelles, engagés dans la durabilité.'
+        },
+        vision: {
+          title: 'Notre Vision',
+          desc: 'Être la marque leader dans l\'exportation de produits agricoles égyptiens à l\'échelle mondiale.'
+        },
+        promise: {
+          title: 'Notre Promesse',
+          desc: 'Chaque produit portant le nom ALMASA passe par une inspection qualité stricte pour garantir la satisfaction du client.'
+        }
+      },
+      values: {
+        title: 'Nos Valeurs Fondamentales',
+        v1: {
+          title: 'Héritage & Expertise',
+          desc: 'Nous combinons 25 ans d\'expertise agricole avec les dernières technologies d\'exportation.'
+        },
+        v2: {
+          title: 'Qualité Certifiée',
+          desc: 'Nous n\'acceptons rien de moins que la perfection dans le tri et l\'emballage pour garantir 100% de pureté du produit.'
+        },
+        v3: {
+          title: 'Partenariat Durable',
+          desc: 'Nous ne cherchons pas une vente ponctuelle ; nous visons à construire des relations à long terme avec nos clients.'
+        },
+        v4: {
+          title: 'Excellence Opérationnelle',
+          desc: 'Ponctualité, emballage flexible et transactions transparentes.'
+        }
+      },
+      team: {
+        title: 'Notre Équipe de Direction',
+        desc: 'Des experts qui façonnent l\'excellence'
+      },
+      certs: {
+        title: 'Nos Certifications & Accréditations',
+        desc: 'Des normes internationales garantissant qualité et sécurité'
+      },
+      gallery: {
+        title: 'Galerie de l\'Entreprise',
+        desc: 'Un aperçu de notre usine, entrepôts et équipes'
+      },
+      videos: {
+        title: 'Nos Vidéos',
+        desc: 'Découvrez nos opérations et la qualité de nos produits de près'
+      }
+    },
+    products: {
+      hero: 'Catalogue de Produits',
+      heroDesc: 'Notre gamme complète des meilleures cultures égyptiennes',
+      all: 'Tous les Produits'
+    },
+    contact: {
+      hero: 'Nous sommes heureux de vous servir',
+      heroDesc: 'Contactez-nous à tout moment',
+      form: {
+        title: 'Envoyez votre message',
+        name: 'Nom complet',
+        email: 'Adresse e-mail',
+        phone: 'Numéro de téléphone',
+        message: 'Message',
+        submit: 'Envoyer le message',
+        okTitle: 'Message envoyé avec succès',
+        okDesc: 'Merci de nous avoir contactés. Nous vous répondrons rapidement.',
+        again: 'Envoyer un autre message'
+      },
+      info: {
+        address: 'Adresse',
+        addressVal: 'Housh Eissa - Beheira - Égypte',
+        phone: 'Téléphone',
+        phoneVal: '+20 2 1234 5678\n+20 10 9876 5432',
+        email: 'E-mail',
+        emailVal: 'info@almasacrops.com',
+        hours: 'Heures d\'ouverture',
+        hoursVal: 'Sam - Jeu : 9h - 16h'
+      },
+      socials: 'Suivez-nous',
+      waBtn: 'Discuter sur WhatsApp',
+      mapLabel: 'Notre localisation en Égypte',
+	  mapOpen: 'Ouvrir dans Google Maps'
+    },
+    footer: {
+      desc: 'ALMASA CROPS — Exportation des meilleurs produits agricoles égyptiens vers le monde depuis 2000.',
+      quick: 'Liens Rapides',
+      prodLinks: 'Catégories de Produits',
+      contactUs: 'Nous Contacter',
+      copy: '© 2024 ALMASA CROPS. Tous droits réservés.',
+      made: 'Fièrement fabriqué en Égypte'
+    },
+    packaging: 'sacs de 5/10/15/25/50 kg',
+    egypt: 'Égypte'
+  }
+};
+
+/* ================================================================
+📂 DATA
+================================================================ */
+var CATS = [
+  {
+    id: 'pulses',
+    icon: 'fa-seedling',
+    color: '#3d7a4a',
+    bg: '#e8f5e9',
+    ar: 'البقوليات',
+    en: 'Pulses',
+    fr: 'Légumineuses',
+    arDesc: 'خيرات النيل بجودة فائقة',
+    enDesc: 'The Nile\'s bounty of superior quality',
+    frDesc: 'Les bienfaits du Nil, qualité supérieure'
+  },
+  {
+    id: 'grains',
+    icon: 'fa-wheat-awn',
+    color: '#9b7a4d',
+    bg: '#faf3e8',
+    ar: 'الحبوب',
+    en: 'Grains',
+    fr: 'Céréales',
+    arDesc: 'طاقة نقية من قلب المزارع المصرية',
+    enDesc: 'Pure energy from Egyptian farms',
+    frDesc: 'Énergie pure des exploitations égyptiennes'
+  },
+  {
+    id: 'spices',
+    icon: 'fa-mortar-pestle',
+    color: '#a63d2f',
+    bg: '#fce8e6',
+    ar: 'التوابل',
+    en: 'Spices',
+    fr: 'Épices',
+    arDesc: 'رائحة الطبيعة المصرية الأصيلة',
+    enDesc: 'Authentic scent of Egyptian nature',
+    frDesc: 'Parfum authentique de la nature égyptienne'
+  },
+  {
+    id: 'sesame',
+    icon: 'fa-seedling',
+    color: '#c2712f',
+    bg: '#fef0e1',
+    ar: 'السمسم',
+    en: 'Sesame',
+    fr: 'Sésame',
+    arDesc: 'محصول فاخر يمتاز بنقاء اللون',
+    enDesc: 'Premium crop with pure color & high oil',
+    frDesc: 'Culture premium à couleur pure et huile élevée'
+  },
+  {
+    id: 'nuts-seeds',
+    icon: 'fa-apple-whole',
+    color: '#d4a574',
+    bg: '#f5ebe0',
+    ar: 'المكسرات والبذور',
+    en: 'Nuts & Seeds',
+    fr: 'Noix & Graines',
+    arDesc: 'تسالي مصرية بجودة تصديرية',
+    enDesc: 'Egyptian snacks of export quality',
+    frDesc: 'Snacks égyptiens de qualité export'
+  },
+  {
+    id: 'dried-fruits',
+    icon: 'fa-lemon',
+    color: '#8e44ad',
+    bg: '#f4ecf7',
+    ar: 'الفواكه المجففة',
+    en: 'Dried Fruits',
+    fr: 'Fruits Séchés',
+    arDesc: 'من أجود أنواع العنب المصري',
+    enDesc: 'Finest Egyptian grapes, naturally dried',
+    frDesc: 'Meilleurs raisins égyptiens, séchés naturellement'
+  }
+];
+
+var PRODS = [
+  {
+    id: 1,
+    cat: 'pulses',
+    ar: 'فاصوليا بيضاء',
+    en: 'White Beans',
+    fr: 'Haricots Blancs',
+    arD: 'تمتاز ببياض ناصع وحجم متناسق، وسرعة في الطهي',
+    enD: 'Bright white, uniform size, quick-cooking',
+    frD: 'Blanc éclatant, taille uniforme, cuisson rapide',
+    img: 'https://picsum.photos/seed/almasa-wb/400/300.jpg'
+  },
+  {
+    id: 2,
+    cat: 'pulses',
+    ar: 'فول عريض',
+    en: 'Broad Beans',
+    fr: 'Fèves',
+    arD: 'حبات ممتلئة وقشرة رقيقة، مثالي للتعليب والاستهلاك المباشر',
+    enD: 'Plump beans with thin skin, ideal for canning',
+    frD: 'Fèves rebondies à peau fine, idéales pour conserve',
+    img: 'https://picsum.photos/seed/almasa-bb/400/300.jpg'
+  },
+  {
+    id: 3,
+    cat: 'pulses',
+    ar: 'فول رفيع',
+    en: 'Line Beans',
+    fr: 'Haricots Fins',
+    arD: 'جودة عالية ونسبة بروتين مرتفعة، منتقى بعناية من أجود المزارع',
+    enD: 'High quality, high protein, carefully selected',
+    frD: 'Haute qualité, riche en protéines, sélectionné avec soin',
+    img: 'https://picsum.photos/seed/almasa-lb/400/300.jpg'
+  },
+  {
+    id: 4,
+    cat: 'pulses',
+    ar: 'حمص',
+    en: 'Chickpeas',
+    fr: 'Pois Chiches',
+    arD: 'حبات ذهبية صلبة، تتميز بنكهة غنية وقوام مثالي',
+    enD: 'Firm golden chickpeas with rich flavor',
+    frD: 'Pois chiches dorés et fermes, saveur riche',
+    img: 'https://picsum.photos/seed/almasa-cp/400/300.jpg'
+  },
+  {
+    id: 5,
+    cat: 'pulses',
+    ar: 'ترمس',
+    en: 'Lupini Beans',
+    fr: 'Lupin',
+    arD: 'منتج مصري أصيل، يمتاز بنقاوة عالية وخلو تام من العيوب',
+    enD: 'Authentic Egyptian product, high purity, zero defects',
+    frD: 'Produit égyptien authentique, haute pureté',
+    img: 'https://picsum.photos/seed/almasa-lp/400/300.jpg'
+  },
+  {
+    id: 6,
+    cat: 'pulses',
+    ar: 'لوبيا',
+    en: 'Cowpeas',
+    fr: 'Doliques',
+    arD: 'ذات "العين السوداء" المميزة، تجفيف طبيعي بنسبة رطوبة مثالية',
+    enD: 'Distinctive "black eye", naturally dried to ideal moisture',
+    frD: 'Doliques à "œil noir", séchés naturellement',
+    img: 'https://picsum.photos/seed/almasa-cow/400/300.jpg'
+  },
+  {
+    id: 7,
+    cat: 'pulses',
+    ar: 'فول سوداني',
+    en: 'Peanuts',
+    fr: 'Arachides',
+    arD: 'حبات مقشرة أو بالقشر، تتميز بطعم غني وزيوت طبيعية',
+    enD: 'Shelled or unshelled peanuts, rich flavor & oils',
+    frD: 'Arachides décortiquées ou en coque, saveur riche',
+    img: 'https://picsum.photos/seed/almasa-pn/400/300.jpg'
+  },
+  {
+    id: 8,
+    cat: 'grains',
+    ar: 'ذرة صفراء',
+    en: 'Yellow Corn',
+    fr: 'Maïs Jaune',
+    arD: 'حبوب غنية وقوية، مجففة بعناية لاستخدامات التصنيع الغذائي',
+    enD: 'Rich, robust kernels, carefully dried',
+    frD: 'Grains riches et robustes, soigneusement séchés',
+    img: 'https://picsum.photos/seed/almasa-yc/400/300.jpg'
+  },
+  {
+    id: 9,
+    cat: 'grains',
+    ar: 'ذرة بيضاء',
+    en: 'White Corn',
+    fr: 'Maïs Blanc',
+    arD: 'محصول مصري نقي، يمتاز بنسبة نشا عالية ونقاء ممتاز',
+    enD: 'Pure Egyptian crop, high starch & purity',
+    frD: 'Culture égyptienne pure, haute teneur en amidon',
+    img: 'https://picsum.photos/seed/almasa-wc/400/300.jpg'
+  },
+  {
+    id: 10,
+    cat: 'spices',
+    ar: 'كراوية',
+    en: 'Caraway',
+    fr: 'Carvi',
+    arD: 'بذور عطرية قوية، منقاة آلياً لضمان خلوها من الشوائب',
+    enD: 'Strong aromatic seeds, machine-sorted, impurity-free',
+    frD: 'Graines aromatiques fortes, triées mécaniquement',
+    img: 'https://picsum.photos/seed/almasa-cw/400/300.jpg'
+  },
+  {
+    id: 11,
+    cat: 'spices',
+    ar: 'ينسون',
+    en: 'Anise',
+    fr: 'Anis',
+    arD: 'نكهة مركزة وزيوت طيارة عالية، يُجمع ويُجفف في ظروف مثالية',
+    enD: 'Concentrated flavor, high volatile oil content',
+    frD: 'Saveur concentrée, haute teneur en huiles',
+    img: 'https://picsum.photos/seed/almasa-an/400/300.jpg'
+  },
+  {
+    id: 12,
+    cat: 'spices',
+    ar: 'شمر',
+    en: 'Fennel',
+    fr: 'Fenouil',
+    arD: 'لون أخضر طبيعي ورائحة نفاذة، محصول ممتاز للصناعات',
+    enD: 'Naturally green, pungent aroma, versatile use',
+    frD: 'Vert naturel, arôme piquant, usage polyvalent',
+    img: 'https://picsum.photos/seed/almasa-fn/400/300.jpg'
+  },
+  {
+    id: 13,
+    cat: 'spices',
+    ar: 'حلبة',
+    en: 'Fenugreek',
+    fr: 'Fenugrec',
+    arD: 'حبات ذهبية منتقاة بعناية، غنية بالفوائد والقيم الغذائية',
+    enD: 'Golden seeds, carefully selected, nutrient-rich',
+    frD: 'Graines dorées, sélectionnées, riches en nutriments',
+    img: 'https://picsum.photos/seed/almasa-fg/400/300.jpg'
+  },
+  {
+    id: 14,
+    cat: 'spices',
+    ar: 'ليمون مجفف',
+    en: 'Dried Lemon',
+    fr: 'Citron Séché',
+    arD: 'تجفيف طبيعي يحافظ على النكهة الحمضية القوية',
+    enD: 'Naturally dried to preserve strong citrus flavor',
+    frD: 'Séché naturellement pour saveur citronnée forte',
+    img: 'https://picsum.photos/seed/almasa-dl/400/300.jpg'
+  },
+  {
+    id: 15,
+    cat: 'sesame',
+    ar: 'سمسم أبيض',
+    en: 'White Sesame',
+    fr: 'Sésame Blanc',
+    arD: 'محصول فاخر يمتاز بنقاء اللون وارتفاع نسبة الزيت',
+    enD: 'Premium crop, pure color & high oil content',
+    frD: 'Culture premium, couleur pure et haute teneur en huile',
+    img: 'https://picsum.photos/seed/almasa-ws/400/300.jpg'
+  },
+  {
+    id: 16,
+    cat: 'nuts-seeds',
+    ar: 'لب سوبر',
+    en: 'Super Pumpkin Kernels',
+    fr: 'Graines Courge Super',
+    arD: 'حجم كبير وطعم مصري أصيل، محمص أو خام حسب الطلب',
+    enD: 'Large size, authentic taste, roasted or raw',
+    frD: 'Grande taille, goût authentique, grillées ou crues',
+    img: 'https://picsum.photos/seed/almasa-sp/400/300.jpg'
+  },
+  {
+    id: 17,
+    cat: 'nuts-seeds',
+    ar: 'لب أبيض',
+    en: 'White Pumpkin Kernels',
+    fr: 'Graines Courge Blanches',
+    arD: 'بذور ممتلئة ونقية، غنية بالعناصر الغذائية والزيوت',
+    enD: 'Plump, pure seeds, rich in nutrients & oils',
+    frD: 'Graines pures et rebondies, riches en nutriments',
+    img: 'https://picsum.photos/seed/almasa-wp/400/300.jpg'
+  },
+  {
+    id: 18,
+    cat: 'nuts-seeds',
+    ar: 'لب سوري',
+    en: 'Syrian Sunflower',
+    fr: 'Tournesol Syrien',
+    arD: 'بذور طويلة ومنتقاة، تتميز بالقشرة الرقيقة واللب الغني',
+    enD: 'Long selected seeds, thin shell & rich kernel',
+    frD: 'Graines longues sélectionnées, coque fine',
+    img: 'https://picsum.photos/seed/almasa-ss/400/300.jpg'
+  },
+  {
+    id: 19,
+    cat: 'nuts-seeds',
+    ar: 'لب خشابي',
+    en: 'Khashabi',
+    fr: 'Khashabi',
+    arD: 'منتج فريد يتميز بقوام صلب وطعم مميز يفضله الكثيرون',
+    enD: 'Unique firm texture & distinctive favorite taste',
+    frD: 'Texture ferme unique et goût distinctif favori',
+    img: 'https://picsum.photos/seed/almasa-kh/400/300.jpg'
+  },
+  {
+    id: 20,
+    cat: 'dried-fruits',
+    ar: 'زبيب',
+    en: 'Raisins',
+    fr: 'Raisins Secs',
+    arD: 'من أجود العنب المصري، مجفف طبيعياً بدون إضافات',
+    enD: 'Finest Egyptian grapes, naturally dried, no additives',
+    frD: 'Meilleurs raisins égyptiens, séchés sans additifs',
+    img: 'https://picsum.photos/seed/almasa-rs/400/300.jpg'
+  }
+];
+
+var NEWS = [
+  {
+    id: 1,
+    img: 'almasa-food-africa',
+    date: {
+      ar: 'فبراير 2026',
+      en: 'Feb 2026',
+      fr: 'Fév 2026'
+    },
+    location: {
+      ar: 'القاهرة، مصر',
+      en: 'Cairo, Egypt',
+      fr: 'Le Caire, Égypte'
+    },
+    ar: 'المشاركة الفعالة في معرض Food Africa',
+    en: 'Active Participation in Food Africa',
+    fr: 'Participation Active à Food Africa',
+    arD: 'شهد جناحنا في معرض Food Africa إقبالاً دولياً واسعاً، حيث أبهرت جودة محاصيلنا كبار المستوردين العالميين وفتحت لنا آفاقاً جديدة للشراكة والنمو.',
+    enD: 'Our booth at Food Africa witnessed wide international turnout, where product quality impressed major global importers and opened new horizons.',
+    frD: 'Notre stand à Food Africa a connu une forte affluence internationale, impressionnant les grands importateurs et ouvrant de nouveaux horizons.'
+  }
+];
+
+var VIDEOS = [
+  {
+    id: 'farm-harvest',
+    title: {
+      ar: 'حصاد المزرعة',
+      en: 'Farm Harvest',
+      fr: 'Récolte à la Ferme'
+    },
+    url: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1',
+    thumb: 'https://picsum.photos/seed/vid1/400/220.jpg'
+  },
+  {
+    id: 'sorting-line',
+    title: {
+      ar: 'خط الفرز الآلي',
+      en: 'Automated Sorting',
+      fr: 'Tri Automatisé'
+    },
+    url: 'https://www.youtube.com/embed/ysz5S6PUM-U?autoplay=0&mute=1',
+    thumb: 'https://picsum.photos/seed/vid2/400/220.jpg'
+  },
+  {
+    id: 'packaging',
+    title: {
+      ar: 'التعبئة الاحترافية',
+      en: 'Professional Packaging',
+      fr: 'Emballage Professionnel'
+    },
+    url: 'https://www.youtube.com/embed/jNQXAC9IVRw?autoplay=0&mute=1',
+    thumb: 'https://picsum.photos/seed/vid3/400/220.jpg'
+  },
+  {
+    id: 'quality-lab',
+    title: {
+      ar: 'مختبر الجودة',
+      en: 'Quality Control',
+      fr: 'Contrôle Qualité'
+    },
+    url: 'https://www.youtube.com/embed/y6120QOlsfU?autoplay=0&mute=1',
+    thumb: 'https://picsum.photos/seed/vid4/400/220.jpg'
+  }
+];
+
+var COMPANY_IMGS = [
+  {
+    id: 'factory',
+    ar: 'المصنع الرئيسي',
+    en: 'Main Facility',
+    fr: 'Installation Principale',
+    img: 'https://picsum.photos/seed/fac1/600/400.jpg'
+  },
+  {
+    id: 'warehouse',
+    ar: 'المستودعات',
+    en: 'Warehouses',
+    fr: 'Entrepôts',
+    img: 'https://picsum.photos/seed/wh1/600/400.jpg'
+  },
+  {
+    id: 'production',
+    ar: 'خطوط الإنتاج',
+    en: 'Production Lines',
+    fr: 'Lignes de Production',
+    img: 'https://picsum.photos/seed/line1/600/400.jpg'
+  },
+  {
+    id: 'quality-lab',
+    ar: 'مختبر الجودة',
+    en: 'Quality Lab',
+    fr: 'Labo Qualité',
+    img: 'https://picsum.photos/seed/lab1/600/400.jpg'
+  },
+  {
+    id: 'packaging',
+    ar: 'قسم التعبئة',
+    en: 'Packaging',
+    fr: 'Emballage',
+    img: 'https://picsum.photos/seed/pack1/600/400.jpg'
+  },
+  {
+    id: 'team',
+    ar: 'فريق العمل',
+    en: 'Our Team',
+    fr: 'Notre Équipe',
+    img: 'https://picsum.photos/seed/team1/600/400.jpg'
+  }
+];
+
+var TEAM = [
+  {
+    name: 'أحمد المصري',
+    en: 'Ahmed El-Masri',
+    fr: 'Ahmed El-Masri',
+    role: 'الرئيس التنفيذي',
+    enRole: 'CEO',
+    frRole: 'PDG',
+    color: '#3d7a4a',
+    img: 'https://picsum.photos/seed/team1/200/200.jpg'
+  },
+  {
+    name: 'محمد حسن',
+    en: 'Mohamed Hassan',
+    fr: 'Mohamed Hassan',
+    role: 'مدير العمليات',
+    enRole: 'COO',
+    frRole: 'COO',
+    color: '#9b7a4d',
+    img: 'https://picsum.photos/seed/team2/200/200.jpg'
+  },
+  {
+    name: 'سارة عبد الرحمن',
+    en: 'Sara Abdel Rahman',
+    fr: 'Sara Abdel Rahman',
+    role: 'مدير الجودة',
+    enRole: 'Quality Director',
+    frRole: 'Directrice Qualité',
+    color: '#a63d2f',
+    img: 'https://picsum.photos/seed/team3/200/200.jpg'
+  },
+  {
+    name: 'عمر فاروق',
+    en: 'Omar Farouk',
+    fr: 'Omar Farouk',
+    role: 'مدير التصدير',
+    enRole: 'Export Director',
+    frRole: 'Directeur Export',
+    color: '#7b4a8a',
+    img: 'https://picsum.photos/seed/team4/200/200.jpg'
+  }
+];
+
+var CERTS = [
+  {
+    n: 'ISO 22000',
+    i: 'fa-shield-halved'
+  },
+  {
+    n: 'HACCP',
+    i: 'fa-clipboard-check'
+  },
+  {
+    n: 'Halal',
+    i: 'fa-moon'
+  },
+  {
+    n: 'Organic',
+    i: 'fa-leaf'
+  },
+  {
+    n: 'FDA',
+    i: 'fa-hospital'
+  }
+];
+
+/* ================================================================
+⚙️ STATE & UTILITIES
+================================================================ */
+var lang = localStorage.getItem('almasa-lang') || ((navigator.language || 'en').startsWith('ar') ? 'ar' : 'en');
+var route = '/';
+var mobOpen = false;
+var statsDone = false;
+var carouselIntervals = [];
+var scrollPos = 0;
+
+function t(k) {
+  var v = T[lang];
+  for (var s of k.split('.')) v = v && v[s];
+  return v || k;
+}
+
+function gc(id) {
+  return CATS.find(function(c) {
+    return c.id === id;
+  });
+}
+
+function gpc(id) {
+  return PRODS.filter(function(p) {
+    return p.cat === id;
+  });
+}
+
+function pn(p) {
+  return lang === 'ar' ? p.ar : (lang === 'fr' ? p.fr : p.en);
+}
+
+function pd(p) {
+  return lang === 'ar' ? p.arD : (lang === 'fr' ? p.frD : p.enD);
+}
+
+function getLangDisplay() {
+  return lang === 'ar' ? 'English' : (lang === 'en' ? 'Français' : 'العربية');
+}
+
+function applyLang() {
+  var h = document.documentElement;
+  h.lang = lang;
+  h.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.title = lang === 'ar' ? 'الماسة للمحاصيل الزراعية' : (lang === 'fr' ? 'ALMASA CROPS — Produits Agricoles Égyptiens' : 'ALMASA CROPS — Egyptian Agricultural Products');
+  localStorage.setItem('almasa-lang', lang);
+}
+
+function toggleLang() {
+  scrollPos = window.scrollY;
+  var l = ['ar', 'en', 'fr'];
+  lang = l[(l.indexOf(lang) + 1) % 3];
+  document.body.classList.add('lang-fade');
+  applyLang();
+  render();
+  setTimeout(function() {
+    window.scrollTo(0, scrollPos);
+    document.body.classList.remove('lang-fade');
+  }, 50);
+}
+
+function nav(p) {
+  route = p;
+  mobOpen = false;
+  location.hash = p;
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleMob() {
+  mobOpen = !mobOpen;
+  var m = document.getElementById('mob-menu'),
+      b = document.getElementById('ham-btn');
+  if (m) m.classList.toggle('open', mobOpen);
+  if (b) b.classList.toggle('open', mobOpen);
+}
+
+function stopCarousels() {
+  carouselIntervals.forEach(function(id) {
+    clearInterval(id);
+  });
+  carouselIntervals = [];
+}
+
+function arrowDir(d) {
+  return lang === 'ar' ? 'fa-chevron-' + (d === 'prev' ? 'right' : 'left') : 'fa-chevron-' + (d === 'prev' ? 'left' : 'right');
+}
+
+/* ================================================================
+🔄 CAROUSEL
+================================================================ */
+function initCarousel(trackId, interval) {
+  var track = document.getElementById(trackId);
+  if (!track) return;
+  var isRtl = lang === 'ar';
+  track.style.direction = 'ltr';
+  track.style.scrollSnapType = 'x mandatory';
+  var items = track.children;
+  if (items.length <= 1) return;
+  var currentIndex = 0,
+      isPaused = false,
+      resizeTimer;
+
+  function getGap() {
+    var g = getComputedStyle(track).gap,
+        p = parseInt(g);
+    return (p && p > 0) ? p : 16;
+  }
+
+  function cw() {
+    return items[0].offsetWidth + getGap();
+  }
+
+  function maxScroll() {
+    return Math.max(0, track.scrollWidth - track.clientWidth);
+  }
+
+  function totalSteps() {
+    var m = maxScroll();
+    return m > 0 ? Math.round(m / cw()) : 0;
+  }
+
+  function goToStep(idx) {
+    var t = totalSteps();
+    idx = Math.max(0, Math.min(idx, t));
+    currentIndex = idx;
+    track.scrollTo({ left: idx * cw(), behavior: 'smooth' });
+    updateDots(idx);
+  }
+
+  function nextStep() {
+    if (isPaused) return;
+    var t = totalSteps();
+    var nextIdx = (currentIndex >= t ? 0 : currentIndex + 1);
+    goToStep(nextIdx);
+  }
+
+  function updateDots(idx) {
+    var d = document.getElementById(trackId + '-dots');
+    if (!d) return;
+    var dots = d.querySelectorAll('.carousel-dot');
+    for (var i = 0; i < dots.length; i++)
+      dots[i].classList.toggle('active', i === idx);
+  }
+
+  function createDots() {
+    var d = document.getElementById(trackId + '-dots');
+    if (!d) return;
+    var t = totalSteps() + 1;
+    d.innerHTML = '';
+    for (var i = 0; i < t; i++) {
+      (function(idx) {
+        var btn = document.createElement('button');
+        btn.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+        btn.onclick = function() {
+          goToStep(idx);
+        };
+        d.appendChild(btn);
+      })(i);
+    }
+  }
+
+  var wrap = track.closest('.carousel-wrap');
+  if (wrap) {
+    var pb = wrap.querySelector('.prev'),
+        nb = wrap.querySelector('.next');
+    if (pb) pb.onclick = function() {
+      var t = totalSteps();
+      var prevIdx = (currentIndex <= 0 ? t : currentIndex - 1);
+      goToStep(prevIdx);
+    };
+    if (nb) nb.onclick = function() {
+      var t = totalSteps();
+      var nextIdx = (currentIndex >= t ? 0 : currentIndex + 1);
+      goToStep(nextIdx);
+    };
+    wrap.addEventListener('mouseenter', function() {
+      isPaused = true;
+    });
+    wrap.addEventListener('mouseleave', function() {
+      isPaused = false;
+    });
+  }
+
+  track.addEventListener('touchstart', function() {
+    isPaused = true;
+  }, { passive: true });
+  track.addEventListener('touchend', function() {
+    setTimeout(function() {
+      isPaused = false;
+    }, 2000);
+  }, { passive: true });
+
+  var st;
+  track.addEventListener('scroll', function() {
+    clearTimeout(st);
+    st = setTimeout(function() {
+      var t = totalSteps();
+      currentIndex = Math.round(track.scrollLeft / cw());
+      currentIndex = Math.max(0, Math.min(currentIndex, t));
+      updateDots(currentIndex);
+    }, 80);
+  }, { passive: true });
+
+  createDots();
+  carouselIntervals.push(setInterval(nextStep, interval));
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      goToStep(currentIndex);
+    }, 150);
+  });
+}
+
+function initVideoCards() {
+  document.querySelectorAll('.video-card').forEach(function(card) {
+    var ph = card.querySelector('.video-placeholder'),
+        ifr = card.querySelector('.video-iframe');
+    if (ph && ifr) {
+      ph.onclick = function(e) {
+        e.stopPropagation();
+        card.classList.add('active');
+        ifr.src = ifr.src;
+      };
+    }
+  });
+}
+
+/* ================================================================
+🧩 HTML COMPONENTS
+================================================================ */
+function navbar() {
+  var L = [
+    { p: '/', l: t('nav.home') },
+    { p: '/about', l: t('nav.about') },
+    { p: '/products', l: t('nav.products') },
+    { p: '/news', l: t('nav.news') },
+    { p: '/contact', l: t('nav.contact') }
+  ];
+  var dl = L.map(function(l) {
+    return '<a href="#' + l.p + '" class="nav-link ' + (route === l.p || (l.p !== '/' && route.startsWith(l.p)) ? 'active' : '') + '" onclick="nav(\'' + l.p + '\')">' + l.l + '</a>';
+  }).join('');
+  var ml = L.map(function(l) {
+    return '<a href="#' + l.p + '" class="nav-link ' + (route === l.p ? 'active' : '') + '" onclick="nav(\'' + l.p + '\')">' + l.l + '</a>';
+  }).join('');
+  var logo = getCurrentLogo();
+  return '<nav class="navbar" id="navbar"><div class="nav-inner"><a href="#/" class="nav-logo" onclick="nav(\'/\')"><img src="' + logo.src + '" alt="' + logo.alt + '" width="' + logo.width + '" height="' + logo.height + '" style="display:block;max-height:' + logo.height + 'px;width:auto;"></a><div class="nav-links">' + dl + '<button class="lang-btn" onclick="event.preventDefault();toggleLang()"><i class="fas fa-globe"></i> <span class="btn-text">' + getLangDisplay() + '</span></button></div><button class="hamburger ' + (mobOpen ? 'open' : '') + '" id="ham-btn" onclick="toggleMob()"><span></span><span></span><span></span></button></div></nav><div class="mob-menu ' + (mobOpen ? 'open' : '') + '" id="mob-menu">' + ml + '<button class="lang-btn" onclick="toggleLang()"><i class="fas fa-globe"></i> <span class="btn-text">' + getLangDisplay() + '</span></button></div>';
+}
+
+function footer() {
+  var NL = [
+    { p: '/', l: t('nav.home') },
+    { p: '/about', l: t('nav.about') },
+    { p: '/products', l: t('nav.products') },
+    { p: '/news', l: t('nav.news') },
+    { p: '/contact', l: t('nav.contact') }
+  ];
+  var ql = NL.map(function(l) {
+    return '<a href="#' + l.p + '" class="footer-link" onclick="nav(\'' + l.p + '\')">' + l.l + '</a>';
+  }).join('');
+  var cl = CATS.map(function(c) {
+    return '<a href="#/products/' + c.id + '" class="footer-link" onclick="nav(\'/products/' + c.id + '\')">' + pn({ ar: c.ar, en: c.en, fr: c.fr }) + '</a>';
+  }).join('');
+  var logo = getCurrentLogo();
+  return '<footer class="footer"><div class="container"><div class="footer-grid"><div><a href="#/" class="nav-logo" onclick="nav(\'/\')" style="margin-bottom:14px;display:inline-block"><img src="' + logo.src + '" alt="' + logo.alt + '" width="' + logo.width + '" height="' + logo.height + '" style="display:block;max-height:' + logo.height + 'px;width:auto;"></a><p class="footer-brand-desc">' + t('footer.desc') + '</p><div class="footer-socials"><a href="#" class="footer-soc"><i class="fab fa-facebook-f"></i></a><a href="#" class="footer-soc"><i class="fab fa-instagram"></i></a><a href="#" class="footer-soc"><i class="fab fa-linkedin-in"></i></a><a href="#" class="footer-soc"><i class="fab fa-x-twitter"></i></a></div></div><div><h4 class="footer-heading">' + t('footer.quick') + '</h4><div class="footer-links">' + ql + '</div></div><div><h4 class="footer-heading">' + t('footer.prodLinks') + '</h4><div class="footer-links">' + cl + '</div></div><div><h4 class="footer-heading">' + t('footer.contactUs') + '</h4><div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>' + t('contact.info.addressVal') + '</span></div><div class="footer-contact-item"><i class="fas fa-phone"></i><span>' + t('contact.info.phoneVal').split('\n')[0] + '</span></div><div class="footer-contact-item"><i class="fas fa-envelope"></i><span>' + t('contact.info.emailVal') + '</span></div><div class="footer-contact-item"><i class="fas fa-clock"></i><span>' + t('contact.info.hoursVal') + '</span></div></div></div><div class="footer-bottom"><span>' + t('footer.copy') + '</span><span>' + t('footer.made') + '</span></div></div></footer>';
+}
+
+function waFloat() {
+  return '<a href="https://wa.me/201098765432" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>';
+}
+
+function catCardHTML(c) {
+  return '<div class="cat-card" onclick="nav(\'/products/' + c.id + '\')"><div class="cat-icon" style="background:' + c.bg + ';color:' + c.color + '"><i class="fas ' + c.icon + '"></i></div><h3 class="cat-name">' + pn({ ar: c.ar, en: c.en, fr: c.fr }) + '</h3><p class="cat-desc">' + pn({ ar: c.arDesc, en: c.enDesc, fr: c.frDesc }) + '</p></div>';
+}
+
+function prodCardHTML(p) {
+  var c = gc(p.cat),
+      cn = pn({ ar: c.ar, en: c.en, fr: c.fr });
+  var wt = encodeURIComponent((lang === 'ar' ? 'استفسار عن: ' : 'Inquiry: ') + pn(p));
+  return '<div class="prod-card"><div class="prod-img" style="background:linear-gradient(135deg,' + c.color + '22,' + c.bg + ')"><img src="' + p.img + '" alt="' + pn(p) + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'" loading="lazy"><i class="fas ' + c.icon + ' prod-icon-fb"></i><span class="prod-badge-cat">' + cn + '</span><span class="prod-badge-eg"><i class="fas fa-map-marker-alt" style="font-size:9px"></i> ' + t('egypt') + '</span></div><div class="prod-body"><h3 class="prod-name">' + pn(p) + '</h3><p class="prod-desc">' + pd(p) + '</p><div class="prod-footer"><span class="prod-packaging">' + t('packaging') + '</span><a href="https://wa.me/201098765432?text=' + wt + '" target="_blank" class="prod-inquiry"><i class="fab fa-whatsapp" style="font-size:11px"></i> ' + t('featured.inquiry') + '</a></div></div></div>';
+}
+
+function newsCardHTML(n) {
+  var dv = pn(n.date),
+      lv = pn(n.location),
+      ti = pn(n),
+      de = pn({ ar: n.arD, en: n.enD, fr: n.frD });
+  var wt = encodeURIComponent((lang === 'ar' ? 'استفسار عن: ' : 'Inquiry: ') + ti);
+  var af = lang === 'ar' ? '' : 'transform:rotate(180deg)';
+  return '<div class="news-card"><div class="news-img" style="background-image:url(\'https://picsum.photos/seed/' + n.img + '/600/400.jpg\')"><span class="news-date-badge"><i class="fas fa-calendar-alt" style="font-size:11px;color:var(--brand)"></i> ' + dv + '</span><span class="news-loc-badge"><i class="fas fa-map-marker-alt" style="font-size:10px"></i> ' + lv + '</span></div><div class="news-body"><h3 class="news-title">' + ti + '</h3><p class="news-desc">' + de + '</p><div class="news-footer"><a href="#/news" class="news-link" onclick="nav(\'/news\')">' + t('news.readMore') + ' <i class="fas fa-arrow-left" style="font-size:11px;' + af + '"></i></a><a href="https://wa.me/201098765432?text=' + wt + '" target="_blank" class="news-inquiry"><i class="fab fa-whatsapp" style="font-size:11px"></i> ' + t('news.inquiry') + '</a></div></div></div>';
+}
+
+function galleryCardHTML(i) {
+  return '<div class="gallery-card"><img src="' + i.img + '" alt="' + pn({ ar: i.ar, en: i.en, fr: i.fr }) + '" loading="lazy"><div class="gallery-card-overlay"><div class="gallery-card-title">' + pn({ ar: i.ar, en: i.en, fr: i.fr }) + '</div></div></div>';
+}
+
+function videoCardHTML(v) {
+  return '<div class="video-card"><div class="video-placeholder"><img src="' + v.thumb + '" alt="' + pn(v.title) + '" loading="lazy"><div class="play-overlay"><div class="video-play-btn"><i class="fas fa-play"></i></div></div></div><iframe class="video-iframe" src="' + v.url + '" title="' + pn(v.title) + '" loading="lazy" allow="autoplay; encrypted-media" allowfullscreen></iframe><div class="video-card-title">' + pn(v.title) + '</div></div>';
+}
+
+function carouselWrapHTML(id, html, type) {
+  return '<div class="carousel-wrap ' + type + '-carousel"><div class="carousel-arrow prev"><i class="fas ' + arrowDir('prev') + '"></i></div><div class="carousel-track" id="' + id + '">' + html + '</div><div class="carousel-arrow next"><i class="fas ' + arrowDir('next') + '"></i></div><div class="carousel-dots" id="' + id + '-dots"></div></div>';
+}
+
+/* ================================================================
+📄 PAGES
+================================================================ */
+function pageHome() {
+  var cc = CATS.map(catCardHTML).join(''),
+      pc = PRODS.slice(0, 8).map(prodCardHTML).join(''),
+      nc = NEWS.map(newsCardHTML).join(''),
+      gal = COMPANY_IMGS.map(galleryCardHTML).join(''),
+      vid = VIDEOS.map(videoCardHTML).join('');
+  var wi = ['fa-award', 'fa-certificate', 'fa-handshake', 'fa-cogs'],
+      wk = ['w1', 'w2', 'w3', 'w4'],
+      wc = '';
+  for (var i = 0; i < 4; i++)
+    wc += '<div class="why-card anim d' + (i + 1) + '"><div class="why-icon"><i class="fas ' + wi[i] + '"></i></div><h3 class="why-title">' + t('why.' + wk[i] + '.title') + '</h3><p class="why-desc">' + t('why.' + wk[i] + '.desc') + '</p></div>';
+  return navbar() +
+    '<section class="hero"><div class="hero-video-wrap"><video autoplay muted loop playsinline preload="metadata" poster="https://picsum.photos/seed/almasa-hero/1920/1080.jpg" style="opacity:0.30"><source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"></video></div><div class="hero-video-overlay"></div><div class="hero-pattern"></div><div class="hero-content"><div class="hero-badge"><i class="fas fa-diamond" style="font-size:10px"></i> ' + t('hero.badge') + '</div><h1 class="hero-title"><span class="gold">' + t('hero.title1') + '</span></h1><p class="hero-tagline">' + t('hero.tagline') + '</p><p class="hero-sub">' + t('hero.sub') + '</p><div class="hero-actions"><a href="#/products" class="btn btn-brand btn-lg" onclick="nav(\'/products\')"><i class="fas fa-box-open"></i> ' + t('hero.cta1') + '</a><a href="#/contact" class="btn btn-outline btn-lg" onclick="nav(\'/contact\')"><i class="fas fa-envelope"></i> ' + t('hero.cta2') + '</a></div><div class="hero-stats" id="hero-stats"><div class="hero-stat"><div class="hero-stat-num"><span data-target="30">0</span>+</div><div class="hero-stat-label">' + t('stats.clients') + '</div></div><div class="hero-stat"><div class="hero-stat-num"><span data-target="25">0</span>+</div><div class="hero-stat-label">' + t('stats.products') + '</div></div><div class="hero-stat"><div class="hero-stat-num"><span data-target="6">0</span>+</div><div class="hero-stat-label">' + t('stats.years') + '</div></div><div class="hero-stat"><div class="hero-stat-num"><span data-target="15">0</span>+</div><div class="hero-stat-label">' + t('stats.countries') + '</div></div></div></div><div class="hero-scroll" onclick="window.scrollBy({top: window.innerHeight - 72, behavior: \'smooth\'})"><i class="fas fa-chevron-down"></i><span>' + t('hero.scroll') + '</span></div></div></section>' +
+    '<section class="home-gallery-strip"><div class="gallery-track" id="home-gallery-track">' + gal + '</div></section>' +
+    '<section class="video-gallery-section"><div class="container"><div class="sec-head anim"><div class="sec-label"><i class="fas fa-video"></i></div><h2 class="sec-title">' + t('about.videos.title') + '</h2><p class="sec-desc">' + t('about.videos.desc') + '</p></div>' + carouselWrapHTML('video-track', vid, 'video') + '</div></section>' +
+    '<section class="section" style="background:var(--bg-white)"><div class="container"><div class="sec-head anim"><div class="sec-label"><i class="fas fa-th-large"></i></div><h2 class="sec-title">' + t('cats.title') + '</h2><p class="sec-desc">' + t('cats.desc') + '</p></div><div class="cats-grid cats-grid-desktop">' + cc + '</div>' + carouselWrapHTML('cats-track', cc, 'cats') + '</div></section>' +
+    '<section class="section"><div class="container"><div class="sec-head anim"><div class="sec-label"><i class="fas fa-star"></i></div><h2 class="sec-title">' + t('featured.title') + '</h2><p class="sec-desc">' + t('featured.desc') + '</p></div><div class="prods-grid prods-grid-desktop">' + pc + '</div>' + carouselWrapHTML('prods-track', pc, 'prods') + '<div class="view-all-wrap anim"><a href="#/products" class="btn btn-outline" onclick="nav(\'/products\')">' + t('featured.viewAll') + ' <i class="fas fa-arrow-left" style="' + (lang === 'ar' ? '' : 'transform:rotate(180deg)') + '"></i></a></div></div></section>' +
+    '<section class="section" style="background:var(--bg-white)"><div class="container"><div class="sec-head anim"><div class="sec-label"><i class="fas fa-newspaper"></i></div><h2 class="sec-title">' + t('news.homeTitle') + '</h2><p class="sec-desc">' + t('news.homeDesc') + '</p></div><div class="news-grid news-grid-desktop">' + nc + '</div>' + carouselWrapHTML('news-track', nc, 'news') + '<div class="view-all-wrap anim"><a href="#/news" class="btn btn-outline" onclick="nav(\'/news\')">' + t('news.viewAll') + ' <i class="fas fa-arrow-left" style="' + (lang === 'ar' ? '' : 'transform:rotate(180deg)') + '"></i></a></div></div></section>' +
+    '<section class="section"><div class="container"><div class="sec-head anim"><div class="sec-label"><i class="fas fa-trophy"></i></div><h2 class="sec-title">' + t('why.title') + '</h2><p class="sec-desc">' + t('why.desc') + '</p></div><div class="why-grid">' + wc + '</div></div></section>' +
+    '<section class="cta-banner"><div class="container cta-content"><h2 class="cta-title">' + t('cta.title') + '</h2><p class="cta-desc">' + t('cta.desc') + '</p><a href="#/contact" class="btn btn-white btn-lg" onclick="nav(\'/contact\')">' + t('cta.btn') + ' <i class="fas fa-arrow-left" style="' + (lang === 'ar' ? '' : 'transform:rotate(180deg)') + '"></i></a></div></section>' +
+    footer() + waFloat();
+}
+
+function pageNews() {
+  var af = lang === 'ar' ? '' : 'transform:rotate(180deg)',
+      nc = NEWS.map(function(n, i) {
+        return '<div class="anim d' + ((i % 3) + 1) + '">' + newsCardHTML(n) + '</div>';
+      }).join('');
+  return navbar() +
+    '<section class="page-hero"><div class="page-hero-bg"></div><div class="page-hero-pattern"></div><div class="page-hero-content"><div class="breadcrumb"><a href="#/" onclick="nav(\'/\')">' + t('nav.home') + '</a><span class="sep">/</span><span>' + t('nav.news') + '</span></div><h1 class="page-hero-title"><span class="gold">' + t('news.title') + '</span></h1><p class="page-hero-desc">' + t('news.desc') + '</p></div></section>' +
+    '<section class="section"><div class="container"><div class="news-grid">' + nc + '</div></div></section>' +
+    '<section class="cta-banner"><div class="container cta-content"><h2 class="cta-title">' + t('cta.title') + '</h2><p class="cta-desc">' + t('cta.desc') + '</p><a href="#/contact" class="btn btn-white btn-lg" onclick="nav(\'/contact\')">' + t('cta.btn') + ' <i class="fas fa-arrow-left" style="' + af + '"></i></a></div></section>' +
+    footer() + waFloat();
+}
+
+function pageAbout() {
+  var st = t('about.milestones.items'),
+      sc = '';
+  for (var i = 0; i < st.length; i++) {
+    var e = st[i];
+    sc += '<div class="story-card anim d' + ((i % 4) + 1) + '"><div class="story-card-date"><span class="story-card-year">' + e.y + '</span></div><div><h4 class="story-card-title">' + (lang === 'ar' ? e.ar : (lang === 'fr' ? e.fr : e.en)) + '</h4></div></div>';
+  }
+  var mi = ['fa-rocket', 'fa-eye', 'fa-handshake'],
+      mc = ['#3d7a4a', '#9b7a4d', '#7b4a8a'],
+      mb = ['#e8f5e9', '#faf3e8', '#f3e5f5'],
+      mk = ['mission', 'vision', 'promise'],
+      mv = '';
+  for (var i = 0; i < 3; i++)
+    mv += '<div class="mvp-card anim d' + (i + 1) + '"><div class="mvp-icon" style="background:' + mb[i] + ';color:' + mc[i] + '"><i class="fas ' + mi[i] + '"></i></div><h3 class="mvp-title">' + t('about.mvp.' + mk[i] + '.title') + '</h3><p class="mvp-desc">' + t('about.mvp.' + mk[i] + '.desc') + '</p></div>';
+  var gal = COMPANY_IMGS.map(galleryCardHTML).join(''),
+      vid = VIDEOS.map(videoCardHTML).join('');
+  var vi = ['fa-award', 'fa-certificate', 'fa-handshake', 'fa-cogs'],
+      vk = ['v1', 'v2', 'v3', 'v4'],
+      vl = '';
+  for (var i = 0; i < 4; i++)
+    vl += '<div class="val-card anim d' + ((i % 2) + 1) + '"><div class="val-icon"><i class="fas ' + vi[i] + '"></i></div><div><h4 class="val-title">' + t('about.values.' + vk[i] + '.title') + '</h4><p class="val-desc">' + t('about.values.' + vk[i] + '.desc') + '</p></div></div>';
+  var tm = '';
+  for (var i = 0; i < TEAM.length; i++) {
+    var m = TEAM[i],
+        mn = lang === 'ar' ? m.name : (lang === 'fr' ? m.fr : m.en),
+        mr = lang === 'ar' ? m.role : (lang === 'fr' ? m.frRole : m.enRole);
+    if (m.img) {
+      tm += '<div class="team-card anim d' + (i + 1) + '"><div class="team-avatar"><img src="' + m.img + '" alt="' + mn + '" onerror="this.style.display=\'none\';this.parentElement.textContent=\'' + mn.charAt(0) + '\'"></div><h3 class="team-name">' + mn + '</h3><p class="team-role">' + mr + '</p></div>';
+    } else {
+      var in2 = mn.charAt(0);
+      tm += '<div class="team-card anim d' + (i + 1) + '"><div class="team-avatar" style="background:linear-gradient(135deg,' + m.color + ',' + m.color + 'bb)">' + in2 + '</div><h3 class="team-name">' + mn + '</h3><p class="team-role">' + mr + '</p></div>';
+    }
+  }
+  var ci = '';
+  for (var i = 0; i < CERTS.length; i++)
+    ci += '<div class="cert-badge anim d' + ((i % 5) + 1) + '"><div class="cert-icon"><i class="fas ' + CERTS[i].i + '"></i></div><span class="cert-name">' + CERTS[i].n + '</span></div>';
+  var af = lang === 'ar' ? '' : 'transform:rotate(180deg)';
+  return navbar() +
+    '<section class="page-hero"><div class="page-hero-bg"></div><div class="page-hero-pattern"></div><div class="page-hero-content"><div class="breadcrumb"><a href="#/" onclick="nav(\'/\')">' + t('nav.home') + '</a><span class="sep">/</span><span>' + t('nav.about') + '</span></div><h1 class="page-hero-title"><span class="gold">' + t('about.hero') + '</span></h1><p class="page-hero-desc">' + t('about.heroDesc') + '</p></div></section>' +
+    '<section class="diamond-stories-section"><div class="container"><div class="sec-head anim"><div class="sec-label"><i class="fas fa-gem"></i></div><h2 class="sec-title">' + t('about.story.title') + '</h2></div><div class="diamond-stories-grid"><div class="diamond-story-content anim"><p class="story-text">' + t('about.story.text1') + '</p><p class="story-text">' + t('about.story.text2') + '</p><p class="story-text">' + t('about.story.text3') + '</p></div><div class="story-cards">' + sc + '</div></div></div></section>' +
+    '<section class="gallery-section"><div class="container"><div class="sec-head anim"><div class="sec-label"><i class="fas fa-images"></i></div><h2 class="sec-title">' + t('about.gallery.title') + '</h2><p class="sec-desc">' + t('about.gallery.desc') + '</p></div>' + carouselWrapHTML('about-gallery-track', gal, 'gallery') + '</div></section>' +
+    '<section class="video-gallery-section"><div class="container"><div class="sec-head anim"><div class="sec-label"><i class="fas fa-video"></i></div><h2 class="sec-title">' + t('about.videos.title') + '</h2><p class="sec-desc">' + t('about.videos.desc') + '</p></div>' + carouselWrapHTML('about-video-track', vid, 'video') + '</div></section>' +
+    '<section class="section" style="background:var(--bg-white)"><div class="container"><div class="sec-head anim"><div class="sec-label"><i class="fas fa-bullseye"></i></div><h2 class="sec-title">' + t('about.mvp.title') + '</h2></div><div class="mvp-grid">' + mv + '</div></div></section>' +
+    '<section class="section"><div class="container"><div class="sec-head anim"><div class="sec-label"><i class="fas fa-heart"></i></div><h2 class="sec-title">' + t('about.values.title') + '</h2></div><div class="vals-grid">' + vl + '</div></div></section>' +
+    '<section class="section" style="background:var(--bg-white)"><div class="container"><div class="sec-head anim"><div class="sec-label"><i class="fas fa-user-tie"></i></div><h2 class="sec-title">' + t('about.team.title') + '</h2><p class="sec-desc">' + t('about.team.desc') + '</p></div><div class="team-grid">' + tm + '</div></div></section>' +
+    '<section class="section"><div class="container"><div class="sec-head anim"><div class="sec-label"><i class="fas fa-certificate"></i></div><h2 class="sec-title">' + t('about.certs.title') + '</h2><p class="sec-desc">' + t('about.certs.desc') + '</p></div><div class="certs-grid">' + ci + '</div></div></section>' +
+    '<section class="cta-banner"><div class="container cta-content"><h2 class="cta-title">' + t('cta.title') + '</h2><p class="cta-desc">' + t('cta.desc') + '</p><a href="#/contact" class="btn btn-white btn-lg" onclick="nav(\'/contact\')">' + t('cta.btn') + ' <i class="fas fa-arrow-left" style="' + af + '"></i></a></div></section>' +
+    footer() + waFloat();
+}
+
+function pageProducts() {
+  var fb = '<button class="filter-btn active" data-cat="all" onclick="filterProds(\'all\',this)">' + t('products.all') + '</button>';
+  for (var i = 0; i < CATS.length; i++) {
+    var c = CATS[i];
+    fb += '<button class="filter-btn" data-cat="' + c.id + '" onclick="filterProds(\'' + c.id + '\',this)">' + pn({ ar: c.ar, en: c.en, fr: c.fr }) + '</button>';
+  }
+  return navbar() +
+    '<section class="page-hero"><div class="page-hero-bg"></div><div class="page-hero-pattern"></div><div class="page-hero-content"><div class="breadcrumb"><a href="#/" onclick="nav(\'/\')">' + t('nav.home') + '</a><span class="sep">/</span><span>' + t('nav.products') + '</span></div><h1 class="page-hero-title"><span class="gold">' + t('products.hero') + '</span></h1><p class="page-hero-desc">' + t('products.heroDesc') + '</p></div></section>' +
+    '<div class="filter-bar"><div class="container"><div class="filter-list" id="filter-list">' + fb + '</div></div></div>' +
+    '<section class="section" style="padding-top:36px"><div class="container"><div class="prods-grid" id="prods-grid">' + PRODS.map(prodCardHTML).join('') + '</div></div></section>' +
+    footer() + waFloat();
+}
+
+function filterProds(catId, btn) {
+  document.querySelectorAll('.filter-btn').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  btn.classList.add('active');
+  var grid = document.getElementById('prods-grid');
+  var prods = catId === 'all' ? PRODS : PRODS.filter(function(p) {
+    return p.cat === catId;
+  });
+  grid.innerHTML = prods.map(prodCardHTML).join('');
+  history.replaceState(null, null, '#' + (catId === 'all' ? '/products' : '/products?cat=' + catId));
+  observeAnims();
+}
+
+function pageCat(catId) {
+  var c = gc(catId);
+  if (!c) return pageHome();
+  var prods = gpc(catId),
+      ql = '';
+  for (var i = 0; i < CATS.length; i++) {
+    var cat = CATS[i];
+    ql += '<a href="#/products/' + cat.id + '" class="cat-quick-link' + (cat.id === catId ? ' active' : '') + '" onclick="nav(\'/products/' + cat.id + '\')"><i class="fas ' + cat.icon + '" style="margin-inline-end:5px;color:' + cat.color + '"></i>' + pn({ ar: cat.ar, en: cat.en, fr: cat.fr }) + '</a>';
+  }
+  return navbar() +
+    '<section class="page-hero"><div class="page-hero-bg"></div><div class="page-hero-pattern"></div><div class="page-hero-content"><div class="breadcrumb"><a href="#/" onclick="nav(\'/\')">' + t('nav.home') + '</a><span class="sep">/</span><a href="#/products" onclick="nav(\'/products\')">' + t('nav.products') + '</a><span class="sep">/</span><span>' + pn({ ar: c.ar, en: c.en, fr: c.fr }) + '</span></div><h1 class="page-hero-title"><span style="color:' + c.color + '"><i class="fas ' + c.icon + '" style="margin-inline-end:10px"></i></span><span class="gold">' + pn({ ar: c.ar, en: c.en, fr: c.fr }) + '</span></h1><p class="page-hero-desc">' + prods.length + ' ' + t('cats.count') + '</p></div></section>' +
+    '<section style="padding:20px 0;background:var(--bg-white);border-bottom:1px solid var(--border-light)"><div class="container"><div class="cat-quick-links">' + ql + '</div></div></section>' +
+    '<section class="section"><div class="container"><div class="prods-grid">' + prods.map(prodCardHTML).join('') + '</div></div></section>' +
+    footer() + waFloat();
+}
+
+function pageContact() {
+  var er = lang === 'ar' ? 'هذا الحقل مطلوب' : 'Required',
+      ee = lang === 'ar' ? 'بريد إلكتروني غير صحيح' : 'Invalid email';
+  return navbar() +
+    '<section class="page-hero"><div class="page-hero-bg"></div><div class="page-hero-pattern"></div><div class="page-hero-content"><div class="breadcrumb"><a href="#/" onclick="nav(\'/\')">' + t('nav.home') + '</a><span class="sep">/</span><span>' + t('nav.contact') + '</span></div><h1 class="page-hero-title"><span class="gold">' + t('contact.hero') + '</span></h1><p class="page-hero-desc">' + t('contact.heroDesc') + '</p></div></section>' +
+    '<section class="section"><div class="container"><div class="contact-grid"><div class="contact-info"><div class="c-card anim"><div class="c-card-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="c-card-label">' + t('contact.info.address') + '</div><div class="c-card-value">' + t('contact.info.addressVal') + '</div></div></div><div class="c-card anim d1"><div class="c-card-icon"><i class="fas fa-phone"></i></div><div><div class="c-card-label">' + t('contact.info.phone') + '</div><div class="c-card-value">' + t('contact.info.phoneVal').split('\n').join('<br>') + '</div></div></div><div class="c-card anim d2"><div class="c-card-icon"><i class="fas fa-envelope"></i></div><div><div class="c-card-label">' + t('contact.info.email') + '</div><div class="c-card-value">' + t('contact.info.emailVal') + '</div></div></div><div class="c-card anim d3"><div class="c-card-icon"><i class="fas fa-clock"></i></div><div><div class="c-card-label">' + t('contact.info.hours') + '</div><div class="c-card-value">' + t('contact.info.hoursVal') + '</div></div></div><div class="contact-socials anim d4"><span>' + t('contact.socials') + '</span><a href="#" class="soc-link"><i class="fab fa-facebook-f"></i></a><a href="#" class="soc-link"><i class="fab fa-instagram"></i></a><a href="#" class="soc-link"><i class="fab fa-linkedin-in"></i></a><a href="#" class="soc-link"><i class="fab fa-x-twitter"></i></a></div><a href="https://wa.me/201098765432" target="_blank" class="btn btn-wa btn-lg anim d5" style="width:100%;justify-content:center;margin-top:4px"><i class="fab fa-whatsapp"></i> ' + t('contact.waBtn') + '</a></div><div class="form-card anim d2"><h3 style="font-size:19px;font-weight:700;color:var(--text-dark);margin-bottom:24px">' + t('contact.form.title') + '</h3><form id="c-form" onsubmit="submitForm(event)"><div class="form-row"><div class="form-group" id="fg-n"><label class="form-label">' + t('contact.form.name') + '</label><input class="form-input" id="f-n" required><div class="form-error">' + er + '</div></div><div class="form-group" id="fg-e"><label class="form-label">' + t('contact.form.email') + '</label><input type="email" class="form-input" id="f-e" required><div class="form-error">' + ee + '</div></div></div><div class="form-group" id="fg-p"><label class="form-label">' + t('contact.form.phone') + '</label><input type="tel" class="form-input" id="f-p" placeholder="' + (lang === 'ar' ? 'أدخل رقم الهاتف' : 'Enter phone number') + '"></div><div class="form-group" id="fg-m"><label class="form-label">' + t('contact.form.message') + '</label><textarea class="form-textarea" id="f-m" rows="5" required></textarea><div class="form-error">' + er + '</div></div><button type="submit" class="btn btn-brand btn-lg" style="width:100%;justify-content:center"><i class="fas fa-paper-plane"></i> ' + t('contact.form.submit') + '</button></form><div class="form-success" id="form-ok"><div class="form-success-icon"><i class="fas fa-check"></i></div><h3 class="form-success-title">' + t('contact.form.okTitle') + '</h3><p class="form-success-desc">' + t('contact.form.okDesc') + '</p><button class="btn btn-outline btn-sm" style="margin-top:18px" onclick="resetForm()">' + t('contact.form.again') + '</button></div></div></div></div></section>' +
+    '<section class="section" style="padding-top:0;background:var(--bg-white)"><div class="container"><div class="map-section anim"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.789012345678!2d30.290583!3d30.885778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDUzJzA4LjgiTiAzMMKwMTcnMjYuMSJF!5e0!3m2!1sen!2seg!4v1234567890123!5m2!1sen!2seg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><div class="map-label"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/os2NaPWt4A4FEs8Y6" target="_blank" style="color:inherit">' + t('contact.mapLabel') + ' - ' + t('contact.mapOpen') + '</a></div></div></div></section>' +
+    footer() + waFloat();
+}
+
+function submitForm(e) {
+  e.preventDefault();
+  var ok = true;
+  ['fg-n', 'fg-e', 'fg-m'].forEach(function(id) {
+    document.getElementById(id).classList.remove('err');
+  });
+  if (!document.getElementById('f-n').value.trim()) {
+    document.getElementById('fg-n').classList.add('err');
+    ok = false;
+  }
+  var emailVal = document.getElementById('f-e').value.trim();
+  if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+    document.getElementById('fg-e').classList.add('err');
+    ok = false;
+  }
+  if (!document.getElementById('f-m').value.trim()) {
+    document.getElementById('fg-m').classList.add('err');
+    ok = false;
+  }
+  if (ok) {
+    document.getElementById('c-form').style.display = 'none';
+    document.getElementById('form-ok').classList.add('show');
+  }
+}
+
+function resetForm() {
+  document.getElementById('c-form').style.display = 'block';
+  document.getElementById('form-ok').classList.remove('show');
+  document.getElementById('c-form').reset();
+}
+
+/* ================================================================
+🚀 RENDER & INIT
+================================================================ */
+function render() {
+  stopCarousels();
+  applyLang();
+  var app = document.getElementById('app'),
+      hash = (location.hash.slice(1)) || '/';
+  if (hash !== route) route = hash;
+  var html = '';
+  if (route === '/' || route === '') html = pageHome();
+  else if (route === '/about') html = pageAbout();
+  else if (route === '/news') html = pageNews();
+  else if (route === '/products') {
+    html = pageProducts();
+    var up = new URLSearchParams(location.hash.split('?')[1]),
+        cp = up.get('cat');
+    if (cp) setTimeout(function() {
+      var b = document.querySelector('.filter-btn[data-cat="' + cp + '"]');
+      if (b) filterProds(cp, b);
+    }, 50);
+  } else if (route.startsWith('/products/')) html = pageCat(route.replace('/products/', ''));
+  else if (route === '/contact') html = pageContact();
+  else html = pageHome();
+  app.innerHTML = html;
+  observeAnims();
+  observeNav();
+  animCounters();
+  initVideoCards();
+  setTimeout(function() {
+    initCarousel('cats-track', 3000);
+    initCarousel('prods-track', 3500);
+    initCarousel('news-track', 4000);
+    initCarousel('home-gallery-track', 3500);
+    initCarousel('about-gallery-track', 3500);
+    initCarousel('video-track', 4500);
+    initCarousel('about-video-track', 4500);
+  }, 100);
+}
+
+function observeAnims() {
+  var obs = new IntersectionObserver(function(es) {
+    es.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('vis');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.anim').forEach(function(el) {
+    obs.observe(el);
+  });
+}
+
+function observeNav() {
+  var nb = document.getElementById('navbar');
+  if (!nb) return;
+  var tk = false;
+  window.onscroll = function() {
+    if (!tk) {
+      requestAnimationFrame(function() {
+        nb.classList.toggle('scrolled', scrollY > 40);
+        tk = false;
+      });
+      tk = true;
+    }
+  };
+  nb.classList.toggle('scrolled', scrollY > 40);
+}
+
+function animCounters() {
+  var s = document.getElementById('hero-stats');
+  if (!s || statsDone) return;
+  var obs = new IntersectionObserver(function(es) {
+    es.forEach(function(e) {
+      if (e.isIntersecting && !statsDone) {
+        statsDone = true;
+        document.querySelectorAll('.hero-stat-num span[data-target]').forEach(function(el) {
+          var tgt = +el.dataset.target,
+              dur = 2000,
+              st = performance.now();
+          function step(now) {
+            var p = Math.min((now - st) / dur, 1);
+            el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * tgt);
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = tgt;
+          }
+          requestAnimationFrame(step);
+        });
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  obs.observe(s);
+}
+
+window.addEventListener('hashchange', function() {
+  var h = (location.hash.slice(1)) || '/';
+  if (h !== route) {
+    route = h;
+    statsDone = false;
+    render();
+    scrollTo({ top: 0 });
+  }
+});
+window.addEventListener('resize', function() {
+  stopCarousels();
+  setTimeout(function() {
+    initCarousel('cats-track', 3000);
+    initCarousel('prods-track', 3500);
+    initCarousel('news-track', 4000);
+    initCarousel('home-gallery-track', 3500);
+    initCarousel('about-gallery-track', 3500);
+    initCarousel('video-track', 4500);
+    initCarousel('about-video-track', 4500);
+  }, 100);
+});
+render();
+</script>
+</body>
+</html>

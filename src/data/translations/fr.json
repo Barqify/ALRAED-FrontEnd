@@ -1,0 +1,202 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "products": "Produits",
+    "news": "Actualités",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Depuis 2000 — Des décennies d'excellence à l'export",
+    "title1": "ALMASA CROPS",
+    "tagline": "Nous cultivons la confiance... et exportons l'excellence.",
+    "sub": "Une entreprise leader avec une expérience depuis 2000 dans la transformation et l'exportation des meilleurs produits agricoles égyptiens. Nous sommes fiers de notre partenariat avec plus de 30 importateurs mondiaux dans 15 pays, engagés envers les plus hautes normes internationales de pureté et de qualité.",
+    "cta1": "Découvrir nos produits",
+    "cta2": "Nous contacter",
+    "scroll": "Faire défiler"
+  },
+  "stats": {
+    "clients": "Clients importateurs",
+    "products": "Produits exportés",
+    "years": "Années d'expérience export",
+    "countries": "Pays dans le monde"
+  },
+  "cats": {
+    "title": "Nos Catégories de Produits",
+    "desc": "Une gamme diversifiée des meilleures cultures égyptiennes",
+    "count": "produits"
+  },
+  "featured": {
+    "title": "Produits en Vedette",
+    "desc": "Découvrez certains de nos produits premium soigneusement sélectionnés",
+    "inquiry": "Demander un prix",
+    "viewAll": "Voir tout"
+  },
+  "news": {
+    "title": "Actualités & Événements",
+    "desc": "Suivez les dernières actualités et événements d'ALMASA CROPS",
+    "homeTitle": "Dernières Actualités",
+    "homeDesc": "Restez informé des derniers développements et activités d'ALMASA CROPS",
+    "readMore": "Lire la suite",
+    "inquiry": "Demander",
+    "viewAll": "Voir toutes les actualités"
+  },
+  "why": {
+    "title": "Pourquoi choisir ALMASA CROPS ?",
+    "desc": "Quatre piliers qui font de nous le premier choix pour l'export de cultures",
+    "w1": {
+      "title": "Héritage & Expertise",
+      "desc": "Nous combinons 25 ans d'expertise agricole avec les dernières technologies d'exportation."
+    },
+    "w2": {
+      "title": "Qualité Certifiée",
+      "desc": "Nous n'acceptons rien de moins que la perfection dans le tri et l'emballage pour garantir 100% de pureté du produit."
+    },
+    "w3": {
+      "title": "Partenariat Durable",
+      "desc": "Nous ne cherchons pas une vente ponctuelle ; nous visons à construire des relations à long terme avec nos clients."
+    },
+    "w4": {
+      "title": "Excellence Opérationnelle",
+      "desc": "Ponctualité, emballage flexible et transactions transparentes."
+    }
+  },
+  "cta": {
+    "title": "Prêt à collaborer avec nous ?",
+    "desc": "Contactez-nous dès aujourd'hui et découvrez les opportunités de partenariat disponibles",
+    "btn": "Commencer"
+  },
+  "about": {
+    "hero": "À Propos d'ALMASA CROPS",
+    "heroDesc": "Un parcours d'excellence de la terre au monde",
+    "story": {
+      "title": "Notre Histoire : De la Terre au Monde",
+      "text1": "Notre parcours a commencé en 2000, lorsque nos pères ont posé les fondations du commerce des produits agricoles sur le marché égyptien. Au cours de deux décennies, notre expertise a grandi et nos relations avec les meilleures exploitations se sont développées, nous amenant en 2020 à franchir une étape stratégique en fondant ALMASA CROPS en tant qu'entité spécialisée dans la transformation et l'exportation.",
+      "text2": "Nous ne cherchions pas seulement l'expansion, mais à apporter la qualité égyptienne aux tables du monde entier. Par conséquent, nous avons construit un système intégré qui supervise chaque grain de culture ; de l'approvisionnement, en passant par le nettoyage et le tri automatisé, jusqu'à l'emballage professionnel qui correspond aux normes des marchés internationaux.",
+      "text3": "Aujourd'hui, nous sommes fiers d'être non seulement des exportateurs, mais des partenaires de réussite avec plus de 30 importateurs internationaux dans plus de 15 pays à travers le monde, offrant une liste diversifiée de plus de 25 produits agricoles de qualité supérieure."
+    },
+    "milestones": {
+      "title": "Nos Étapes Clés",
+      "items": [
+        {
+          "y": "2000",
+          "ar": "الانطلاقة الأولى في السوق المحلي وبناء شبكة الموردين والمزارع.",
+          "en": "Initial launch in local market, building supplier & farm network.",
+          "fr": "Lancement initial sur le marché local, construction d'un réseau de fournisseurs et d'exploitations."
+        },
+        {
+          "y": "2020",
+          "ar": "التأسيس الرسمي لشركة الماسة والتحول نحو التصدير المباشر.",
+          "en": "Official founding of ALMASA CROPS, transition to direct export.",
+          "fr": "Fondation officielle d'ALMASA CROPS, transition vers l'exportation directe."
+        },
+        {
+          "y": "2020-2025",
+          "ar": "التوسع العالمي والوصول إلى 15 دولة بـ 25 منتجاً مختلفاً.",
+          "en": "Global expansion: reached 15 countries with 25 different products.",
+          "fr": "Expansion mondiale : atteinte de 15 pays avec 25 produits différents."
+        },
+        {
+          "y": "2026",
+          "ar": "المشاركة الفعالة في معرض Food Africa، لتعزيز تواجدنا في قلب خارطة الغذاء العالمية.",
+          "en": "Active participation in Food Africa to strengthen our presence at the heart of the global food map.",
+          "fr": "Participation active à Food Africa pour renforcer notre présence au cœur de la carte alimentaire mondiale."
+        }
+      ]
+    },
+    "mvp": {
+      "title": "Notre Mission, Vision & Promesse",
+      "mission": {
+        "title": "Notre Mission",
+        "desc": "Fournir les meilleurs produits alimentaires égyptiens au monde avec des normes de qualité exceptionnelles, engagés dans la durabilité."
+      },
+      "vision": {
+        "title": "Notre Vision",
+        "desc": "Être la marque leader dans l'exportation de produits agricoles égyptiens à l'échelle mondiale."
+      },
+      "promise": {
+        "title": "Notre Promesse",
+        "desc": "Chaque produit portant le nom ALMASA passe par une inspection qualité stricte pour garantir la satisfaction du client."
+      }
+    },
+    "values": {
+      "title": "Nos Valeurs Fondamentales",
+      "v1": {
+        "title": "Héritage & Expertise",
+        "desc": "Nous combinons 25 ans d'expertise agricole avec les dernières technologies d'exportation."
+      },
+      "v2": {
+        "title": "Qualité Certifiée",
+        "desc": "Nous n'acceptons rien de moins que la perfection dans le tri et l'emballage pour garantir 100% de pureté du produit."
+      },
+      "v3": {
+        "title": "Partenariat Durable",
+        "desc": "Nous ne cherchons pas une vente ponctuelle ; nous visons à construire des relations à long terme avec nos clients."
+      },
+      "v4": {
+        "title": "Excellence Opérationnelle",
+        "desc": "Ponctualité, emballage flexible et transactions transparentes."
+      }
+    },
+    "team": {
+      "title": "Notre Équipe de Direction",
+      "desc": "Des experts qui façonnent l'excellence"
+    },
+    "certs": {
+      "title": "Nos Certifications & Accréditations",
+      "desc": "Des normes internationales garantissant qualité et sécurité"
+    },
+    "gallery": {
+      "title": "Galerie de l'Entreprise",
+      "desc": "Un aperçu de notre usine, entrepôts et équipes"
+    },
+    "videos": {
+      "title": "Nos Vidéos",
+      "desc": "Découvrez nos opérations et la qualité de nos produits de près"
+    }
+  },
+  "products": {
+    "hero": "Catalogue de Produits",
+    "heroDesc": "Notre gamme complète des meilleures cultures égyptiennes",
+    "all": "Tous les Produits"
+  },
+  "contact": {
+    "hero": "Nous sommes heureux de vous servir",
+    "heroDesc": "Contactez-nous à tout moment",
+    "form": {
+      "title": "Envoyez votre message",
+      "name": "Nom complet",
+      "email": "Adresse e-mail",
+      "phone": "Numéro de téléphone",
+      "message": "Message",
+      "submit": "Envoyer le message",
+      "okTitle": "Message envoyé avec succès",
+      "okDesc": "Merci de nous avoir contactés. Nous vous répondrons rapidement.",
+      "again": "Envoyer un autre message"
+    },
+    "info": {
+      "address": "Adresse",
+      "addressVal": "Housh Eissa - Beheira - Égypte",
+      "phone": "Téléphone",
+      "phoneVal": "+20 2 1234 5678\n+20 10 9876 5432",
+      "email": "E-mail",
+      "emailVal": "info@almasacrops.com",
+      "hours": "Heures d'ouverture",
+      "hoursVal": "Sam - Jeu : 9h - 16h"
+    },
+    "socials": "Suivez-nous",
+    "waBtn": "Discuter sur WhatsApp",
+    "mapLabel": "Notre localisation en Égypte",
+    "mapOpen": "Ouvrir dans Google Maps"
+  },
+  "footer": {
+    "desc": "ALMASA CROPS — Exportation des meilleurs produits agricoles égyptiens vers le monde depuis 2000.",
+    "quick": "Liens Rapides",
+    "prodLinks": "Catégories de Produits",
+    "contactUs": "Nous Contacter",
+    "copy": "© 2024 ALMASA CROPS. Tous droits réservés.",
+    "made": "Fièrement fabriqué en Égypte"
+  },
+  "packaging": "sacs de 5/10/15/25/50 kg",
+  "egypt": "Égypte"
+}

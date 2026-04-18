@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "img": "almasa-food-africa",
+    "date": {
+      "ar": "فبراير 2026",
+      "en": "Feb 2026",
+      "fr": "Fév 2026"
+    },
+    "location": {
+      "ar": "القاهرة، مصر",
+      "en": "Cairo, Egypt",
+      "fr": "Le Caire, Égypte"
+    },
+    "ar": "المشاركة الفعالة في معرض Food Africa",
+    "en": "Active Participation in Food Africa",
+    "fr": "Participation Active à Food Africa",
+    "arD": "شهد جناحنا في معرض Food Africa إقبالاً دولياً واسعاً، حيث أبهرت جودة محاصيلنا كبار المستوردين العالميين وفتحت لنا آفاقاً جديدة للشراكة والنمو.",
+    "enD": "Our booth at Food Africa witnessed wide international turnout, where product quality impressed major global importers and opened new horizons.",
+    "frD": "Notre stand à Food Africa a connu une forte affluence internationale, impressionnant les grands importateurs et ouvrant de nouveaux horizons."
+  }
+]

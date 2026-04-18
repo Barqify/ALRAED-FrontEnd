@@ -1,0 +1,20 @@
+{
+  "ar": {
+    "src": "https://via.placeholder.com/280x60?text=Logo+AR",
+    "alt": "الماسة للمحاصيل",
+    "width": 280,
+    "height": 60
+  },
+  "en": {
+    "src": "https://via.placeholder.com/280x60?text=Logo+EN",
+    "alt": "ALMASA CROPS",
+    "width": 280,
+    "height": 60
+  },
+  "fr": {
+    "src": "https://via.placeholder.com/280x60?text=Logo+FR",
+    "alt": "ALMASA CROPS",
+    "width": 280,
+    "height": 60
+  }
+}

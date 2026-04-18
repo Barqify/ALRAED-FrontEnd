@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import "./legacy-from-html.css";
+
+/** Tailwind semantic colors (utilities like bg-brand, text-text-body) */
+@theme inline {
+  --color-brand: #a5855a;
+  --color-brand-light: #d3b687;
+  --color-brand-dark: #9b7a4d;
+  --color-brand-pale: #f5efe6;
+  --color-bg-dark: #1a1714;
+  --color-bg-darker: #121010;
+  --color-bg-light: #faf8f5;
+  --color-bg-white: #ffffff;
+  --color-text-dark: #2a2520;
+  --color-text-body: #5a5550;
+  --color-text-muted: #9a958e;
+  --color-text-light: #ece6dc;
+  --color-border-light: #e8e0d4;
+  --font-family-cairo: var(--font-cairo), sans-serif;
+  --font-family-montserrat: var(--font-montserrat), sans-serif;
+  --font-family-playfair: var(--font-playfair), serif;
+}
+
+/** Prefer Next.js font variables over legacy CSS font name */
+body {
+  font-family: var(--font-cairo), "Cairo", sans-serif;
+}
+
+[dir="ltr"] .sec-title,
+[dir="ltr"] .hero-title {
+  font-family: var(--font-playfair), "Playfair Display", serif;
+}
+
+[dir="ltr"] .page-hero-title {
+  font-family: var(--font-playfair), "Playfair Display", serif;
+}

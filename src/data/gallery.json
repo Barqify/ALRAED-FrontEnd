@@ -1,0 +1,44 @@
+[
+  {
+    "id": "factory",
+    "ar": "المصنع الرئيسي",
+    "en": "Main Facility",
+    "fr": "Installation Principale",
+    "img": "https://picsum.photos/seed/fac1/600/400.jpg"
+  },
+  {
+    "id": "warehouse",
+    "ar": "المستودعات",
+    "en": "Warehouses",
+    "fr": "Entrepôts",
+    "img": "https://picsum.photos/seed/wh1/600/400.jpg"
+  },
+  {
+    "id": "production",
+    "ar": "خطوط الإنتاج",
+    "en": "Production Lines",
+    "fr": "Lignes de Production",
+    "img": "https://picsum.photos/seed/line1/600/400.jpg"
+  },
+  {
+    "id": "quality-lab",
+    "ar": "مختبر الجودة",
+    "en": "Quality Lab",
+    "fr": "Labo Qualité",
+    "img": "https://picsum.photos/seed/lab1/600/400.jpg"
+  },
+  {
+    "id": "packaging",
+    "ar": "قسم التعبئة",
+    "en": "Packaging",
+    "fr": "Emballage",
+    "img": "https://picsum.photos/seed/pack1/600/400.jpg"
+  },
+  {
+    "id": "team",
+    "ar": "فريق العمل",
+    "en": "Our Team",
+    "fr": "Notre Équipe",
+    "img": "https://picsum.photos/seed/team1/600/400.jpg"
+  }
+]
