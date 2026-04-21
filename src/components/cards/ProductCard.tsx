@@ -13,7 +13,7 @@ import {
 import type { Category, Product } from "@/lib/types";
 import { getFaIcon } from "@/lib/icons";
 
-const WA = "201098765432";
+import { SITE_WHATSAPP as WA } from "@/lib/site";
 
 export function ProductCard({
   product,

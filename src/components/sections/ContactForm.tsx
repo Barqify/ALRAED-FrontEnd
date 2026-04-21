@@ -59,7 +59,7 @@ export function ContactForm({
   }
 
   return (
-    <div className="form-card anim d2">
+    <div className="form-card">
       {!sent ? (
         <>
           <h3 className="mb-6 text-[19px] font-bold text-[var(--text-dark)]">

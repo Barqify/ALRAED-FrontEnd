@@ -16,6 +16,7 @@ import Link from "next/link";
 import logoFile from "@/data/logo.json";
 import type { Locale } from "@/lib/i18n";
 import { pickTriple } from "@/lib/i18n";
+import { getContactDisplay, siteSettings, socialUrl } from "@/lib/settings";
 import type { Category, LogoFile, TranslationDict } from "@/lib/types";
 
 export function Footer({
@@ -29,10 +30,24 @@ export function Footer({
 }) {
   const logo = (logoFile as LogoFile)[locale];
   const base = `/${locale}`;
-  const contact = dict.contact as Record<string, unknown>;
-  const info = contact.info as Record<string, string>;
+  const display = getContactDisplay(locale);
+  const phoneLines = display.phoneDisplay.split("\n");
+  const { social } = siteSettings;
 
-  const phoneLines = info.phoneVal.split("\n");
+  const socialBtn = (
+    url: string,
+    icon: typeof faFacebookF,
+    label: string,
+  ) => (
+    <a
+      href={socialUrl(url)}
+      className="footer-soc"
+      aria-label={label}
+      {...(url.trim() ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
+      <FontAwesomeIcon icon={icon} />
+    </a>
+  );
 
   return (
     <footer className="footer">
@@ -51,18 +66,10 @@ export function Footer({
             </Link>
             <p className="footer-brand-desc">{dict.footer.desc}</p>
             <div className="footer-socials">
-              <a href="#" className="footer-soc" aria-label="Facebook">
-                <FontAwesomeIcon icon={faFacebookF} />
-              </a>
-              <a href="#" className="footer-soc" aria-label="Instagram">
-                <FontAwesomeIcon icon={faInstagram} />
-              </a>
-              <a href="#" className="footer-soc" aria-label="LinkedIn">
-                <FontAwesomeIcon icon={faLinkedinIn} />
-              </a>
-              <a href="#" className="footer-soc" aria-label="X">
-                <FontAwesomeIcon icon={faXTwitter} />
-              </a>
+              {socialBtn(social.facebook, faFacebookF, "Facebook")}
+              {socialBtn(social.instagram, faInstagram, "Instagram")}
+              {socialBtn(social.linkedin, faLinkedinIn, "LinkedIn")}
+              {socialBtn(social.twitter, faXTwitter, "X")}
             </div>
           </div>
           <div>
@@ -103,7 +110,7 @@ export function Footer({
             <h4 className="footer-heading">{dict.footer.contactUs}</h4>
             <div className="footer-contact-item">
               <FontAwesomeIcon icon={faMapMarkerAlt} />
-              <span>{info.addressVal}</span>
+              <span>{display.address}</span>
             </div>
             <div className="footer-contact-item">
               <FontAwesomeIcon icon={faPhone} />
@@ -111,11 +118,11 @@ export function Footer({
             </div>
             <div className="footer-contact-item">
               <FontAwesomeIcon icon={faEnvelope} />
-              <span>{info.emailVal}</span>
+              <span>{display.email}</span>
             </div>
             <div className="footer-contact-item">
               <FontAwesomeIcon icon={faClock} />
-              <span>{info.hoursVal}</span>
+              <span>{display.hours}</span>
             </div>
           </div>
         </div>

@@ -1,42 +1,12 @@
 [
   {
-    "id": "farm-harvest",
-    "title": {
-      "ar": "حصاد المزرعة",
-      "en": "Farm Harvest",
-      "fr": "Récolte à la Ferme"
-    },
-    "url": "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1",
-    "thumb": "https://picsum.photos/seed/vid1/400/220.jpg"
-  },
-  {
-    "id": "sorting-line",
-    "title": {
-      "ar": "خط الفرز الآلي",
-      "en": "Automated Sorting",
-      "fr": "Tri Automatisé"
-    },
-    "url": "https://www.youtube.com/embed/ysz5S6PUM-U?autoplay=0&mute=1",
-    "thumb": "https://picsum.photos/seed/vid2/400/220.jpg"
-  },
-  {
     "id": "packaging",
     "title": {
       "ar": "التعبئة الاحترافية",
       "en": "Professional Packaging",
       "fr": "Emballage Professionnel"
     },
-    "url": "https://www.youtube.com/embed/jNQXAC9IVRw?autoplay=0&mute=1",
-    "thumb": "https://picsum.photos/seed/vid3/400/220.jpg"
-  },
-  {
-    "id": "quality-lab",
-    "title": {
-      "ar": "مختبر الجودة",
-      "en": "Quality Control",
-      "fr": "Contrôle Qualité"
-    },
-    "url": "https://www.youtube.com/embed/y6120QOlsfU?autoplay=0&mute=1",
-    "thumb": "https://picsum.photos/seed/vid4/400/220.jpg"
+    "url": "https://www.youtube.com/embed/NCFakIkE9fM?autoplay=0&mute=1",
+    "thumb": "https://lh3.googleusercontent.com/d/1pM_kbj9_VCUTVdDZVa_zf0D0vZ4lDP_Q"
   }
 ]

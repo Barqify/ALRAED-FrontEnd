@@ -176,13 +176,9 @@
     },
     "info": {
       "address": "Address",
-      "addressVal": "Housh Eissa - Beheira - Egypt",
       "phone": "Phone",
-      "phoneVal": "+201029213021",
       "email": "Email",
-      "emailVal": "info@alraedcrops.com",
-      "hours": "Working Hours",
-      "hoursVal": "Sat - Thu: 9 AM - 4 PM"
+      "hours": "Working Hours"
     },
     "socials": "Follow Us",
     "waBtn": "Chat on WhatsApp",

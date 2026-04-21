@@ -83,6 +83,39 @@ export type LogoConfig = {
 
 export type LogoFile = Record<"ar" | "en" | "fr", LogoConfig>;
 
+/** Single JSON source for contact, map, WhatsApp, social URLs (`src/data/settings.json`) */
+export type SiteSettings = {
+  contact: {
+    address: LocalizedTriple;
+    phoneDisplay: string;
+    email: string;
+    hours: LocalizedTriple;
+  };
+  whatsapp: string;
+  map: {
+    lat: number;
+    lng: number;
+    googleMapsUrl: string;
+    shortGoogleMapsUrl: string;
+  };
+  social: {
+    facebook: string;
+    instagram: string;
+    linkedin: string;
+    twitter: string;
+  };
+  /** First content block on the home page after the gallery strip (image or video carousel) */
+  homeSpotlight:
+    | {
+        mode: "image";
+        imageUrl: string;
+        alt: LocalizedTriple;
+      }
+    | {
+        mode: "videos";
+      };
+};
+
 /** Translation file shape (same for ar, en, fr JSON) */
 export type TranslationDict = {
   nav: { home: string; about: string; products: string; news: string; contact: string };

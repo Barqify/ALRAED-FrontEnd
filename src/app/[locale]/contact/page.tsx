@@ -13,9 +13,16 @@ import {
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { PageHero } from "@/components/ui/PageHero";
+import { AnimateInView } from "@/components/ui/AnimateInView";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { getDict } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
+import {
+  getContactDisplay,
+  siteSettings,
+  socialUrl,
+} from "@/lib/settings";
+import { openStreetMapEmbedSrc, SITE_MAP, SITE_WHATSAPP } from "@/lib/site";
 
 export default async function ContactPage({
   params,
@@ -29,12 +36,20 @@ export default async function ContactPage({
     hero: string;
     heroDesc: string;
     form: Record<string, string>;
-    info: Record<string, string>;
+    info: {
+      address: string;
+      phone: string;
+      email: string;
+      hours: string;
+    };
     socials: string;
     waBtn: string;
     mapLabel: string;
     mapOpen: string;
   };
+
+  const display = getContactDisplay(locale);
+  const { social } = siteSettings;
 
   return (
     <>
@@ -50,72 +65,114 @@ export default async function ContactPage({
         <div className="container">
           <div className="contact-grid">
             <div className="contact-info">
-              <div className="c-card anim">
-                <div className="c-card-icon">
-                  <FontAwesomeIcon icon={faMapMarkerAlt} />
+              <AnimateInView>
+                <div className="c-card">
+                  <div className="c-card-icon">
+                    <FontAwesomeIcon icon={faMapMarkerAlt} />
+                  </div>
+                  <div>
+                    <div className="c-card-label">{contact.info.address}</div>
+                    <div className="c-card-value">{display.address}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="c-card-label">{contact.info.address}</div>
-                  <div className="c-card-value">{contact.info.addressVal}</div>
+              </AnimateInView>
+              <AnimateInView delayClass="d1">
+                <div className="c-card">
+                  <div className="c-card-icon">
+                    <FontAwesomeIcon icon={faPhone} />
+                  </div>
+                  <div>
+                    <div className="c-card-label">{contact.info.phone}</div>
+                    <div
+                      className="c-card-value"
+                      dangerouslySetInnerHTML={{
+                        __html: display.phoneDisplay.split("\n").join("<br/>"),
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="c-card anim d1">
-                <div className="c-card-icon">
-                  <FontAwesomeIcon icon={faPhone} />
+              </AnimateInView>
+              <AnimateInView delayClass="d2">
+                <div className="c-card">
+                  <div className="c-card-icon">
+                    <FontAwesomeIcon icon={faEnvelope} />
+                  </div>
+                  <div>
+                    <div className="c-card-label">{contact.info.email}</div>
+                    <div className="c-card-value">{display.email}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="c-card-label">{contact.info.phone}</div>
-                  <div
-                    className="c-card-value"
-                    dangerouslySetInnerHTML={{
-                      __html: contact.info.phoneVal.split("\n").join("<br/>"),
-                    }}
-                  />
+              </AnimateInView>
+              <AnimateInView delayClass="d3">
+                <div className="c-card">
+                  <div className="c-card-icon">
+                    <FontAwesomeIcon icon={faClock} />
+                  </div>
+                  <div>
+                    <div className="c-card-label">{contact.info.hours}</div>
+                    <div className="c-card-value">{display.hours}</div>
+                  </div>
                 </div>
-              </div>
-              <div className="c-card anim d2">
-                <div className="c-card-icon">
-                  <FontAwesomeIcon icon={faEnvelope} />
+              </AnimateInView>
+              <AnimateInView delayClass="d4">
+                <div className="contact-socials">
+                  <span>{contact.socials}</span>
+                  <a
+                    href={socialUrl(social.facebook)}
+                    className="soc-link"
+                    aria-label="Facebook"
+                    {...(social.facebook?.trim()
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                  >
+                    <FontAwesomeIcon icon={faFacebookF} />
+                  </a>
+                  <a
+                    href={socialUrl(social.instagram)}
+                    className="soc-link"
+                    aria-label="Instagram"
+                    {...(social.instagram?.trim()
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                  >
+                    <FontAwesomeIcon icon={faInstagram} />
+                  </a>
+                  <a
+                    href={socialUrl(social.linkedin)}
+                    className="soc-link"
+                    aria-label="LinkedIn"
+                    {...(social.linkedin?.trim()
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                  >
+                    <FontAwesomeIcon icon={faLinkedinIn} />
+                  </a>
+                  <a
+                    href={socialUrl(social.twitter)}
+                    className="soc-link"
+                    aria-label="X"
+                    {...(social.twitter?.trim()
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                  >
+                    <FontAwesomeIcon icon={faXTwitter} />
+                  </a>
                 </div>
-                <div>
-                  <div className="c-card-label">{contact.info.email}</div>
-                  <div className="c-card-value">{contact.info.emailVal}</div>
-                </div>
-              </div>
-              <div className="c-card anim d3">
-                <div className="c-card-icon">
-                  <FontAwesomeIcon icon={faClock} />
-                </div>
-                <div>
-                  <div className="c-card-label">{contact.info.hours}</div>
-                  <div className="c-card-value">{contact.info.hoursVal}</div>
-                </div>
-              </div>
-              <div className="contact-socials anim d4">
-                <span>{contact.socials}</span>
-                <a href="#" className="soc-link" aria-label="Facebook">
-                  <FontAwesomeIcon icon={faFacebookF} />
+              </AnimateInView>
+              <AnimateInView delayClass="d5">
+                <a
+                  href={`https://wa.me/${SITE_WHATSAPP}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-wa btn-lg flex w-full justify-center"
+                >
+                  <FontAwesomeIcon icon={faWhatsapp} /> {contact.waBtn}
                 </a>
-                <a href="#" className="soc-link" aria-label="Instagram">
-                  <FontAwesomeIcon icon={faInstagram} />
-                </a>
-                <a href="#" className="soc-link" aria-label="LinkedIn">
-                  <FontAwesomeIcon icon={faLinkedinIn} />
-                </a>
-                <a href="#" className="soc-link" aria-label="X">
-                  <FontAwesomeIcon icon={faXTwitter} />
-                </a>
-              </div>
-              <a
-                href="https://wa.me/201098765432"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-wa btn-lg anim d5 flex w-full justify-center"
-              >
-                <FontAwesomeIcon icon={faWhatsapp} /> {contact.waBtn}
-              </a>
+              </AnimateInView>
             </div>
-            <ContactForm locale={locale} dict={contact.form} />
+            <AnimateInView delayClass="d2">
+              <ContactForm locale={locale} dict={contact.form} />
+            </AnimateInView>
           </div>
         </div>
       </section>
@@ -124,27 +181,37 @@ export default async function ContactPage({
         style={{ paddingTop: 0, background: "var(--bg-white)" }}
       >
         <div className="container">
-          <div className="map-section anim">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.789012345678!2d30.290583!3d30.885778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDUzJzA4LjgiTiAzMMKwMTcnMjYuMSJF!5e0!3m2!1sen!2seg!4v1234567890123!5m2!1sen!2seg"
-              title="Map"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="h-[400px] w-full border-0"
-            />
-            <div className="map-label">
-              <FontAwesomeIcon icon={faMapMarkerAlt} />{" "}
-              <a
-                href="https://maps.app.goo.gl/os2NaPWt4A4FEs8Y6"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "inherit" }}
-              >
-                {contact.mapLabel} — {contact.mapOpen}
-              </a>
+          <AnimateInView>
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <h2 className="sec-title">{contact.mapLabel}</h2>
+              <p className="mt-3 text-[15px] font-semibold leading-relaxed text-[var(--text-dark)]">
+                {display.address}
+              </p>
             </div>
-          </div>
+          </AnimateInView>
+          <AnimateInView delayClass="d1">
+            <div className="map-section">
+              <iframe
+                src={openStreetMapEmbedSrc()}
+                title={`${contact.mapLabel} — ${contact.info.address}`}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-full w-full border-0"
+              />
+              <div className="map-label">
+                <FontAwesomeIcon icon={faMapMarkerAlt} />{" "}
+                <a
+                  href={SITE_MAP.shortGoogleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "inherit" }}
+                >
+                  {contact.mapOpen}
+                </a>
+              </div>
+            </div>
+          </AnimateInView>
         </div>
       </section>
     </>

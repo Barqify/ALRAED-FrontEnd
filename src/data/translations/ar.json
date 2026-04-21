@@ -176,13 +176,9 @@
     },
     "info": {
       "address": "العنوان",
-      "addressVal": "حوش عيسى - البحيرة - مصر",
       "phone": "الهاتف",
-      "phoneVal": "+201029213021",
       "email": "البريد الإلكتروني",
-      "emailVal": "info@alraedcrops.com",
-      "hours": "ساعات العمل",
-      "hoursVal": "السبت - الخميس: 9 ص - 4 م"
+      "hours": "ساعات العمل"
     },
     "socials": "تابعنا",
     "waBtn": "تواصل عبر واتساب",

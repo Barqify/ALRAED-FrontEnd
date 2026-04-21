@@ -1,0 +1,38 @@
+{
+  "contact": {
+    "address": {
+      "ar": "حوش عيسى - البحيرة - مصر",
+      "en": "Housh Eissa - Beheira - Egypt",
+      "fr": "Housh Eissa - Beheira - Égypte"
+    },
+    "phoneDisplay": "+201029213021",
+    "email": "info@alraedcrops.com",
+    "hours": {
+      "ar": "السبت - الخميس: 9 ص - 4 م",
+      "en": "Sat - Thu: 9 AM - 4 PM",
+      "fr": "Sam - Jeu : 9h - 16h"
+    }
+  },
+  "whatsapp": "201029213021",
+  "map": {
+    "lat": 30.885784,
+    "lng": 30.290586,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=30.885784%2C30.290586",
+    "shortGoogleMapsUrl": "https://maps.app.goo.gl/os2NaPWt4A4FEs8Y6"
+  },
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "linkedin": "",
+    "twitter": ""
+  },
+  "homeSpotlight": {
+    "mode": "image",
+    "imageUrl": "https://lh3.googleusercontent.com/d/1zDw9SjYINLqM1fzxaC7W4Ldfpmot43ve",
+    "alt": {
+      "ar": "منشأة الرائد للمحاصيل — خط التعبئة والتجهيز",
+      "en": "ALRAED crops processing facility",
+      "fr": "Installation de transformation ALRAED pour les cultures"
+    }
+  }
+}

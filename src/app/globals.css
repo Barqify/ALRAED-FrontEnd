@@ -21,16 +21,30 @@
   --font-family-playfair: var(--font-playfair), serif;
 }
 
-/** Prefer Next.js font variables over legacy CSS font name */
+/** Default until locale layout applies (Arabic mirrors app shell) */
 body {
   font-family: var(--font-cairo), "Cairo", sans-serif;
 }
 
-[dir="ltr"] .sec-title,
-[dir="ltr"] .hero-title {
-  font-family: var(--font-playfair), "Playfair Display", serif;
+/**
+ * Latin UI: Montserrat (https://fonts.google.com/specimen/Montserrat), self-hosted via next/font.
+ */
+[dir="ltr"] body {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
 }
 
+[dir="ltr"] .hero-title,
+[dir="ltr"] .hero-tagline,
+[dir="ltr"] .sec-title,
 [dir="ltr"] .page-hero-title {
-  font-family: var(--font-playfair), "Playfair Display", serif;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+}
+
+.sec-head--with-media {
+  margin-bottom: 28px;
+}
+.sec-media {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
 }

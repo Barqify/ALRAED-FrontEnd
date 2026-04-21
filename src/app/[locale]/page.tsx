@@ -1,12 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowLeft,
+  faImage,
   faNewspaper,
   faStar,
   faThLarge,
   faTrophy,
   faVideo,
 } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 import Link from "next/link";
 import { CategoryCard } from "@/components/cards/CategoryCard";
 import { GalleryCard } from "@/components/cards/GalleryCard";
@@ -24,7 +26,8 @@ import gallery from "@/data/gallery.json";
 import news from "@/data/news.json";
 import products from "@/data/products.json";
 import videos from "@/data/videos.json";
-import { getDict, isRtl, t } from "@/lib/i18n";
+import { getDict, isRtl, pickTriple, t } from "@/lib/i18n";
+import { siteSettings } from "@/lib/settings";
 import { getFaIcon } from "@/lib/icons";
 import type { Locale } from "@/lib/i18n";
 import type { Category, GalleryImage, NewsItem, Product, VideoItem } from "@/lib/types";
@@ -43,6 +46,9 @@ export default async function HomePage({
   const whyIcons = ["fa-award", "fa-certificate", "fa-handshake", "fa-cogs"] as const;
   const whyKeys = ["w1", "w2", "w3", "w4"] as const;
 
+  const spotlight = siteSettings.homeSpotlight;
+  const spotlightImg = spotlight.mode === "image" ? spotlight : null;
+
   return (
     <>
       <HomeHero locale={locale} dict={dict} />
@@ -56,21 +62,39 @@ export default async function HomePage({
       <section className="video-gallery-section">
         <div className="container">
           <SectionHeader
-            icon={<FontAwesomeIcon icon={faVideo} />}
+            icon={
+              <FontAwesomeIcon icon={spotlightImg ? faImage : faVideo} />
+            }
             title={t(dict, "about.videos.title")}
             description={t(dict, "about.videos.desc")}
+            media={
+              spotlightImg ? (
+                <div className="relative aspect-[21/9] max-h-[min(56vh,520px)] min-h-[200px] w-full overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border-light)] shadow-[var(--shadow-md)]">
+                  <Image
+                    src={spotlightImg.imageUrl}
+                    alt={pickTriple(spotlightImg.alt, locale)}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 1152px) 100vw, 1152px"
+                    priority
+                  />
+                </div>
+              ) : undefined
+            }
           />
-          <Carousel
-            key={`video-${locale}`}
-            trackId="video-track"
-            intervalMs={4500}
-            rtl={rtl}
-            variant="video"
-          >
-            {(videos as VideoItem[]).map((v) => (
-              <VideoCard key={v.id} video={v} locale={locale} />
-            ))}
-          </Carousel>
+          {spotlight.mode === "videos" ? (
+            <Carousel
+              key={`video-${locale}`}
+              trackId="video-track"
+              intervalMs={4500}
+              rtl={rtl}
+              variant="video"
+            >
+              {(videos as VideoItem[]).map((v) => (
+                <VideoCard key={v.id} video={v} locale={locale} />
+              ))}
+            </Carousel>
+          ) : null}
         </div>
       </section>
 

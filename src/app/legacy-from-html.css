@@ -465,7 +465,7 @@ select {
   color: var(--text-light);
 }
 [dir="ltr"] .hero-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
@@ -477,7 +477,7 @@ select {
   animation: heroReveal .8s ease .5s both;
 }
 [dir="ltr"] .hero-tagline {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
 }
 .hero-sub {
   font-size: clamp(14px, 1.7vw, 17px);

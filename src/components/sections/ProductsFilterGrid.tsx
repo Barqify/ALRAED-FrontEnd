@@ -1,57 +1,58 @@
-"use client";
-
+import Link from "next/link";
 import clsx from "clsx";
-import { useMemo, useState } from "react";
+import { ProductCard } from "@/components/cards/ProductCard";
 import type { Locale } from "@/lib/i18n";
 import { pickTriple } from "@/lib/i18n";
 import type { TranslationDict } from "@/lib/types";
 import type { Category, Product } from "@/lib/types";
-import { ProductCard } from "@/components/cards/ProductCard";
 
+/** Server component: category filter uses `?cat=id` so no client bundle / RSC boundary issues */
 export function ProductsFilterGrid({
   locale,
   dict,
   categories,
   products,
+  activeCat,
 }: {
   locale: Locale;
   dict: TranslationDict;
   categories: Category[];
   products: Product[];
+  activeCat: string;
 }) {
-  const [filter, setFilter] = useState<string>("all");
+  const filtered =
+    activeCat === "all"
+      ? products
+      : products.filter((p) => p.cat === activeCat);
 
-  const filtered = useMemo(() => {
-    if (filter === "all") return products;
-    return products.filter((p) => p.cat === filter);
-  }, [filter, products]);
+  const base = `/${locale}/products`;
 
   return (
     <>
       <div className="filter-bar">
         <div className="container">
           <div className="filter-list" id="filter-list">
-            <button
-              type="button"
-              className={clsx("filter-btn", filter === "all" && "active")}
+            <Link
+              href={base}
+              scroll={false}
+              className={clsx("filter-btn", activeCat === "all" && "active")}
               data-cat="all"
-              onClick={() => setFilter("all")}
             >
               {dict.products.all}
-            </button>
+            </Link>
             {categories.map((c) => (
-              <button
+              <Link
                 key={c.id}
-                type="button"
+                href={`${base}?cat=${encodeURIComponent(c.id)}`}
+                scroll={false}
                 className={clsx(
                   "filter-btn",
-                  filter === c.id && "active"
+                  activeCat === c.id && "active",
                 )}
                 data-cat={c.id}
-                onClick={() => setFilter(c.id)}
               >
                 {pickTriple(c, locale)}
-              </button>
+              </Link>
             ))}
           </div>
         </div>

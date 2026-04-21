@@ -8,12 +8,19 @@ import type { Category, Product } from "@/lib/types";
 
 export default async function ProductsPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ cat?: string | string[] }>;
 }) {
   const { locale: loc } = await params;
   const locale = loc as Locale;
   const dict = getDict(locale);
+  const sp = await searchParams;
+  const raw = Array.isArray(sp.cat) ? sp.cat[0] : sp.cat;
+  const ids = new Set((categories as Category[]).map((c) => c.id));
+  const activeCat =
+    raw && ids.has(raw) ? raw : ("all" as const);
 
   return (
     <>
@@ -30,6 +37,7 @@ export default async function ProductsPage({
         dict={dict}
         categories={categories as Category[]}
         products={products as Product[]}
+        activeCat={activeCat}
       />
     </>
   );

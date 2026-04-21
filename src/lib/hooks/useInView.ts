@@ -20,8 +20,9 @@ export function useInView(
         }
       },
       options ?? {
-        threshold: 0.08,
-        rootMargin: "0px 0px -30px 0px",
+        threshold: 0.06,
+        /** Positive bottom margin so sections just under the fold still count as “in view”. */
+        rootMargin: "0px 0px 140px 0px",
       }
     );
 

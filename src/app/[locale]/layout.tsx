@@ -1,4 +1,4 @@
-import { Cairo, Playfair_Display } from "next/font/google";
+import { Cairo, Montserrat, Playfair_Display } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
@@ -19,6 +19,13 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
+/** Same family as https://fonts.google.com/specimen/Montserrat — optimized via next/font */
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -34,11 +41,17 @@ export default async function LocaleLayout({
   const locale: Locale = isLocale(loc) ? loc : defaultLocale;
   const dict = getDict(locale);
 
+  /** Arabic: Cairo; Latin locales: Montserrat */
+  const bodyFont =
+    locale === "ar"
+      ? "font-[family-name:var(--font-cairo)]"
+      : "font-[family-name:var(--font-montserrat)]";
+
   return (
     <>
       <LocaleEffects locale={locale} />
       <div
-        className={`${cairo.variable} ${playfair.variable} font-[family-name:var(--font-cairo)] min-h-screen`}
+        className={`${cairo.variable} ${playfair.variable} ${montserrat.variable} ${bodyFont} min-h-screen`}
       >
         <Navbar locale={locale} dict={dict} />
         <main>{children}</main>

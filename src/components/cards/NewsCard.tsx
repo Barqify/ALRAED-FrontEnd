@@ -11,7 +11,7 @@ import { pickTriple } from "@/lib/i18n";
 import type { TranslationDict } from "@/lib/types";
 import type { NewsItem } from "@/lib/types";
 
-const WA = "201098765432";
+import { SITE_WHATSAPP as WA } from "@/lib/site";
 
 export function NewsCard({
   news,
