@@ -21,10 +21,10 @@
     "shortGoogleMapsUrl": "https://maps.app.goo.gl/os2NaPWt4A4FEs8Y6"
   },
   "social": {
-    "facebook": "",
-    "instagram": "",
-    "linkedin": "",
-    "twitter": ""
+    "facebook": "https://facebook.com/alraedcrops",
+    "instagram": "https://instagram.com/alraedcrops",
+    "linkedin": "https://linkedin.com/company/alraed-crops/",
+    "twitter": "https://x.com/alraedcrops"
   },
   "homeSpotlight": {
     "mode": "image",
