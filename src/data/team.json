@@ -1,42 +1,22 @@
 [
   {
-    "name": "أحمد المصري",
-    "en": "Ahmed El-Masri",
-    "fr": "Ahmed El-Masri",
-    "role": "الرئيس التنفيذي",
-    "enRole": "CEO",
-    "frRole": "PDG",
-    "color": "#3d7a4a",
-    "img": "https://picsum.photos/seed/team1/200/200.jpg"
-  },
-  {
-    "name": "محمد حسن",
-    "en": "Mohamed Hassan",
-    "fr": "Mohamed Hassan",
-    "role": "مدير العمليات",
-    "enRole": "COO",
-    "frRole": "COO",
-    "color": "#9b7a4d",
-    "img": "https://picsum.photos/seed/team2/200/200.jpg"
-  },
-  {
-    "name": "سارة عبد الرحمن",
-    "en": "Sara Abdel Rahman",
-    "fr": "Sara Abdel Rahman",
-    "role": "مدير الجودة",
-    "enRole": "Quality Director",
-    "frRole": "Directrice Qualité",
-    "color": "#a63d2f",
-    "img": "https://picsum.photos/seed/team3/200/200.jpg"
-  },
-  {
-    "name": "عمر فاروق",
-    "en": "Omar Farouk",
-    "fr": "Omar Farouk",
+    "name": "محمد أبو الريش",
+    "en": "Mohamed Abu Elrish",
+    "fr": "ENG. Mohamed Abu Elrish",
     "role": "مدير التصدير",
-    "enRole": "Export Director",
-    "frRole": "Directeur Export",
+    "enRole": "Export Manger",
+    "frRole": "Responsable Export",
+    "color": "#3d7a4a",
+    "img": "https://lh3.googleusercontent.com/d/11m_J-uwgAHv4MwXnFZF2w-anuNgTepvG"
+  },
+  {
+    "name": "بدر زريدي",
+    "en": "Badr Zridi",
+    "fr": "Badr Zridi",
+    "role": "مدير تطوير الأعمال",
+    "enRole": "Business Development Manger",
+    "frRole": "Responsable Du Développement Commercial",
     "color": "#7b4a8a",
-    "img": "https://picsum.photos/seed/team4/200/200.jpg"
+    "img": "https://lh3.googleusercontent.com/d/1djpp4X2_VgPGXiwWRqt04kgT3f7_TaO4"
   }
 ]

@@ -1,20 +1,20 @@
 {
   "ar": {
-    "src": "https://via.placeholder.com/280x60?text=Logo+AR",
-    "alt": "الماسة للمحاصيل",
-    "width": 280,
-    "height": 60
+    "src": "https://lh3.googleusercontent.com/d/13DEvlElqRmYkvKELY_LX7UdVrc1Q5rjK",
+    "alt": "الرائد للمحاصيل",
+    "width": 200,
+    "height": 50
   },
   "en": {
-    "src": "https://via.placeholder.com/280x60?text=Logo+EN",
-    "alt": "ALMASA CROPS",
-    "width": 280,
-    "height": 60
+    "src": "https://lh3.googleusercontent.com/d/182HLq3hUPBR-Zw9wxj5hzX2213FlUU-O",
+    "alt": "ALRAED CROPS",
+    "width": 135,
+    "height": 35
   },
   "fr": {
-    "src": "https://via.placeholder.com/280x60?text=Logo+FR",
-    "alt": "ALMASA CROPS",
-    "width": 280,
-    "height": 60
+    "src": "https://lh3.googleusercontent.com/d/182HLq3hUPBR-Zw9wxj5hzX2213FlUU-O",
+    "alt": "ALRAED CROPS",
+    "width": 135,
+    "height": 35
   }
 }

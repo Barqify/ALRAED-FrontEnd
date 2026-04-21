@@ -8,7 +8,7 @@
   },
   "hero": {
     "badge": "Depuis 2000 — Des décennies d'excellence à l'export",
-    "title1": "ALMASA CROPS",
+    "title1": "ALRAED CROPS",
     "tagline": "Nous cultivons la confiance... et exportons l'excellence.",
     "sub": "Une entreprise leader avec une expérience depuis 2000 dans la transformation et l'exportation des meilleurs produits agricoles égyptiens. Nous sommes fiers de notre partenariat avec plus de 30 importateurs mondiaux dans 15 pays, engagés envers les plus hautes normes internationales de pureté et de qualité.",
     "cta1": "Découvrir nos produits",
@@ -34,15 +34,15 @@
   },
   "news": {
     "title": "Actualités & Événements",
-    "desc": "Suivez les dernières actualités et événements d'ALMASA CROPS",
+    "desc": "Suivez les dernières actualités et événements d'ALRAED CROPS",
     "homeTitle": "Dernières Actualités",
-    "homeDesc": "Restez informé des derniers développements et activités d'ALMASA CROPS",
+    "homeDesc": "Restez informé des derniers développements et activités d'ALRAED CROPS",
     "readMore": "Lire la suite",
     "inquiry": "Demander",
     "viewAll": "Voir toutes les actualités"
   },
   "why": {
-    "title": "Pourquoi choisir ALMASA CROPS ?",
+    "title": "Pourquoi choisir ALRAED CROPS ?",
     "desc": "Quatre piliers qui font de nous le premier choix pour l'export de cultures",
     "w1": {
       "title": "Héritage & Expertise",
@@ -67,11 +67,11 @@
     "btn": "Commencer"
   },
   "about": {
-    "hero": "À Propos d'ALMASA CROPS",
+    "hero": "À Propos d'ALRAED CROPS",
     "heroDesc": "Un parcours d'excellence de la terre au monde",
     "story": {
       "title": "Notre Histoire : De la Terre au Monde",
-      "text1": "Notre parcours a commencé en 2000, lorsque nos pères ont posé les fondations du commerce des produits agricoles sur le marché égyptien. Au cours de deux décennies, notre expertise a grandi et nos relations avec les meilleures exploitations se sont développées, nous amenant en 2020 à franchir une étape stratégique en fondant ALMASA CROPS en tant qu'entité spécialisée dans la transformation et l'exportation.",
+      "text1": "Notre parcours a commencé en 2000, lorsque nos pères ont posé les fondations du commerce des produits agricoles sur le marché égyptien. Au cours de deux décennies, notre expertise a grandi et nos relations avec les meilleures exploitations se sont développées, nous amenant en 2020 à franchir une étape stratégique en fondant ALRAED CROPS en tant qu'entité spécialisée dans la transformation et l'exportation.",
       "text2": "Nous ne cherchions pas seulement l'expansion, mais à apporter la qualité égyptienne aux tables du monde entier. Par conséquent, nous avons construit un système intégré qui supervise chaque grain de culture ; de l'approvisionnement, en passant par le nettoyage et le tri automatisé, jusqu'à l'emballage professionnel qui correspond aux normes des marchés internationaux.",
       "text3": "Aujourd'hui, nous sommes fiers d'être non seulement des exportateurs, mais des partenaires de réussite avec plus de 30 importateurs internationaux dans plus de 15 pays à travers le monde, offrant une liste diversifiée de plus de 25 produits agricoles de qualité supérieure."
     },
@@ -87,8 +87,8 @@
         {
           "y": "2020",
           "ar": "التأسيس الرسمي لشركة الماسة والتحول نحو التصدير المباشر.",
-          "en": "Official founding of ALMASA CROPS, transition to direct export.",
-          "fr": "Fondation officielle d'ALMASA CROPS, transition vers l'exportation directe."
+          "en": "Official founding of ALRAED CROPS, transition to direct export.",
+          "fr": "Fondation officielle d'ALRAED CROPS, transition vers l'exportation directe."
         },
         {
           "y": "2020-2025",
@@ -116,7 +116,7 @@
       },
       "promise": {
         "title": "Notre Promesse",
-        "desc": "Chaque produit portant le nom ALMASA passe par une inspection qualité stricte pour garantir la satisfaction du client."
+        "desc": "Chaque produit portant le nom ALRAED passe par une inspection qualité stricte pour garantir la satisfaction du client."
       }
     },
     "values": {
@@ -178,9 +178,9 @@
       "address": "Adresse",
       "addressVal": "Housh Eissa - Beheira - Égypte",
       "phone": "Téléphone",
-      "phoneVal": "+20 2 1234 5678\n+20 10 9876 5432",
+      "phoneVal": "+201029213021",
       "email": "E-mail",
-      "emailVal": "info@almasacrops.com",
+      "emailVal": "info@alraedcrops.com",
       "hours": "Heures d'ouverture",
       "hoursVal": "Sam - Jeu : 9h - 16h"
     },
@@ -190,11 +190,11 @@
     "mapOpen": "Ouvrir dans Google Maps"
   },
   "footer": {
-    "desc": "ALMASA CROPS — Exportation des meilleurs produits agricoles égyptiens vers le monde depuis 2000.",
+    "desc": "ALRAED CROPS — Exportation des meilleurs produits agricoles égyptiens vers le monde depuis 2000.",
     "quick": "Liens Rapides",
     "prodLinks": "Catégories de Produits",
     "contactUs": "Nous Contacter",
-    "copy": "© 2024 ALMASA CROPS. Tous droits réservés.",
+    "copy": "© 2026 ALRAED CROPS. Tous droits réservés.",
     "made": "Fièrement fabriqué en Égypte"
   },
   "packaging": "sacs de 5/10/15/25/50 kg",

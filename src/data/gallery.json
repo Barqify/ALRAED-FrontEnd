@@ -21,13 +21,6 @@
     "img": "https://picsum.photos/seed/line1/600/400.jpg"
   },
   {
-    "id": "quality-lab",
-    "ar": "مختبر الجودة",
-    "en": "Quality Lab",
-    "fr": "Labo Qualité",
-    "img": "https://picsum.photos/seed/lab1/600/400.jpg"
-  },
-  {
     "id": "packaging",
     "ar": "قسم التعبئة",
     "en": "Packaging",

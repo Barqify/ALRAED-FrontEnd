@@ -20,6 +20,9 @@
 # production
 /build
 
+# import staging (zip extract; do not commit)
+/_import/
+
 # misc
 .DS_Store
 *.pem
