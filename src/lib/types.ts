@@ -114,6 +114,11 @@ export type SiteSettings = {
     | {
         mode: "videos";
       };
+  /** Main page header (hero) background image */
+  heroBackground: {
+    imageUrl: string;
+    alt: LocalizedTriple;
+  };
 };
 
 /** Translation file shape (same for ar, en, fr JSON) */

@@ -6,7 +6,7 @@ import fr from "@/data/translations/fr.json";
 export const locales = ["ar", "en", "fr"] as const;
 export type Locale = (typeof locales)[number];
 
-export const defaultLocale: Locale = "ar";
+export const defaultLocale: Locale = "en";
 
 const dictionaries: Record<Locale, TranslationDict> = { ar, en, fr };
 

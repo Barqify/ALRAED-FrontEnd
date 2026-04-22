@@ -41,7 +41,10 @@ export function HeroStats({
       {stats.map((s, i) => (
         <div key={i} className="hero-stat">
           <div className="hero-stat-num">
-            <span data-target={s.target}>0</span>+
+            <span data-target={s.target}>0</span>
+            <span className="hero-stat-plus" aria-hidden="true">
+              +
+            </span>
           </div>
           <div className="hero-stat-label">{s.label}</div>
         </div>

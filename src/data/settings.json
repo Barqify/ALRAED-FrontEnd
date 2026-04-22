@@ -34,5 +34,13 @@
       "en": "ALRAED crops processing facility",
       "fr": "Installation de transformation ALRAED pour les cultures"
     }
+  },
+  "heroBackground": {
+    "imageUrl": "https://lh3.googleusercontent.com/d/1zDw9SjYINLqM1fzxaC7W4Ldfpmot43ve",
+    "alt": {
+      "ar": "منشأة الرائد للمحاصيل — خط التعبئة والتجهيز",
+      "en": "ALRAED crops processing facility",
+      "fr": "Installation de transformation ALRAED pour les cultures"
+    }
   }
 }

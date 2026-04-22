@@ -6,23 +6,27 @@ import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { type MouseEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import logoFile from "@/data/logo.json";
 import type { Locale } from "@/lib/i18n";
 import { swapLocaleSegment } from "@/lib/routing";
 import type { LogoFile, TranslationDict } from "@/lib/types";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const localesCycle: Locale[] = ["ar", "en", "fr"];
+const LOCALE_COOKIE = "alraed_locale";
+const ONE_YEAR = 60 * 60 * 24 * 365;
 
-function nextLocale(current: Locale): Locale {
-  const i = localesCycle.indexOf(current);
-  return localesCycle[(i + 1) % localesCycle.length];
-}
-
-function langButtonLabel(locale: Locale): string {
-  if (locale === "ar") return "English";
-  if (locale === "en") return "Français";
-  return "العربية";
+function localeLabel(l: Locale): string {
+  if (l === "ar") return "العربية";
+  if (l === "en") return "English";
+  return "Français";
 }
 
 export function Navbar({
@@ -72,9 +76,8 @@ export function Navbar({
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
-  const toggleLang = (e: MouseEvent) => {
-    e.preventDefault();
-    const n = nextLocale(locale);
+  const setLocale = (n: Locale) => {
+    document.cookie = `${LOCALE_COOKIE}=${n}; Max-Age=${ONE_YEAR}; Path=/; SameSite=Lax`;
     router.replace(swapLocaleSegment(pathname, n));
   };
 
@@ -114,14 +117,21 @@ export function Navbar({
                 {l.label}
               </Link>
             ))}
-            <button
-              type="button"
-              className="lang-btn"
-              onClick={toggleLang}
-            >
-              <FontAwesomeIcon icon={faGlobe} />{" "}
-              <span className="btn-text">{langButtonLabel(locale)}</span>
-            </button>
+            <div className="flex items-center gap-2">
+              <FontAwesomeIcon icon={faGlobe} className="text-[13px] text-[var(--brand-light)]" />
+              <Select value={locale} onValueChange={(v) => setLocale(v as Locale)}>
+                <SelectTrigger aria-label="Language" className="h-[34px] min-w-[112px] px-3">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {localesCycle.map((l) => (
+                    <SelectItem key={l} value={l}>
+                      {localeLabel(l)}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
           <button
             type="button"
@@ -150,10 +160,21 @@ export function Navbar({
             {l.label}
           </Link>
         ))}
-        <button type="button" className="lang-btn" onClick={toggleLang}>
-          <FontAwesomeIcon icon={faGlobe} />{" "}
-          <span className="btn-text">{langButtonLabel(locale)}</span>
-        </button>
+        <div className="flex items-center justify-center gap-2">
+          <FontAwesomeIcon icon={faGlobe} className="text-[14px] text-[var(--brand-light)]" />
+          <Select value={locale} onValueChange={(v) => setLocale(v as Locale)}>
+            <SelectTrigger aria-label="Language" className="h-11 w-full max-w-[260px] px-4 text-[15px]">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {localesCycle.map((l) => (
+                <SelectItem key={l} value={l}>
+                  {localeLabel(l)}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
     </>
   );

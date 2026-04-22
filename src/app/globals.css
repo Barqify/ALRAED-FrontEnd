@@ -48,3 +48,75 @@ body {
   max-width: 72rem;
   margin-inline: auto;
 }
+
+/* ================================================================
+🧊 APP LOADER (Next.js App Router loading.tsx)
+================================================================ */
+.app-loader {
+  min-height: 100vh;
+  background: radial-gradient(
+      ellipse at 25% 30%,
+      rgba(165, 133, 90, 0.10) 0%,
+      transparent 55%
+    ),
+    linear-gradient(180deg, var(--bg-darker), var(--bg-dark));
+  color: var(--text-light);
+  display: grid;
+  place-items: center;
+  padding: 48px 24px;
+}
+.app-loader-card {
+  width: min(560px, 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(165, 133, 90, 0.22);
+  background: rgba(18, 16, 16, 0.72);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-lg);
+  padding: 28px 22px;
+  text-align: center;
+}
+.app-loader-mark {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: rgba(165, 133, 90, 0.14);
+  border: 1px solid rgba(165, 133, 90, 0.26);
+  overflow: hidden;
+}
+.app-loader-mark::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(211, 182, 135, 0.75),
+    transparent
+  );
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+.app-loader-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--brand-light);
+  position: relative;
+  box-shadow: 0 0 0 10px rgba(165, 133, 90, 0.18);
+}
+.app-loader-title {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin-bottom: 8px;
+  color: var(--text-light);
+}
+.app-loader-sub {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(236, 230, 220, 0.62);
+  line-height: 1.6;
+}

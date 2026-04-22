@@ -242,32 +242,9 @@ select {
   background: var(--brand-light);
   border-radius: 2px;
 }
-.lang-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 14px;
-  background: rgba(165, 133, 90, .1);
-  border: 1px solid rgba(165, 133, 90, .2);
-  border-radius: var(--radius-sm);
-  color: var(--brand-light);
-  font-size: 13px;
-  font-weight: 600;
-  transition: var(--transition);
-  cursor: pointer;
-}
 .lang-btn:hover {
   background: rgba(165, 133, 90, .18);
   border-color: var(--brand);
-}
-.lang-btn .btn-text {
-  display: inline-block;
-  min-width: 40px;
-  text-align: center;
-  transition: var(--transition);
-}
-.lang-btn:hover .btn-text {
-  transform: scale(1.05);
 }
 .hamburger {
   display: none;
@@ -513,9 +490,19 @@ select {
   color: var(--brand-light);
   line-height: 1;
   font-family: 'Playfair Display', serif;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
 }
-.hero-stat-num span {
-  font-size: 26px;
+.hero-stat-num span[data-target] {
+  font-size: 1em;
+  line-height: 1;
+}
+.hero-stat-plus {
+  font-size: .78em;
+  line-height: 1;
+  opacity: .95;
 }
 .hero-stat-label {
   font-size: 12px;
@@ -523,6 +510,16 @@ select {
   margin-top: 6px;
   font-weight: 500;
   line-height: 1.4;
+  max-width: 18ch;
+  margin-inline: auto;
+  text-wrap: balance;
+}
+
+[dir="rtl"] .hero-stat-num {
+  font-family: var(--font-cairo), 'Cairo', sans-serif;
+}
+[dir="ltr"] .hero-stat-num {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
 }
 .hero-scroll {
   position: absolute;
@@ -2086,8 +2083,8 @@ select {
   .hero-stat-num {
     font-size: 32px;
   }
-  .hero-stat-num span {
-    font-size: 22px;
+  .hero-stat-plus {
+    font-size: .78em;
   }
   .hero-stat-label {
     font-size: 11px;

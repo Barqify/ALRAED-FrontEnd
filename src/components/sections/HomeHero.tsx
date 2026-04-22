@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,7 +7,9 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import type { Locale } from "@/lib/i18n";
+import { pickTriple } from "@/lib/i18n";
 import type { TranslationDict } from "@/lib/types";
+import { siteSettings } from "@/lib/settings";
 import { HeroScrollButton } from "./HeroScrollButton";
 import { HeroStats } from "./HeroStats";
 
@@ -28,20 +31,14 @@ export function HomeHero({
   return (
     <section className="hero">
       <div className="hero-video-wrap">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="https://picsum.photos/seed/almasa-hero/1920/1080.jpg"
-          style={{ opacity: 0.3 }}
-        >
-          <source
-            src="https://www.w3schools.com/html/mov_bbb.mp4"
-            type="video/mp4"
-          />
-        </video>
+        <Image
+          src={siteSettings.heroBackground.imageUrl}
+          alt={pickTriple(siteSettings.heroBackground.alt, locale)}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-30"
+        />
       </div>
       <div className="hero-video-overlay" />
       <div className="hero-pattern" />
