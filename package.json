@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3078",
     "lint": "eslint",
     "data:extract": "node scripts/extract-from-html.mjs"
   },
