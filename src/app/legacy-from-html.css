@@ -2444,6 +2444,15 @@ select {
   .carousel-wrap {
     display: none !important;
   }
+  /* Home cats/prods/news and similar use grids on desktop; about/home video use carousels only. */
+  .carousel-wrap.gallery-carousel,
+  .carousel-wrap.video-carousel {
+    display: block !important;
+  }
+  .carousel-wrap.gallery-carousel .carousel-track .gallery-card,
+  .carousel-wrap.video-carousel .carousel-track .video-card {
+    flex-shrink: 0;
+  }
 }
 ::-webkit-scrollbar {
   width: 7px;
