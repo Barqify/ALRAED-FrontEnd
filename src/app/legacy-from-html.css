@@ -1142,7 +1142,9 @@ select {
 }
 .carousel-track {
   display: flex;
+  flex-wrap: nowrap;
   align-items: stretch;
+  justify-content: center;
   gap: 16px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -1154,6 +1156,11 @@ select {
 }
 .carousel-track::-webkit-scrollbar {
   display: none;
+}
+/* Video & gallery: fixed-height cards, center in the track; news/cats use stretch. */
+.carousel-wrap.video-carousel .carousel-track,
+.carousel-wrap.gallery-carousel .carousel-track {
+  align-items: center;
 }
 .carousel-track .cat-card,
 .carousel-track .prod-card,
