@@ -86,6 +86,8 @@ export function Navbar({
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const selectDir = locale === "ar" ? "rtl" : "ltr";
+
   return (
     <>
       <nav
@@ -119,13 +121,24 @@ export function Navbar({
                 {l.label}
               </Link>
             ))}
-            <div className="flex items-center gap-2">
-              <FontAwesomeIcon icon={faGlobe} className="text-[13px] text-[var(--brand-light)]" />
-              <Select value={locale} onValueChange={(v) => setLocale(v as Locale)}>
-                <SelectTrigger aria-label="Language" className="h-[34px] min-w-[112px] px-3">
-                  <SelectValue />
+            <div className="flex shrink-0 items-center gap-2.5 px-2.5 py-2 sm:px-3 sm:py-2">
+              <FontAwesomeIcon
+                icon={faGlobe}
+                className="shrink-0 text-[14px] text-[var(--brand-light)]"
+                aria-hidden
+              />
+              <Select
+                dir={selectDir}
+                value={locale}
+                onValueChange={(v) => setLocale(v as Locale)}
+              >
+                <SelectTrigger
+                  aria-label="Language"
+                  className="h-10 min-h-10 min-w-[10rem] max-w-[14rem] shrink-0 gap-2.5 px-[10px] py-2"
+                >
+                  <SelectValue className="min-w-0 flex-1 truncate text-start leading-snug" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent sideOffset={6} align="start" className="py-0.5">
                   {localesCycle.map((l) => (
                     <SelectItem key={l} value={l}>
                       {localeLabel(l)}
@@ -162,22 +175,30 @@ export function Navbar({
             {l.label}
           </Link>
         ))}
-        <div className="mob-lang-row flex items-center gap-3">
+        <div className="mob-lang-row flex items-center gap-3 px-2 py-2.5">
           <FontAwesomeIcon
             icon={faGlobe}
-            className="shrink-0 text-[14px] text-[var(--brand-light)]"
+            className="shrink-0 text-[15px] text-[var(--brand-light)]"
             aria-hidden
           />
-          <Select value={locale} onValueChange={(v) => setLocale(v as Locale)}>
+          <Select
+            dir={selectDir}
+            value={locale}
+            onValueChange={(v) => setLocale(v as Locale)}
+          >
             <SelectTrigger
               aria-label="Language"
-              className="h-11 min-h-[44px] min-w-0 flex-1 border-[rgba(211,182,135,.42)] bg-[rgba(255,255,255,.07)] px-4 text-start text-[15px] text-[var(--text-light)] shadow-sm hover:bg-[rgba(255,255,255,.11)]"
+              className="h-12 min-h-12 min-w-0 flex-1 gap-3 border-[rgba(211,182,135,.42)] bg-[rgba(255,255,255,.08)] px-4 py-2.5 text-start text-[15px] text-[var(--text-light)] shadow-sm hover:bg-[rgba(255,255,255,.12)]"
             >
-              <SelectValue />
+              <SelectValue className="min-w-0 flex-1 truncate text-start leading-snug" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent
+              sideOffset={10}
+              align="center"
+              className="border-[rgba(211,182,135,.35)] py-1"
+            >
               {localesCycle.map((l) => (
-                <SelectItem key={l} value={l}>
+                <SelectItem key={l} value={l} className="min-h-11 py-3 text-[15px]">
                   {localeLabel(l)}
                 </SelectItem>
               ))}

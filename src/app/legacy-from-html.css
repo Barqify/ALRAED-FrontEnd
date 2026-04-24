@@ -30,12 +30,15 @@
 /* ================================================================
 🔄 RESET & BASE STYLES
 ================================================================ */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* In @layer base so Tailwind utilities (higher layer) are not overridden by this file’s import order. */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 }
 html {
   scroll-behavior: smooth;
