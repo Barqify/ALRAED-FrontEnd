@@ -1,13 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowLeft,
-  faImage,
-  faNewspaper,
-  faStar,
-  faThLarge,
-  faTrophy,
-  faVideo,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Link from "next/link";
 import { CategoryCard } from "@/components/cards/CategoryCard";
@@ -62,9 +54,6 @@ export default async function HomePage({
       <section className="video-gallery-section">
         <div className="container">
           <SectionHeader
-            icon={
-              <FontAwesomeIcon icon={spotlightImg ? faImage : faVideo} />
-            }
             title={t(dict, "about.videos.title")}
             description={t(dict, "about.videos.desc")}
             media={
@@ -76,7 +65,8 @@ export default async function HomePage({
                     fill
                     className="object-cover object-center"
                     sizes="(max-width: 1152px) 100vw, 1152px"
-                    priority
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ) : undefined
@@ -101,7 +91,6 @@ export default async function HomePage({
       <section className="section" style={{ background: "var(--bg-white)" }}>
         <div className="container">
           <SectionHeader
-            icon={<FontAwesomeIcon icon={faThLarge} />}
             title={dict.cats.title}
             description={dict.cats.desc}
           />
@@ -129,7 +118,6 @@ export default async function HomePage({
       <section className="section">
         <div className="container">
           <SectionHeader
-            icon={<FontAwesomeIcon icon={faStar} />}
             title={dict.featured.title}
             description={dict.featured.desc}
           />
@@ -162,8 +150,20 @@ export default async function HomePage({
                 />
               ))}
             </Carousel>
+            <div className="view-all-wrap anim">
+              <Link
+                href={`/${locale}/products`}
+                className="btn btn-outline"
+              >
+                {dict.featured.viewAll}{" "}
+                <FontAwesomeIcon
+                  icon={faArrowLeft}
+                  className="rtl:rotate-0 [dir=ltr]:rotate-180"
+                />
+              </Link>
+            </div>
           </div>
-          <div className="view-all-wrap anim">
+          <div className="view-all-wrap anim hidden md:block">
             <Link
               href={`/${locale}/products`}
               className="btn btn-outline"
@@ -181,7 +181,6 @@ export default async function HomePage({
       <section className="section" style={{ background: "var(--bg-white)" }}>
         <div className="container">
           <SectionHeader
-            icon={<FontAwesomeIcon icon={faNewspaper} />}
             title={dict.news.homeTitle}
             description={dict.news.homeDesc}
           />
@@ -218,7 +217,6 @@ export default async function HomePage({
       <section className="section">
         <div className="container">
           <SectionHeader
-            icon={<FontAwesomeIcon icon={faTrophy} />}
             title={dict.why.title as string}
             description={dict.why.desc as string}
           />

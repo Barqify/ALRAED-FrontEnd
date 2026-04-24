@@ -1,13 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBullseye,
-  faCertificate,
-  faGem,
-  faHeart,
-  faImages,
-  faUserTie,
-  faVideo,
-} from "@fortawesome/free-solid-svg-icons";
 import { GalleryCard } from "@/components/cards/GalleryCard";
 import { VideoCard } from "@/components/cards/VideoCard";
 import { TeamCard } from "@/components/cards/TeamCard";
@@ -91,10 +82,7 @@ export default async function AboutPage({
 
       <section className="diamond-stories-section">
         <div className="container">
-          <SectionHeader
-            icon={<FontAwesomeIcon icon={faGem} />}
-            title={about.story.title}
-          />
+          <SectionHeader title={about.story.title} />
           <div className="diamond-stories-grid">
             <AnimateInView>
               <div className="diamond-story-content">
@@ -129,7 +117,6 @@ export default async function AboutPage({
       <section className="gallery-section">
         <div className="container">
           <SectionHeader
-            icon={<FontAwesomeIcon icon={faImages} />}
             title={about.gallery.title}
             description={about.gallery.desc}
           />
@@ -150,7 +137,6 @@ export default async function AboutPage({
       <section className="video-gallery-section">
         <div className="container">
           <SectionHeader
-            icon={<FontAwesomeIcon icon={faVideo} />}
             title={t(dict, "about.videos.title")}
             description={t(dict, "about.videos.desc")}
           />
@@ -170,10 +156,7 @@ export default async function AboutPage({
 
       <section className="section" style={{ background: "var(--bg-white)" }}>
         <div className="container">
-          <SectionHeader
-            icon={<FontAwesomeIcon icon={faBullseye} />}
-            title={about.mvp.title}
-          />
+          <SectionHeader title={about.mvp.title} />
           <div className="mvp-grid">
             {mvpKeys.map((key, i) => (
               <AnimateInView key={key} delayClass={`d${i + 1}` as "d1" | "d2" | "d3"}>
@@ -202,10 +185,7 @@ export default async function AboutPage({
 
       <section className="section">
         <div className="container">
-          <SectionHeader
-            icon={<FontAwesomeIcon icon={faHeart} />}
-            title={about.values.title}
-          />
+          <SectionHeader title={about.values.title} />
           <div className="vals-grid">
             {valKeys.map((key, i) => (
               <AnimateInView
@@ -234,7 +214,6 @@ export default async function AboutPage({
       <section className="section" style={{ background: "var(--bg-white)" }}>
         <div className="container">
           <SectionHeader
-            icon={<FontAwesomeIcon icon={faUserTie} />}
             title={about.team.title}
             description={about.team.desc}
           />
@@ -251,7 +230,6 @@ export default async function AboutPage({
       <section className="section">
         <div className="container">
           <SectionHeader
-            icon={<FontAwesomeIcon icon={faCertificate} />}
             title={about.certs.title}
             description={about.certs.desc}
           />

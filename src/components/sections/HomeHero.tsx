@@ -37,6 +37,8 @@ export function HomeHero({
           fill
           priority
           sizes="100vw"
+          fetchPriority="high"
+          decoding="async"
           className="object-cover object-center opacity-30"
         />
       </div>
@@ -61,8 +63,8 @@ export function HomeHero({
           </Link>
         </div>
         <HeroStats stats={stats} />
+        <HeroScrollButton label={dict.hero.scroll} />
       </div>
-      <HeroScrollButton label={dict.hero.scroll} />
     </section>
   );
 }

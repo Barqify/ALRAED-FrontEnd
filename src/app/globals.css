@@ -21,16 +21,21 @@
   --font-family-playfair: var(--font-playfair), serif;
 }
 
-/** Default until locale layout applies (Arabic mirrors app shell) */
+/**
+ * Default matches `defaultLocale` (LTR). Arabic sets `dir="rtl"` on `<html>` (bootstrap + LocaleEffects).
+ * Montserrat / Cairo variables come from next/font on the locale layout wrapper.
+ */
 body {
+  font-family: var(--font-montserrat), "Montserrat", system-ui, sans-serif;
+}
+
+[dir="rtl"] body {
   font-family: var(--font-cairo), "Cairo", sans-serif;
 }
 
-/**
- * Latin UI: Montserrat (https://fonts.google.com/specimen/Montserrat), self-hosted via next/font.
- */
-[dir="ltr"] body {
-  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+/** Arabic SSR: `<html dir>` is synced on the client; locale shell already has `dir="rtl"`. */
+body:has(.min-h-screen[dir="rtl"]) {
+  font-family: var(--font-cairo), "Cairo", sans-serif;
 }
 
 [dir="ltr"] .hero-title,

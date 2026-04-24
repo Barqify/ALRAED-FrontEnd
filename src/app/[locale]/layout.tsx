@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { LocaleEffects } from "@/components/LocaleEffects";
 import categories from "@/data/categories.json";
-import { defaultLocale, getDict, isLocale, locales } from "@/lib/i18n";
+import { defaultLocale, getDict, isLocale, isRtl, locales } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import type { Category } from "@/lib/types";
 
@@ -51,6 +51,8 @@ export default async function LocaleLayout({
     <>
       <LocaleEffects locale={locale} />
       <div
+        lang={locale}
+        dir={isRtl(locale) ? "rtl" : "ltr"}
         className={`${cairo.variable} ${playfair.variable} ${montserrat.variable} ${bodyFont} min-h-screen`}
       >
         <Navbar locale={locale} dict={dict} />

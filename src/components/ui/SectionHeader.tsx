@@ -10,7 +10,7 @@ export function SectionHeader({
   media,
   className,
 }: {
-  icon: ReactNode;
+  icon?: ReactNode;
   title: string;
   description?: string;
   media?: ReactNode;
@@ -24,7 +24,7 @@ export function SectionHeader({
           media ? "sec-head--with-media" : undefined,
         )}
       >
-        <div className="sec-label">{icon}</div>
+        {icon ? <div className="sec-label">{icon}</div> : null}
         <h2 className="sec-title">{title}</h2>
         {description ? <p className="sec-desc">{description}</p> : null}
       </div>

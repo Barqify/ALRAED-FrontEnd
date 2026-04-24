@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -36,12 +37,16 @@ export function NewsCard({
 
   return (
     <div className="news-card">
-      <div
-        className="news-img"
-        style={{
-          backgroundImage: `url(${imgUrl})`,
-        }}
-      >
+      <div className="news-img">
+        <Image
+          src={imgUrl}
+          alt={ti}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 85vw, (max-width: 1200px) 33vw, 400px"
+          loading="lazy"
+          decoding="async"
+        />
         <span className="news-date-badge">
           <FontAwesomeIcon
             icon={faCalendarDays}

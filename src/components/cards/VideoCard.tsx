@@ -34,6 +34,9 @@ export function VideoCard({
           width={400}
           height={220}
           className="h-full w-full object-cover"
+          sizes="(max-width: 768px) 85vw, 320px"
+          loading="lazy"
+          decoding="async"
           unoptimized
         />
         <div className="play-overlay">

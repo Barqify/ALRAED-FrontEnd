@@ -182,7 +182,7 @@ export default async function ContactPage({
       >
         <div className="container">
           <AnimateInView>
-            <div className="mx-auto mb-10 max-w-3xl text-center">
+            <div className="mx-auto mt-5 mb-5 max-w-3xl px-4 pt-12 text-center sm:px-6 sm:pt-14 md:px-8">
               <h2 className="sec-title">{contact.mapLabel}</h2>
               <p className="mt-3 text-[15px] font-semibold leading-relaxed text-[var(--text-dark)]">
                 {display.address}

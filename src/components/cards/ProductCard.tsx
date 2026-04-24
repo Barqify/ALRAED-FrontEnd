@@ -52,6 +52,9 @@ export function ProductCard({
           width={400}
           height={300}
           className="h-full w-full object-cover"
+          sizes="(max-width: 768px) 80vw, (max-width: 1200px) 33vw, 400px"
+          loading="lazy"
+          decoding="async"
           unoptimized
         />
         {cat ? (

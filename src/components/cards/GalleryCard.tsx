@@ -19,6 +19,9 @@ export function GalleryCard({
         width={600}
         height={400}
         className="h-full w-full object-cover"
+        sizes="(max-width: 768px) 75vw, (max-width: 1200px) 320px, 600px"
+        loading="lazy"
+        decoding="async"
         unoptimized
       />
       <div className="gallery-card-overlay">

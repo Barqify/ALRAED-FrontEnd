@@ -100,6 +100,8 @@ export function Navbar({
               width={logo.width}
               height={logo.height}
               className="h-auto max-h-[var(--navbar-h)] w-auto"
+              priority
+              decoding="async"
               unoptimized={logo.src.includes("placeholder")}
             />
           </Link>
@@ -160,10 +162,17 @@ export function Navbar({
             {l.label}
           </Link>
         ))}
-        <div className="flex items-center justify-center gap-2">
-          <FontAwesomeIcon icon={faGlobe} className="text-[14px] text-[var(--brand-light)]" />
+        <div className="mob-lang-row flex items-center gap-3">
+          <FontAwesomeIcon
+            icon={faGlobe}
+            className="shrink-0 text-[14px] text-[var(--brand-light)]"
+            aria-hidden
+          />
           <Select value={locale} onValueChange={(v) => setLocale(v as Locale)}>
-            <SelectTrigger aria-label="Language" className="h-11 w-full max-w-[260px] px-4 text-[15px]">
+            <SelectTrigger
+              aria-label="Language"
+              className="h-11 min-h-[44px] min-w-0 flex-1 border-[rgba(211,182,135,.42)] bg-[rgba(255,255,255,.07)] px-4 text-start text-[15px] text-[var(--text-light)] shadow-sm hover:bg-[rgba(255,255,255,.11)]"
+            >
               <SelectValue />
             </SelectTrigger>
             <SelectContent>

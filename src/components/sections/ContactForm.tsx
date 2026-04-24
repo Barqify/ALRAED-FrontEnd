@@ -74,7 +74,13 @@ export function ContactForm({
                 <label className="form-label" htmlFor="f-n">
                   {dict.name ?? ""}
                 </label>
-                <input name="name" className="form-input" id="f-n" required />
+                <input
+                  name="name"
+                  className="form-input"
+                  id="f-n"
+                  required
+                  placeholder={dict.placeholderName ?? ""}
+                />
                 <div className="form-error">{requiredMsg}</div>
               </div>
               <div
@@ -90,6 +96,7 @@ export function ContactForm({
                   className="form-input"
                   id="f-e"
                   required
+                  placeholder={dict.placeholderEmail ?? ""}
                 />
                 <div className="form-error">{invalidEmail}</div>
               </div>
@@ -103,9 +110,7 @@ export function ContactForm({
                 type="tel"
                 className="form-input"
                 id="f-p"
-                placeholder={
-                  locale === "ar" ? "أدخل رقم الهاتف" : "Enter phone number"
-                }
+                placeholder={dict.placeholderPhone ?? ""}
               />
             </div>
             <div
@@ -121,6 +126,7 @@ export function ContactForm({
                 id="f-m"
                 rows={5}
                 required
+                placeholder={dict.placeholderMessage ?? ""}
               />
               <div className="form-error">{requiredMsg}</div>
             </div>

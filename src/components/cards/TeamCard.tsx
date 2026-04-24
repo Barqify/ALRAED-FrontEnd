@@ -27,6 +27,9 @@ export function TeamCard({
           width={200}
           height={200}
           className="h-full w-full object-cover"
+          sizes="(max-width: 768px) 45vw, 200px"
+          loading="lazy"
+          decoding="async"
           unoptimized
         />
       </div>

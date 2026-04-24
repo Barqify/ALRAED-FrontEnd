@@ -61,6 +61,8 @@ export function Footer({
                 width={logo.width}
                 height={logo.height}
                 className="h-auto max-h-[var(--navbar-h)] w-auto"
+                loading="lazy"
+                decoding="async"
                 unoptimized={logo.src.includes("placeholder")}
               />
             </Link>

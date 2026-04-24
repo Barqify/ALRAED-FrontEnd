@@ -62,9 +62,12 @@ img {
 }
 button {
   cursor: pointer;
+  font-family: inherit;
+}
+/* Do not strip border/background from Radix Select triggers (role="combobox") — Tailwind styles must apply. */
+button:not([role="combobox"]) {
   border: none;
   background: none;
-  font-family: inherit;
 }
 input,
 textarea,
@@ -298,6 +301,12 @@ select {
   padding: 14px;
   font-size: 15px;
 }
+.mob-menu .mob-lang-row {
+  margin-top: 18px;
+  width: 100%;
+  max-width: 22rem;
+  margin-inline: auto;
+}
 
 /* ================================================================
 🔘 BUTTONS
@@ -365,6 +374,7 @@ select {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
   padding-top: var(--navbar-h);
@@ -406,7 +416,7 @@ select {
   z-index: 3;
   text-align: center;
   max-width: 920px;
-  margin: 0 auto;
+  margin: 20px 0;
   padding: 0 24px;
 }
 .hero-badge {
@@ -522,11 +532,9 @@ select {
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
 }
 .hero-scroll {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
+  position: relative;
+  margin-top: 28px;
+  margin-inline: auto;
   width: fit-content;
   display: flex;
   flex-direction: column;
@@ -542,6 +550,10 @@ select {
   opacity: 0.8;
   transition: opacity 0.3s ease;
   text-align: center;
+  background: transparent;
+  border: 0;
+  padding: 8px 12px;
+  font-family: inherit;
 }
 .hero-scroll:hover {
   opacity: 1;
@@ -700,6 +712,7 @@ select {
 🖼️ GALLERY & CARDS
 ================================================================ */
 .home-gallery-strip {
+  --home-gallery-card-w: 300px;
   padding: 36px 0;
   background: var(--bg-darker);
   position: relative;
@@ -724,12 +737,14 @@ select {
 }
 .home-gallery-strip .gallery-track {
   gap: 20px;
-  padding: 8px 24px 8px;
-  scroll-padding: 24px;
+  padding-block: 8px;
+  /* Center first/last card in view; stride (card + gap) stays aligned with JS scroll steps */
+  padding-inline: max(24px, calc(50% - var(--home-gallery-card-w) / 2));
+  scroll-padding-inline: max(24px, calc(50% - var(--home-gallery-card-w) / 2));
 }
 .home-gallery-strip .gallery-card {
-  min-width: 300px;
-  max-width: 300px;
+  min-width: var(--home-gallery-card-w);
+  max-width: var(--home-gallery-card-w);
   height: 200px;
   border: 1px solid rgba(165, 133, 90, .12);
   scroll-snap-align: center;
@@ -745,6 +760,7 @@ select {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 18px;
+  align-items: stretch;
 }
 .cat-card {
   background: var(--bg-white);
@@ -757,6 +773,10 @@ select {
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
 }
 .cat-card::before {
   content: '';
@@ -802,11 +822,18 @@ select {
   font-size: 11px;
   color: var(--text-muted);
   line-height: 1.5;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 .prods-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  align-items: stretch;
+}
+.prods-grid > .prod-card {
+  height: 100%;
+  min-height: 0;
 }
 .prod-card {
   background: var(--bg-white);
@@ -961,6 +988,15 @@ select {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  align-items: stretch;
+}
+.news-grid > .anim {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.news-grid > .anim .news-card {
+  flex: 1 1 auto;
 }
 .news-card {
   background: var(--bg-white);
@@ -969,6 +1005,10 @@ select {
   overflow: hidden;
   transition: var(--transition);
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
 }
 .news-card:hover {
   transform: translateY(-5px);
@@ -1034,6 +1074,10 @@ select {
 }
 .news-body {
   padding: 20px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 .news-title {
   font-size: 16px;
@@ -1051,11 +1095,14 @@ select {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 .news-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: auto;
 }
 .news-link {
   display: inline-flex;
@@ -1092,6 +1139,7 @@ select {
 }
 .carousel-track {
   display: flex;
+  align-items: stretch;
   gap: 16px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -1197,6 +1245,7 @@ select {
 }
 .gallery-track {
   display: flex;
+  align-items: stretch;
   gap: 20px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -1251,8 +1300,18 @@ select {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
+  align-items: stretch;
+}
+/* Grid children are AnimateInView wrappers — stretch so cards match row height */
+.why-grid > .anim {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 .why-card {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
   background: var(--bg-white);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
@@ -1469,7 +1528,13 @@ select {
   max-width: 1100px;
   margin: 0 auto;
   justify-content: center;
-  justify-items: center;
+  justify-items: stretch;
+  align-items: stretch;
+}
+.mvp-grid > .anim {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 .mvp-card {
   background: var(--bg-white);
@@ -1482,6 +1547,11 @@ select {
   overflow: hidden;
   width: 100%;
   max-width: 380px;
+  margin-inline: auto;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 .mvp-card::after {
   content: '';
@@ -1499,6 +1569,7 @@ select {
 .mvp-icon {
   width: 72px;
   height: 72px;
+  flex-shrink: 0;
   margin: 0 auto 20px;
   border-radius: var(--radius-md);
   display: flex;
@@ -1516,21 +1587,38 @@ select {
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.8;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 .vals-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
+  align-items: stretch;
+}
+.vals-grid > .anim {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 .val-card {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 14px;
   background: var(--bg-white);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 20px;
   transition: var(--transition);
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+}
+.val-card > div:last-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 .val-card:hover {
   border-color: var(--border-brand);
@@ -1547,6 +1635,7 @@ select {
   justify-content: center;
   font-size: 18px;
   color: var(--brand);
+  align-self: flex-start;
 }
 .val-title {
   font-size: 15px;
@@ -1558,11 +1647,19 @@ select {
   font-size: 13px;
   color: var(--text-muted);
   line-height: 1.6;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 .team-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
+  align-items: stretch;
+}
+.team-grid > .anim {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 .team-card {
   text-align: center;
@@ -1571,6 +1668,11 @@ select {
   border-radius: var(--radius-md);
   padding: 30px 20px;
   transition: var(--transition);
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
 }
 .team-card:hover {
   transform: translateY(-4px);
@@ -1580,6 +1682,7 @@ select {
 .team-avatar {
   width: 76px;
   height: 76px;
+  flex-shrink: 0;
   border-radius: 50%;
   margin: 0 auto 14px;
   display: flex;
@@ -1606,6 +1709,8 @@ select {
   font-size: 13px;
   color: var(--brand);
   font-weight: 500;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 .certs-grid {
   display: flex;
