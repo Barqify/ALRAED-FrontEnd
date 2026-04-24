@@ -11,7 +11,7 @@ import {
   faLinkedinIn,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import Image from "next/image";
+import { LazyImage } from "@/components/ui/LazyImage";
 import Link from "next/link";
 import logoFile from "@/data/logo.json";
 import type { Locale } from "@/lib/i18n";
@@ -55,14 +55,12 @@ export function Footer({
         <div className="footer-grid">
           <div>
             <Link href={base} className="nav-logo mb-3.5 inline-block">
-              <Image
+              <LazyImage
                 src={logo.src}
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
                 className="h-auto max-h-[var(--navbar-h)] w-auto"
-                loading="lazy"
-                decoding="async"
                 unoptimized={logo.src.includes("placeholder")}
               />
             </Link>

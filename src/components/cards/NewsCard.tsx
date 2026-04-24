@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { LazyImage } from "@/components/ui/LazyImage";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -38,14 +38,12 @@ export function NewsCard({
   return (
     <div className="news-card">
       <div className="news-img">
-        <Image
+        <LazyImage
           src={imgUrl}
           alt={ti}
           fill
           className="object-cover"
           sizes="(max-width: 768px) 85vw, (max-width: 1200px) 33vw, 400px"
-          loading="lazy"
-          decoding="async"
         />
         <span className="news-date-badge">
           <FontAwesomeIcon

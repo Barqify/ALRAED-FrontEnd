@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { LazyImage } from "@/components/ui/LazyImage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import type { Locale } from "@/lib/i18n";
@@ -28,15 +28,13 @@ export function VideoCard({
           setActive(true);
         }}
       >
-        <Image
+        <LazyImage
           src={video.thumb}
           alt={title}
           width={400}
           height={220}
           className="h-full w-full object-cover"
           sizes="(max-width: 768px) 85vw, 320px"
-          loading="lazy"
-          decoding="async"
           unoptimized
         />
         <div className="play-overlay">

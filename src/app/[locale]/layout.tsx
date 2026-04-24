@@ -2,6 +2,7 @@ import { Cairo, Montserrat, Playfair_Display } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
+import { AppEntranceGate } from "@/components/AppEntranceGate";
 import { LocaleEffects } from "@/components/LocaleEffects";
 import categories from "@/data/categories.json";
 import { defaultLocale, getDict, isLocale, isRtl, locales } from "@/lib/i18n";
@@ -50,20 +51,22 @@ export default async function LocaleLayout({
   return (
     <>
       <LocaleEffects locale={locale} />
-      <div
-        lang={locale}
-        dir={isRtl(locale) ? "rtl" : "ltr"}
-        className={`${cairo.variable} ${playfair.variable} ${montserrat.variable} ${bodyFont} min-h-screen`}
-      >
-        <Navbar locale={locale} dict={dict} />
-        <main>{children}</main>
-        <Footer
-          locale={locale}
-          dict={dict}
-          categories={categories as Category[]}
-        />
-        <WhatsAppFloat />
-      </div>
+      <AppEntranceGate>
+        <div
+          lang={locale}
+          dir={isRtl(locale) ? "rtl" : "ltr"}
+          className={`${cairo.variable} ${playfair.variable} ${montserrat.variable} ${bodyFont} min-h-screen`}
+        >
+          <Navbar locale={locale} dict={dict} />
+          <main>{children}</main>
+          <Footer
+            locale={locale}
+            dict={dict}
+            categories={categories as Category[]}
+          />
+          <WhatsAppFloat />
+        </div>
+      </AppEntranceGate>
     </>
   );
 }

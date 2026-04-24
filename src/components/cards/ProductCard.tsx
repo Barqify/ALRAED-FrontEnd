@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { LazyImage } from "@/components/ui/LazyImage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
@@ -46,15 +46,13 @@ export function ProductCard({
             : undefined
         }
       >
-        <Image
+        <LazyImage
           src={product.img}
           alt={name}
           width={400}
           height={300}
           className="h-full w-full object-cover"
           sizes="(max-width: 768px) 80vw, (max-width: 1200px) 33vw, 400px"
-          loading="lazy"
-          decoding="async"
           unoptimized
         />
         {cat ? (

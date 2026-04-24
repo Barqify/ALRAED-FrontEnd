@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import Image from "next/image";
+import { LazyImage } from "@/components/ui/LazyImage";
 import Link from "next/link";
 import { CategoryCard } from "@/components/cards/CategoryCard";
 import { GalleryCard } from "@/components/cards/GalleryCard";
@@ -59,14 +59,12 @@ export default async function HomePage({
             media={
               spotlightImg ? (
                 <div className="relative aspect-[21/9] max-h-[min(56vh,520px)] min-h-[200px] w-full overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border-light)] shadow-[var(--shadow-md)]">
-                  <Image
+                  <LazyImage
                     src={spotlightImg.imageUrl}
                     alt={pickTriple(spotlightImg.alt, locale)}
                     fill
                     className="object-cover object-center"
                     sizes="(max-width: 1152px) 100vw, 1152px"
-                    loading="lazy"
-                    decoding="async"
                   />
                 </div>
               ) : undefined
