@@ -39,6 +39,7 @@ export function Navbar({
   const pathname = usePathname();
   const router = useRouter();
   const [mobOpen, setMobOpen] = useState(false);
+  const [mobMenuEl, setMobMenuEl] = useState<HTMLDivElement | null>(null);
   const [scrolled, setScrolled] = useState(false);
 
   const logo = (logoFile as LogoFile)[locale];
@@ -76,14 +77,15 @@ export function Navbar({
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
-  const setLocale = (n: Locale) => {
-    document.cookie = `${LOCALE_COOKIE}=${n}; Max-Age=${ONE_YEAR}; Path=/; SameSite=Lax`;
-    router.replace(swapLocaleSegment(pathname, n));
-  };
-
   const afterNav = () => {
     setMobOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const setLocale = (n: Locale) => {
+    afterNav();
+    document.cookie = `${LOCALE_COOKIE}=${n}; Max-Age=${ONE_YEAR}; Path=/; SameSite=Lax`;
+    router.replace(swapLocaleSegment(pathname, n));
   };
 
   const selectDir = locale === "ar" ? "rtl" : "ltr";
@@ -161,7 +163,11 @@ export function Navbar({
           </button>
         </div>
       </nav>
-      <div className={clsx("mob-menu", mobOpen && "open")} id="mob-menu">
+      <div
+        ref={setMobMenuEl}
+        className={clsx("mob-menu", mobOpen && "open")}
+        id="mob-menu"
+      >
         {links.map((l) => (
           <Link
             key={`m-${l.href}`}
@@ -178,7 +184,7 @@ export function Navbar({
         <div className="mob-lang-row flex items-center gap-3 px-2 py-2.5">
           <FontAwesomeIcon
             icon={faGlobe}
-            className="shrink-0 text-[15px] text-[var(--brand-light)]"
+            className="shrink-0 text-base text-[var(--brand-light)]"
             aria-hidden
           />
           <Select
@@ -188,17 +194,19 @@ export function Navbar({
           >
             <SelectTrigger
               aria-label="Language"
-              className="h-12 min-h-12 min-w-0 flex-1 gap-3 border-[rgba(211,182,135,.42)] bg-[rgba(255,255,255,.08)] px-4 py-2.5 text-start text-[15px] text-[var(--text-light)] shadow-sm hover:bg-[rgba(255,255,255,.12)]"
+              className="h-12 min-h-12 min-w-0 flex-1 gap-3 border-[rgba(211,182,135,.42)] bg-[rgba(255,255,255,.08)] px-4 py-2.5 text-start text-base text-[var(--text-light)] shadow-sm hover:bg-[rgba(255,255,255,.12)]"
             >
               <SelectValue className="min-w-0 flex-1 truncate text-start leading-snug" />
             </SelectTrigger>
             <SelectContent
-              sideOffset={10}
+              side="top"
+              sideOffset={8}
               align="center"
+              container={mobMenuEl ?? undefined}
               className="border-[rgba(211,182,135,.35)] py-1"
             >
               {localesCycle.map((l) => (
-                <SelectItem key={l} value={l} className="min-h-11 py-3 text-[15px]">
+                <SelectItem key={l} value={l} className="min-h-11 py-3 text-base">
                   {localeLabel(l)}
                 </SelectItem>
               ))}

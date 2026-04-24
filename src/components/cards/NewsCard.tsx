@@ -33,7 +33,10 @@ export function NewsCard({
   const wt = encodeURIComponent(
     `${locale === "ar" ? "استفسار عن: " : "Inquiry: "}${ti}`
   );
-  const imgUrl = `https://picsum.photos/seed/${news.img}/600/400.jpg`;
+  // Use absolute image URLs as-is; only use Picsum when `img` is a short seed/id.
+  const imgUrl = /^https?:\/\//i.test(news.img)
+    ? news.img
+    : `https://picsum.photos/seed/${encodeURIComponent(news.img)}/600/400.jpg`;
 
   return (
     <div className="news-card">
