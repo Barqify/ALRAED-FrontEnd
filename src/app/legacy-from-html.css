@@ -67,11 +67,11 @@ button {
   cursor: pointer;
   font-family: inherit;
 }
-/* Do not strip border/background from Radix Select triggers (role="combobox") — Tailwind styles must apply. */
-button:not([role="combobox"]) {
-  border: none;
-  background: none;
-}
+/*
+  Do not blanket-reset background on buttons: `.btn-brand` is only one class (0,1,0) and loses
+  to `button:not(...)` (0,1,1), so submit / brand buttons stayed transparent on white cards.
+  Radix `role="combobox"` triggers and `.btn` / `.carousel-arrow` / etc. carry their own styles.
+*/
 input,
 textarea,
 select {
