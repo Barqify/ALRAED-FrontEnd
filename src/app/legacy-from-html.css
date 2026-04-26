@@ -983,6 +983,11 @@ select {
   text-align: center;
   margin-top: 40px;
 }
+/* CTAs must stay visible: `.anim` alone keeps opacity:0 until `.vis` (AnimateInView). */
+.view-all-wrap.anim {
+  opacity: 1;
+  transform: none;
+}
 
 /* ================================================================
 📰 NEWS & CAROUSEL
@@ -1012,6 +1017,7 @@ select {
   flex-direction: column;
   height: 100%;
   min-height: 0;
+  scroll-margin-top: calc(var(--navbar-h) + 16px);
 }
 .news-card:hover {
   transform: translateY(-5px);

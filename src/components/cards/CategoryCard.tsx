@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { Locale } from "@/lib/i18n";
-import { pickTriple } from "@/lib/i18n";
+import { isRtl, pickTriple } from "@/lib/i18n";
 import { getFaIcon } from "@/lib/icons";
 import type { Category } from "@/lib/types";
 
@@ -27,6 +27,8 @@ export function CategoryCard({
       href={`/${locale}/products/${category.id}`}
       className="cat-card block"
       style={{ scrollSnapAlign: "center" }}
+      dir={isRtl(locale) ? "rtl" : "ltr"}
+      lang={locale}
     >
       <div
         className="cat-icon"

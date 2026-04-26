@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import clsx from "clsx";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { isRtl } from "@/lib/i18n";
 
 export function CtaBanner({
   locale,
@@ -14,6 +14,7 @@ export function CtaBanner({
   description: string;
   btnLabel: string;
 }) {
+  const rtl = isRtl(locale === "ar" ? "ar" : locale === "fr" ? "fr" : "en");
   return (
     <section className="cta-banner">
       <div className="container cta-content">
@@ -22,8 +23,7 @@ export function CtaBanner({
         <Link href={`/${locale}/contact`} className="btn btn-white btn-lg">
           {btnLabel}{" "}
           <FontAwesomeIcon
-            icon={faArrowLeft}
-            className={clsx("[dir=ltr]:rotate-180")}
+            icon={rtl ? faArrowLeft : faArrowRight}
           />
         </Link>
       </div>

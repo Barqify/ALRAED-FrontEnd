@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { LazyImage } from "@/components/ui/LazyImage";
 import Link from "next/link";
 import { CategoryCard } from "@/components/cards/CategoryCard";
@@ -148,28 +148,12 @@ export default async function HomePage({
                 />
               ))}
             </Carousel>
-            <div className="view-all-wrap anim">
-              <Link
-                href={`/${locale}/products`}
-                className="btn btn-outline"
-              >
-                {dict.featured.viewAll}{" "}
-                <FontAwesomeIcon
-                  icon={faArrowLeft}
-                  className="rtl:rotate-0 [dir=ltr]:rotate-180"
-                />
-              </Link>
-            </div>
           </div>
-          <div className="view-all-wrap anim hidden md:block">
-            <Link
-              href={`/${locale}/products`}
-              className="btn btn-outline"
-            >
+          <div className="view-all-wrap">
+            <Link href={`/${locale}/products`} className="btn btn-outline">
               {dict.featured.viewAll}{" "}
               <FontAwesomeIcon
-                icon={faArrowLeft}
-                className="rtl:rotate-0 [dir=ltr]:rotate-180"
+                icon={isRtl(locale) ? faArrowLeft : faArrowRight}
               />
             </Link>
           </div>
@@ -200,12 +184,11 @@ export default async function HomePage({
               ))}
             </Carousel>
           </div>
-          <div className="view-all-wrap anim">
+          <div className="view-all-wrap">
             <Link href={`/${locale}/news`} className="btn btn-outline">
               {dict.news.viewAll}{" "}
               <FontAwesomeIcon
-                icon={faArrowLeft}
-                className="rtl:rotate-0 [dir=ltr]:rotate-180"
+                icon={isRtl(locale) ? faArrowLeft : faArrowRight}
               />
             </Link>
           </div>

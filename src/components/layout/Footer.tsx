@@ -19,6 +19,9 @@ import { pickTriple } from "@/lib/i18n";
 import { getContactDisplay, siteSettings, socialUrl } from "@/lib/settings";
 import type { Category, LogoFile, TranslationDict } from "@/lib/types";
 
+/** WhatsApp for footer credit (Badri Zreidi) — digits only after country code */
+const FOOTER_CREDIT_WA = "https://wa.me/201032758393";
+
 export function Footer({
   locale,
   dict,
@@ -128,7 +131,17 @@ export function Footer({
         </div>
         <div className="footer-bottom">
           <span>{dict.footer.copy}</span>
-          <span>{dict.footer.made}</span>
+          <span className="footer-made-line inline-flex flex-wrap items-baseline gap-x-1">
+            {dict.footer.madeLead}
+            <a
+              href={FOOTER_CREDIT_WA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[rgba(236,230,220,.55)] underline-offset-2 transition-colors hover:text-[var(--brand-light)] hover:underline"
+            >
+              {dict.footer.madeAuthor}
+            </a>
+          </span>
         </div>
       </div>
     </footer>

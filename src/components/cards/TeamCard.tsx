@@ -1,5 +1,6 @@
 import { LazyImage } from "@/components/ui/LazyImage";
 import type { Locale } from "@/lib/i18n";
+import { isRtl } from "@/lib/i18n";
 import type { TeamMember } from "@/lib/types";
 
 export function TeamCard({
@@ -19,7 +20,11 @@ export function TeamCard({
         : member.enRole;
 
   return (
-    <div className="team-card">
+    <div
+      className="team-card"
+      dir={isRtl(locale) ? "rtl" : "ltr"}
+      lang={locale}
+    >
       <div className="team-avatar relative overflow-hidden">
         <LazyImage
           src={member.img}

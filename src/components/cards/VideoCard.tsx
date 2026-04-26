@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { X } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
-import { pickTriple } from "@/lib/i18n";
+import { isRtl, pickTriple } from "@/lib/i18n";
 import type { VideoItem } from "@/lib/types";
 
 function embedUrlWithAutoplay(url: string): string {
@@ -64,6 +64,8 @@ export function VideoCard({
       role="dialog"
       aria-modal
       aria-labelledby={labelId}
+      dir={isRtl(locale) ? "rtl" : "ltr"}
+      lang={locale}
     >
       <button
         type="button"
@@ -103,10 +105,14 @@ export function VideoCard({
 
   return (
     <>
-      <div className="video-card">
+      <div
+        className="video-card"
+        dir={isRtl(locale) ? "rtl" : "ltr"}
+        lang={locale}
+      >
         <button
           type="button"
-          className="video-placeholder block w-full cursor-pointer border-0 bg-transparent p-0 text-left"
+          className="video-placeholder block w-full cursor-pointer border-0 bg-transparent p-0 text-start"
           onClick={(e) => {
             e.stopPropagation();
             setOpen(true);

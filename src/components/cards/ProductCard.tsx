@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import type { Locale } from "@/lib/i18n";
-import { pickTriple } from "@/lib/i18n";
+import { isRtl, pickTriple } from "@/lib/i18n";
 import type { TranslationDict } from "@/lib/types";
 import {
   categoryById,
@@ -35,7 +35,11 @@ export function ProductCard({
   );
 
   return (
-    <div className="prod-card">
+    <div
+      className="prod-card"
+      dir={isRtl(locale) ? "rtl" : "ltr"}
+      lang={locale}
+    >
       <div
         className="prod-img"
         style={

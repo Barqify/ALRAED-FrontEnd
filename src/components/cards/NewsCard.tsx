@@ -3,12 +3,13 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowLeft,
+  faArrowRight,
   faCalendarDays,
   faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import type { Locale } from "@/lib/i18n";
-import { pickTriple } from "@/lib/i18n";
+import { isRtl, pickTriple } from "@/lib/i18n";
 import type { TranslationDict } from "@/lib/types";
 import type { NewsItem } from "@/lib/types";
 
@@ -18,10 +19,13 @@ export function NewsCard({
   news,
   locale,
   dict,
+  showReadMore = true,
 }: {
   news: NewsItem;
   locale: Locale;
   dict: TranslationDict;
+  /** On the full news page, hide — user is already on the listing. */
+  showReadMore?: boolean;
 }) {
   const dv = pickTriple(news.date, locale);
   const lv = pickTriple(news.location, locale);
@@ -38,8 +42,16 @@ export function NewsCard({
     ? news.img
     : `https://picsum.photos/seed/${encodeURIComponent(news.img)}/600/400.jpg`;
 
+  const readMoreIcon = isRtl(locale) ? faArrowLeft : faArrowRight;
+  const listingHref = `/${locale}/news#news-${news.id}`;
+
   return (
-    <div className="news-card">
+    <div
+      id={`news-${news.id}`}
+      className="news-card"
+      dir={isRtl(locale) ? "rtl" : "ltr"}
+      lang={locale}
+    >
       <div className="news-img">
         <LazyImage
           src={imgUrl}
@@ -64,16 +76,12 @@ export function NewsCard({
         <h3 className="news-title">{ti}</h3>
         <p className="news-desc">{de}</p>
         <div className="news-footer">
-          <Link
-            href={`/${locale}/news`}
-            className="news-link"
-          >
-            {dict.news.readMore}{" "}
-            <FontAwesomeIcon
-              icon={faArrowLeft}
-              className="text-[11px] rtl:rotate-180"
-            />
-          </Link>
+          {showReadMore ? (
+            <Link href={listingHref} className="news-link">
+              {dict.news.readMore}{" "}
+              <FontAwesomeIcon icon={readMoreIcon} className="text-[11px]" />
+            </Link>
+          ) : null}
           <a
             href={`https://wa.me/${WA}?text=${wt}`}
             target="_blank"

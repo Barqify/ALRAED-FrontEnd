@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import { LazyImage } from "@/components/ui/LazyImage";
 import { X } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
-import { pickTriple } from "@/lib/i18n";
+import { isRtl, pickTriple } from "@/lib/i18n";
 import type { GalleryImage } from "@/lib/types";
 
 export function GalleryCard({
@@ -50,6 +50,8 @@ export function GalleryCard({
       role="dialog"
       aria-modal
       aria-labelledby={labelId}
+      dir={isRtl(locale) ? "rtl" : "ltr"}
+      lang={locale}
     >
       <button
         type="button"
@@ -92,10 +94,14 @@ export function GalleryCard({
 
   return (
     <>
-      <div className="gallery-card">
+      <div
+        className="gallery-card"
+        dir={isRtl(locale) ? "rtl" : "ltr"}
+        lang={locale}
+      >
         <button
           type="button"
-          className="relative block h-full w-full min-h-0 border-0 bg-transparent p-0 text-left"
+          className="relative block h-full w-full min-h-0 border-0 bg-transparent p-0 text-start"
           onClick={(e) => {
             e.stopPropagation();
             setOpen(true);

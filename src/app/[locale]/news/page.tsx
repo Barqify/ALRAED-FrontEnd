@@ -34,7 +34,12 @@ export default async function NewsPage({
                 key={n.id}
                 delayClass={`d${(i % 3) + 1}` as "d1" | "d2" | "d3"}
               >
-                <NewsCard news={n} locale={locale} dict={dict} />
+                <NewsCard
+                  news={n}
+                  locale={locale}
+                  dict={dict}
+                  showReadMore={false}
+                />
               </AnimateInView>
             ))}
           </div>
