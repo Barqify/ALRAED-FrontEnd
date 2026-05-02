@@ -6,7 +6,28 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
-import { type ReactNode, useCallback, useEffect, useRef } from "react";
+import {
+  Children,
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useRef,
+} from "react";
+import {
+  getMaxSlideIndex,
+  getNearestSlideIndex,
+  getScrollLeftForSlideIndex,
+} from "@/lib/carouselScroll";
+
+function scrollTrackToIndexInstant(
+  track: HTMLDivElement,
+  idx: number,
+): void {
+  track.scrollTo({
+    left: getScrollLeftForSlideIndex(track, idx),
+    behavior: "auto",
+  });
+}
 
 type CarouselVariant =
   | "cats"
@@ -29,6 +50,9 @@ export function Carousel({
   variant: CarouselVariant;
   children: ReactNode;
 }) {
+  const slideCount = Children.toArray(children).length;
+  const fewSlides = slideCount > 0 && slideCount < 3;
+
   const trackRef = useRef<HTMLDivElement>(null);
   const dotsRef = useRef<HTMLDivElement>(null);
   const intervalsRef = useRef<ReturnType<typeof setInterval>[]>([]);
@@ -36,31 +60,6 @@ export function Carousel({
 
   const prevIcon = rtl ? faChevronRight : faChevronLeft;
   const nextIcon = rtl ? faChevronLeft : faChevronRight;
-
-  const getGap = useCallback((track: HTMLDivElement) => {
-    const g = getComputedStyle(track).gap;
-    const p = parseInt(g, 10);
-    return p && p > 0 ? p : 16;
-  }, []);
-
-  const cw = useCallback((track: HTMLDivElement) => {
-    const items = track.children;
-    if (!items.length) return 0;
-    return (items[0] as HTMLElement).offsetWidth + getGap(track);
-  }, [getGap]);
-
-  const maxScroll = useCallback((track: HTMLDivElement) => {
-    return Math.max(0, track.scrollWidth - track.clientWidth);
-  }, []);
-
-  const totalSteps = useCallback(
-    (track: HTMLDivElement) => {
-      const m = maxScroll(track);
-      const step = cw(track);
-      return m > 0 && step > 0 ? Math.round(m / step) : 0;
-    },
-    [cw, maxScroll]
-  );
 
   const updateDots = useCallback((trackIdInner: string, idx: number) => {
     const d = document.getElementById(`${trackIdInner}-dots`);
@@ -73,43 +72,43 @@ export function Carousel({
 
   const goToStep = useCallback(
     (track: HTMLDivElement, idx: number) => {
-      const t = totalSteps(track);
+      const t = getMaxSlideIndex(track);
       const clamped = Math.max(0, Math.min(idx, t));
       currentIndexRef.current = clamped;
       track.scrollTo({
-        left: clamped * cw(track),
+        left: getScrollLeftForSlideIndex(track, clamped),
         behavior: "smooth",
       });
       updateDots(track.id, clamped);
     },
-    [cw, totalSteps, updateDots]
+    [updateDots]
   );
 
   const nextStep = useCallback(
     (track: HTMLDivElement) => {
-      const t = totalSteps(track);
+      const t = getMaxSlideIndex(track);
       const nextIdx =
         currentIndexRef.current >= t ? 0 : currentIndexRef.current + 1;
       goToStep(track, nextIdx);
     },
-    [goToStep, totalSteps]
+    [goToStep]
   );
 
   const prevStep = useCallback(
     (track: HTMLDivElement) => {
-      const t = totalSteps(track);
+      const t = getMaxSlideIndex(track);
       const prevIdx =
         currentIndexRef.current <= 0 ? t : currentIndexRef.current - 1;
       goToStep(track, prevIdx);
     },
-    [goToStep, totalSteps]
+    [goToStep]
   );
 
   const createDots = useCallback(
     (track: HTMLDivElement) => {
       const d = dotsRef.current;
       if (!d) return;
-      const t = totalSteps(track);
+      const t = getMaxSlideIndex(track);
       const count = t + 1;
       d.innerHTML = "";
       for (let i = 0; i < count; i++) {
@@ -121,7 +120,7 @@ export function Carousel({
         d.appendChild(btn);
       }
     },
-    [goToStep, totalSteps]
+    [goToStep]
   );
 
   useEffect(() => {
@@ -139,6 +138,14 @@ export function Carousel({
     if (items.length <= 1) return;
 
     createDots(track);
+
+    const layoutRaf = requestAnimationFrame(() => {
+      const tmax = getMaxSlideIndex(track);
+      const idx = Math.min(currentIndexRef.current, tmax);
+      currentIndexRef.current = idx;
+      scrollTrackToIndexInstant(track, idx);
+      updateDots(track.id, idx);
+    });
 
     const id = setInterval(() => {
       if (!isPaused) nextStep(track);
@@ -170,11 +177,11 @@ export function Carousel({
     const onScroll = () => {
       clearTimeout(scrollTimer);
       scrollTimer = setTimeout(() => {
-        const t = totalSteps(track);
-        let ci = Math.round(track.scrollLeft / cw(track));
-        ci = Math.max(0, Math.min(ci, t));
-        currentIndexRef.current = ci;
-        updateDots(track.id, ci);
+        const ci = getNearestSlideIndex(track);
+        const t = getMaxSlideIndex(track);
+        const clamped = Math.max(0, Math.min(ci, t));
+        currentIndexRef.current = clamped;
+        updateDots(track.id, clamped);
       }, 80);
     };
     track.addEventListener("scroll", onScroll, { passive: true });
@@ -188,6 +195,7 @@ export function Carousel({
     window.addEventListener("resize", onResize);
 
     return () => {
+      cancelAnimationFrame(layoutRaf);
       clearInterval(id);
       intervalsRef.current = intervalsRef.current.filter((x) => x !== id);
       wrap?.removeEventListener("mouseenter", onMouseEnter);
@@ -197,17 +205,7 @@ export function Carousel({
       track.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
     };
-  }, [
-    children,
-    createDots,
-    cw,
-    goToStep,
-    intervalMs,
-    nextStep,
-    totalSteps,
-    trackId,
-    updateDots,
-  ]);
+  }, [children, createDots, goToStep, intervalMs, nextStep, updateDots]);
 
   const wrapClass = clsx(
     "carousel-wrap",
@@ -229,7 +227,14 @@ export function Carousel({
       >
         <FontAwesomeIcon icon={prevIcon} />
       </button>
-      <div className="carousel-track" id={trackId} ref={trackRef}>
+      <div
+        className={clsx(
+          "carousel-track",
+          fewSlides && "carousel-track--few"
+        )}
+        id={trackId}
+        ref={trackRef}
+      >
         {children}
       </div>
       <button

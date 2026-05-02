@@ -1,11 +1,12 @@
 "use client";
 
+import { Children, type ReactNode, useEffect, useRef } from "react";
+import clsx from "clsx";
 import {
-  type ReactNode,
-  useEffect,
-  useRef,
-  useCallback,
-} from "react";
+  getMaxSlideIndex,
+  getNearestSlideIndex,
+  getScrollLeftForSlideIndex,
+} from "@/lib/carouselScroll";
 
 /** Home hero strip: horizontal auto-scroll only (matches original HTML structure). */
 export function AutoScrollGalleryStrip({
@@ -15,35 +16,10 @@ export function AutoScrollGalleryStrip({
   intervalMs: number;
   children: ReactNode;
 }) {
+  const slideCount = Children.toArray(children).length;
+  const fewSlides = slideCount > 0 && slideCount < 3;
+
   const trackRef = useRef<HTMLDivElement>(null);
-
-  const getGap = useCallback((track: HTMLDivElement) => {
-    const g = getComputedStyle(track).gap;
-    const p = parseInt(g, 10);
-    return p && p > 0 ? p : 16;
-  }, []);
-
-  const cw = useCallback(
-    (track: HTMLDivElement) => {
-      const items = track.children;
-      if (!items.length) return 0;
-      return (items[0] as HTMLElement).offsetWidth + getGap(track);
-    },
-    [getGap]
-  );
-
-  const maxScroll = useCallback((track: HTMLDivElement) => {
-    return Math.max(0, track.scrollWidth - track.clientWidth);
-  }, []);
-
-  const totalSteps = useCallback(
-    (track: HTMLDivElement) => {
-      const m = maxScroll(track);
-      const step = cw(track);
-      return m > 0 && step > 0 ? Math.round(m / step) : 0;
-    },
-    [cw, maxScroll]
-  );
 
   useEffect(() => {
     const track = trackRef.current;
@@ -57,14 +33,22 @@ export function AutoScrollGalleryStrip({
 
     const nextStep = () => {
       if (isPaused) return;
-      const t = totalSteps(track);
+      const t = getMaxSlideIndex(track);
       const nextIdx = currentIndex >= t ? 0 : currentIndex + 1;
       currentIndex = nextIdx;
       track.scrollTo({
-        left: nextIdx * cw(track),
+        left: getScrollLeftForSlideIndex(track, nextIdx),
         behavior: "smooth",
       });
     };
+
+    const layoutRaf = requestAnimationFrame(() => {
+      currentIndex = 0;
+      track.scrollTo({
+        left: getScrollLeftForSlideIndex(track, 0),
+        behavior: "auto",
+      });
+    });
 
     const timerId = setInterval(nextStep, intervalMs);
 
@@ -76,20 +60,41 @@ export function AutoScrollGalleryStrip({
         isPaused = false;
       }, 2000);
     };
+    let scrollTimer: ReturnType<typeof setTimeout>;
+    const onScroll = () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        currentIndex = getNearestSlideIndex(track);
+      }, 80);
+    };
+
     track.addEventListener("touchstart", onTouchStart, { passive: true });
     track.addEventListener("touchend", onTouchEnd, { passive: true });
+    track.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
+      cancelAnimationFrame(layoutRaf);
       clearInterval(timerId);
+      clearTimeout(scrollTimer);
       track.removeEventListener("touchstart", onTouchStart);
       track.removeEventListener("touchend", onTouchEnd);
+      track.removeEventListener("scroll", onScroll);
     };
-  }, [children, cw, intervalMs, totalSteps]);
+  }, [children, intervalMs]);
 
   return (
     <section className="home-gallery-strip">
-      <div className="gallery-track" id="home-gallery-track" ref={trackRef}>
-        {children}
+      <div className="container min-w-0">
+        <div
+          className={clsx(
+            "gallery-track",
+            fewSlides && "gallery-track--few"
+          )}
+          id="home-gallery-track"
+          ref={trackRef}
+        >
+          {children}
+        </div>
       </div>
     </section>
   );

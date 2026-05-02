@@ -92,24 +92,17 @@ export default async function HomePage({
             title={dict.cats.title}
             description={dict.cats.desc}
           />
-          <div className="cats-grid cats-grid-desktop hidden md:grid">
+          <Carousel
+            key={`cats-${locale}`}
+            trackId="cats-track"
+            intervalMs={3000}
+            rtl={rtl}
+            variant="cats"
+          >
             {(categories as Category[]).map((c) => (
               <CategoryCard key={c.id} category={c} locale={locale} />
             ))}
-          </div>
-          <div className="md:hidden">
-            <Carousel
-              key={`cats-${locale}`}
-              trackId="cats-track"
-              intervalMs={3000}
-              rtl={rtl}
-              variant="cats"
-            >
-              {(categories as Category[]).map((c) => (
-                <CategoryCard key={c.id} category={c} locale={locale} />
-              ))}
-            </Carousel>
-          </div>
+          </Carousel>
         </div>
       </section>
 
@@ -119,7 +112,13 @@ export default async function HomePage({
             title={dict.featured.title}
             description={dict.featured.desc}
           />
-          <div className="prods-grid prods-grid-desktop hidden md:grid">
+          <Carousel
+            key={`prods-${locale}`}
+            trackId="prods-track"
+            intervalMs={3500}
+            rtl={rtl}
+            variant="prods"
+          >
             {featured.map((p) => (
               <ProductCard
                 key={p.id}
@@ -129,26 +128,7 @@ export default async function HomePage({
                 categories={categories as Category[]}
               />
             ))}
-          </div>
-          <div className="md:hidden">
-            <Carousel
-              key={`prods-${locale}`}
-              trackId="prods-track"
-              intervalMs={3500}
-              rtl={rtl}
-              variant="prods"
-            >
-              {featured.map((p) => (
-                <ProductCard
-                  key={p.id}
-                  product={p}
-                  locale={locale}
-                  dict={dict}
-                  categories={categories as Category[]}
-                />
-              ))}
-            </Carousel>
-          </div>
+          </Carousel>
           <div className="view-all-wrap">
             <Link href={`/${locale}/products`} className="btn btn-outline">
               {dict.featured.viewAll}{" "}
@@ -166,24 +146,17 @@ export default async function HomePage({
             title={dict.news.homeTitle}
             description={dict.news.homeDesc}
           />
-          <div className="news-grid news-grid-desktop hidden md:grid">
+          <Carousel
+            key={`news-${locale}`}
+            trackId="news-track"
+            intervalMs={4000}
+            rtl={rtl}
+            variant="news"
+          >
             {(news as NewsItem[]).map((n) => (
               <NewsCard key={n.id} news={n} locale={locale} dict={dict} />
             ))}
-          </div>
-          <div className="md:hidden">
-            <Carousel
-              key={`news-${locale}`}
-              trackId="news-track"
-              intervalMs={4000}
-              rtl={rtl}
-              variant="news"
-            >
-              {(news as NewsItem[]).map((n) => (
-                <NewsCard key={n.id} news={n} locale={locale} dict={dict} />
-              ))}
-            </Carousel>
-          </div>
+          </Carousel>
           <div className="view-all-wrap">
             <Link href={`/${locale}/news`} className="btn btn-outline">
               {dict.news.viewAll}{" "}

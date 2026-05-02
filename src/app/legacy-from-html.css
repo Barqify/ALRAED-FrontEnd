@@ -745,6 +745,9 @@ select {
   padding-inline: max(24px, calc(50% - var(--home-gallery-card-w) / 2));
   scroll-padding-inline: max(24px, calc(50% - var(--home-gallery-card-w) / 2));
 }
+.home-gallery-strip .gallery-track.gallery-track--few {
+  justify-content: center;
+}
 .home-gallery-strip .gallery-card {
   min-width: var(--home-gallery-card-w);
   max-width: var(--home-gallery-card-w);
@@ -1150,7 +1153,8 @@ select {
   display: flex;
   flex-wrap: nowrap;
   align-items: stretch;
-  justify-content: center;
+  /* flex-start: predictable scrollLeft with overflow; center snap is handled by scroll-snap */
+  justify-content: flex-start;
   gap: 16px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -1159,6 +1163,9 @@ select {
   -ms-overflow-style: none;
   padding: 4px 20px;
   scroll-padding: 20px;
+}
+.carousel-track.carousel-track--few {
+  justify-content: center;
 }
 .carousel-track::-webkit-scrollbar {
   display: none;
@@ -2253,11 +2260,6 @@ select {
   .carousel-wrap {
     display: block;
   }
-  .cats-grid-desktop,
-  .prods-grid-desktop,
-  .news-grid-desktop {
-    display: none !important;
-  }
   .carousel-wrap.cats-carousel .carousel-track .cat-card {
     width: calc(70% - 12px);
     min-width: calc(70% - 12px);
@@ -2457,14 +2459,65 @@ select {
   .carousel-wrap {
     display: none !important;
   }
-  /* Home cats/prods/news and similar use grids on desktop; about/home video use carousels only. */
+  /* All section carousels visible on desktop (arrows, autoplay, scroll). */
   .carousel-wrap.gallery-carousel,
-  .carousel-wrap.video-carousel {
+  .carousel-wrap.video-carousel,
+  .carousel-wrap.cats-carousel,
+  .carousel-wrap.prods-carousel,
+  .carousel-wrap.news-carousel {
     display: block !important;
   }
   .carousel-wrap.gallery-carousel .carousel-track .gallery-card,
   .carousel-wrap.video-carousel .carousel-track .video-card {
     flex-shrink: 0;
+  }
+  .carousel-wrap.cats-carousel .carousel-track .cat-card {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+  }
+  .carousel-wrap.prods-carousel .carousel-track .prod-card {
+    width: 320px;
+    min-width: 320px;
+    max-width: 320px;
+  }
+  .carousel-wrap.news-carousel .carousel-track .news-card {
+    width: 340px;
+    min-width: 340px;
+    max-width: 340px;
+  }
+
+  /*
+   * Card grids: when a row has fewer items than max columns, keep card widths
+   * bounded and center the track group (auto-fit collapses empty columns).
+   */
+  .cats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
+    justify-content: center;
+  }
+  .prods-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 380px));
+    justify-content: center;
+  }
+  .news-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: center;
+  }
+  .why-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 300px));
+    justify-content: center;
+  }
+  .mvp-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 380px));
+    justify-content: center;
+  }
+  .vals-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 520px));
+    justify-content: center;
+  }
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 300px));
+    justify-content: center;
   }
 }
 ::-webkit-scrollbar {

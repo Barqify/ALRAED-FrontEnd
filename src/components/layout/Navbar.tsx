@@ -1,7 +1,5 @@
 "use client";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,13 +26,6 @@ function localeLabel(l: Locale): string {
   if (l === "ar") return "العربية";
   if (l === "en") return "English";
   return "Français";
-}
-
-/** Short hint so each row is unmistakable (native <option> cannot be styled on phones). */
-function localeHint(l: Locale): string {
-  if (l === "ar") return "واجهة كاملة · اتجاه من اليمين لليسار";
-  if (l === "en") return "Full site · left to right";
-  return "Site complet · de gauche à droite";
 }
 
 export function Navbar({
@@ -155,12 +146,7 @@ export function Navbar({
                 {l.label}
               </Link>
             ))}
-            <div className="flex shrink-0 items-center gap-2.5 px-2.5 py-2 sm:px-3 sm:py-2">
-              <FontAwesomeIcon
-                icon={faGlobe}
-                className="shrink-0 text-[14px] text-[var(--brand-light)]"
-                aria-hidden
-              />
+            <div className="flex shrink-0 items-center px-2.5 py-2 sm:px-3 sm:py-2">
               <Select
                 dir={selectDir}
                 value={locale}
@@ -209,12 +195,7 @@ export function Navbar({
             {l.label}
           </Link>
         ))}
-        <div className="mob-lang-row flex items-start gap-3 px-2 py-2.5">
-          <FontAwesomeIcon
-            icon={faGlobe}
-            className="mt-3 shrink-0 text-base text-[var(--brand-light)]"
-            aria-hidden
-          />
+        <div className="mob-lang-row px-2 py-2.5">
           {/* Custom menu: clear rows + no body scroll lock (unlike Radix Select). */}
           <div ref={mobLangRef} className="relative min-w-0 flex-1">
             <button
@@ -281,13 +262,8 @@ export function Navbar({
                         >
                           {l.toUpperCase()}
                         </span>
-                        <span className="flex min-w-0 flex-1 flex-col gap-0.5">
-                          <span className="text-[15px] font-bold leading-snug">
-                            {localeLabel(l)}
-                          </span>
-                          <span className="text-[12px] font-medium leading-snug text-[rgba(236,230,220,.55)]">
-                            {localeHint(l)}
-                          </span>
+                        <span className="min-w-0 flex-1 text-[15px] font-bold leading-snug">
+                          {localeLabel(l)}
                         </span>
                         {active ? (
                           <Check

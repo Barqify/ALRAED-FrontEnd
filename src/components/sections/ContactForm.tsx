@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
 import { useState } from "react";
-import type { Locale } from "@/lib/i18n";
+import { isRtl, type Locale } from "@/lib/i18n";
 
 export function ContactForm({
   locale,
@@ -13,6 +13,9 @@ export function ContactForm({
   locale: Locale;
   dict: Record<string, string>;
 }) {
+  const rtl = isRtl(locale);
+  const inputDir = rtl ? "rtl" : "ltr";
+
   const requiredMsg =
     locale === "ar"
       ? "هذا الحقل مطلوب"
@@ -78,6 +81,7 @@ export function ContactForm({
                   name="name"
                   className="form-input"
                   id="f-n"
+                  dir={inputDir}
                   required
                   placeholder={dict.placeholderName ?? ""}
                 />
@@ -95,6 +99,7 @@ export function ContactForm({
                   type="email"
                   className="form-input"
                   id="f-e"
+                  dir={inputDir}
                   required
                   placeholder={dict.placeholderEmail ?? ""}
                 />
@@ -110,6 +115,7 @@ export function ContactForm({
                 type="tel"
                 className="form-input"
                 id="f-p"
+                dir={inputDir}
                 placeholder={dict.placeholderPhone ?? ""}
               />
             </div>
@@ -125,6 +131,7 @@ export function ContactForm({
                 className="form-textarea"
                 id="f-m"
                 rows={5}
+                dir={inputDir}
                 required
                 placeholder={dict.placeholderMessage ?? ""}
               />
