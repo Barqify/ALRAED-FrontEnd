@@ -764,7 +764,7 @@ select {
 }
 .cats-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 18px;
   align-items: stretch;
 }
@@ -833,7 +833,7 @@ select {
 }
 .prods-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   align-items: stretch;
 }
@@ -997,7 +997,7 @@ select {
 ================================================================ */
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   align-items: stretch;
 }
@@ -1546,7 +1546,7 @@ select {
 }
 .mvp-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   max-width: 1100px;
   margin: 0 auto;
@@ -1615,7 +1615,7 @@ select {
 }
 .vals-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 18px;
   align-items: stretch;
 }
@@ -2491,32 +2491,33 @@ select {
    * Card grids: when a row has fewer items than max columns, keep card widths
    * bounded and center the track group (auto-fit collapses empty columns).
    */
+  /* ~4 columns at .container width (~1152px): min track ≲ (1152 − 3×gap) / 4 */
   .cats-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: center;
   }
   .prods-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 380px));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     justify-content: center;
   }
   .news-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     justify-content: center;
   }
   .why-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 300px));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: center;
   }
   .mvp-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 380px));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     justify-content: center;
   }
   .vals-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 520px));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: center;
   }
   .team-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 300px));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: center;
   }
 }
