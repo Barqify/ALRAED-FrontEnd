@@ -26,7 +26,7 @@ export default async function NewsPage({
         title={<span className="gold">{dict.news.title}</span>}
         description={dict.news.desc}
       />
-      <section className="section">
+      <section className="section" style={{ background: "var(--bg-white)" }}>
         <div className="container">
           <div className="news-grid">
             {(news as NewsItem[]).map((n, i) => (

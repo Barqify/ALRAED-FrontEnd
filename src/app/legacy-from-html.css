@@ -831,9 +831,10 @@ select {
   flex: 1 1 auto;
   min-height: 0;
 }
+/* Category / filter product lists: 3 per row on PC; mobile stacked via max-width:768 */
 .prods-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   align-items: stretch;
 }
@@ -995,10 +996,15 @@ select {
 /* ================================================================
 📰 NEWS & CAROUSEL
 ================================================================ */
+/*
+ * News listing grid: match home news carousel card width (340px desktop, ~85% mobile)
+ * without using a slider — auto-fill + center so partial rows look like the carousel strip.
+ */
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(340px, 340px));
   gap: 24px;
+  justify-content: center;
   align-items: stretch;
 }
 .news-grid > .anim {
@@ -1319,9 +1325,10 @@ select {
   font-size: 15px;
   font-weight: 700;
 }
+/* Four pillars — keep one row on md+ (avoid auto-fit wrapping a 4th card). */
 .why-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
   align-items: stretch;
 }
@@ -1544,9 +1551,10 @@ select {
   color: var(--text-dark);
   margin-bottom: 6px;
 }
+/* Three pillars only — keep one row on tablet/desktop (no auto-fit wrap). */
 .mvp-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   max-width: 1100px;
   margin: 0 auto;
@@ -2187,9 +2195,6 @@ select {
   .diamond-story-content {
     position: static;
   }
-  .mvp-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 @media (max-width: 768px) {
   .nav-links {
@@ -2253,6 +2258,11 @@ select {
   }
   .news-grid {
     grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .news-grid > .anim {
+    width: calc(85% - 12px);
+    max-width: 100%;
   }
   .page-hero {
     padding: 130px 0 60px;
@@ -2339,7 +2349,7 @@ select {
     left: 6px;
   }
   .prods-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 14px;
   }
   .prod-img {
@@ -2497,20 +2507,13 @@ select {
     justify-content: center;
   }
   .prods-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    justify-content: center;
-  }
-  .news-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    justify-content: center;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .why-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    justify-content: center;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .mvp-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    justify-content: center;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .vals-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
